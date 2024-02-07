@@ -26,27 +26,44 @@
       <a-asset-item id="trash_bag-mtl" src="asset/trash_bag.mtl"></a-asset-item>
       <a-asset-item id="paper-obj" src="asset/paper.obj"></a-asset-item>
       <a-asset-item id="paper-mtl" src="asset/paper.mtl"></a-asset-item>
+      <a-asset-item id="gear-obj" src="asset/gear.obj"></a-asset-item>
+      <a-asset-item id="gear-mtl" src="asset/gear.mtl"></a-asset-item>
+      <a-asset-item id="wine-obj" src="asset/wine.obj"></a-asset-item>
+      <a-asset-item id="wine-mtl" src="asset/wine.mtl"></a-asset-item>
+      <a-asset-item id="spring-obj" src="asset/spring.obj"></a-asset-item>
+      <a-asset-item id="spring-mtl" src="asset/spring.mtl"></a-asset-item>
     </a-assets>
     <a-sky src="#skyTexture" material="color: #000"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity animation="begin: click; property: position; from: 0 0 0; to: 0 1 0; dir: alternate; dur: 2000;" id="trash_1" position="">
+    <a-entity animation="startEvents: click; property: position; from: 0 0 0; to: 0 1 0; dir: alternate; dur: 2000;" id="trash_1" position="">
       <a-entity position="0.12 0.1 -0.05" id="trash_bag" obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity position="0 0 0" rotation="0 90 0" id="paper" obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
       <a-entity position="0 0.02 0" rotation="0 90 0" id="can" obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
     </a-entity>
 
+    <!-- <a-entity id="trash_2" position="-1 0 0">
+
+      <a-entity position="0 0.5 0" id="gear" obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
+      <a-entity position="0 0.5 0" id="spring" obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+
+    </a-entity> -->
+
     <!-- <a-box position="-1 1.6 -5" animation="property: position; from: 0 0 0; to: 0 8 0; dir: alternate; dur: 2000; ease in and out: linear; loop: true" color="tomato"></a-box> -->
 
 
   </a-scene>
-  <script>console.log(document.querySelector("#forest"));</script>
+  <script>console.log(document.querySelector("#forest"));
+  
+
+  document.querySelector("#trash_1").addEventListener('click',function () {
+    document.querySelector("#trash_1").emit("click");
+  });
+  console.log(document.querySelector("#trash_1"));
+  
+  
+  
+  </script>
   
 </body>
-<script>
-  document.querySelector('panneau').addEventListener('click', function (evt) {
-    console.log('This 2D element was clicked!');
-  });
-</script>
-
 </html>
