@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <script
+    src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+
+
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+</head>
+
+<body>
+  <a-scene stats physics="gravity: 0">
+    <a-mixin id="controller" physics-collider static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+                   colliderEventProperty: els;
+                   colliderEndEvent: collisions;
+                   colliderEndEventProperty: clearedEls" collision-filter="group: hands;
+                          collidesWith: red, blue;
+                          collisionForces: false">
+    </a-mixin>
+    <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5">
+    </a-mixin>
+
+    <!-- Assets -->
+    <a-assets>
+      <img id="skyTexture" src="assets/img/sky.jpg">
+      <a-asset-item id="road-obj" src="assets/model/road_model/Road_1229.obj"></a-asset-item>
+      <a-asset-item id="road-mtl" src="assets/model/road_model/Road_1229.mtl"></a-asset-item>
+      <a-asset-item id="trees1-obj" src="assets/model/trees/trees1.obj"></a-asset-item>
+      <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
+      <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
+      <a-asset-item id="smallRock-mtl" src="assets/model/smallRock/SmallRock.mtl"></a-asset-item>
+      <a-asset-item id="grass1-obj" src="assets/model/grass/grass1.obj"></a-asset-item>
+      <a-asset-item id="grass1-mtl" src="assets/model/grass/grass1.mtl"></a-asset-item>
+      <a-asset-item id="greengrass1-obj" src="assets/model/greengrass/greengrass.obj"></a-asset-item>
+      <a-asset-item id="greengrass1-mtl" src="assets/model/greengrass/greengrass.mtl"></a-asset-item>
+    </a-assets>
+
+    <!-- Caméra -->
+    <a-entity rotation="0 -60 0">
+      <a-camera></a-camera>
+    </a-entity>
+
+    <!-- Eléments visuels de la scène -->
+    <a-entity obj-model="obj: #road-obj; mtl: #road-mtl" position="75.67466 -11.285 -33.85483" rotation="0 175.93012874169005 0"></a-entity>
+
+    <a-entity obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="59.77097 -0.91205 11.4534" rotation="0 166.80348402305117 0" scale="0.015 0.015 0.015"></a-entity>
+    <a-entity obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="17.81981 -0.91205 15.76096" rotation="0 -97.69446068996153 0" scale="0.015 0.015 0.015"></a-entity>
+
+    <a-entity obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="69.61153 -0.84259 9.52637"></a-entity>
+
+    <a-entity obj-model="obj: assets/model/grass/grass1.obj; mtl: assets/model/grass/grass1.mtl" position="36.5179 -0.67722 8.60815" scale="0.025 0.025 0.025"></a-entity>
+    <a-entity obj-model="obj: assets/model/greengrass/greengrass.obj; mtl: assets/model/greengrass/greengrass.mtl"></a-entity>
+
+    <a-cylinder position="0.09568 -0.421 0.0378" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
+    <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+  </a-scene>
+</body>
+</html>
