@@ -14,6 +14,25 @@
 
 <body>
 
+  <script>
+
+    class Compteur  {
+
+      value = 0;
+
+      getValue()  {
+        return this.value;
+      }
+
+      incrValue() {
+        this.value++
+      }
+
+
+    }
+
+  </script>
+
   <a-scene id="forest" stats physics="gravity: 0">
     <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"></a-mixin>
     <a-entity oculus-touch-controls="hand: left"></a-entity>
@@ -33,31 +52,36 @@
       <a-asset-item id="spring-obj" src="asset/spring.obj"></a-asset-item>
       <a-asset-item id="spring-mtl" src="asset/spring.mtl"></a-asset-item>
     </a-assets>
+
+
     <a-sky src="#skyTexture" material="color: #000"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity id="trash_1" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+
+    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+
       <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
       <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
+
     </a-entity>
 
-    <a-entity id="trash_2" position="-1 0 0">
+
+    <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
 
       <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
       <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
 
     </a-entity>
 
-    <!-- <a-box position="-1 1.6 -5" animation="property: position; from: 0 0 0; to: 0 8 0; dir: alternate; dur: 2000; ease in and out: linear; loop: true" color="tomato"></a-box> -->
-
 
   </a-scene>
   <script>
   
+  let compteur = new Compteur;
 
-  document.querySelector("#trash_1").addEventListener('click',function () {
-    
+  document.querySelector(".trashToCollect").addEventListener('click',function () {
+    compteur.incrValue();
   });
   
   
