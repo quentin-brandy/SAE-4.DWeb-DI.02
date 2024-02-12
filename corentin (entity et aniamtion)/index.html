@@ -36,7 +36,7 @@
     <a-sky src="#skyTexture" material="color: #000"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity id="trash_1" opacity="1" animation="startEvents: click; property: material.opacity; from: 1; to: 0; dir: linear; dur: 2000;"   position="">
+    <a-entity id="trash_1" opacity="1" animation="startEvents: click; property: material.opacity; from: 1; to: 0; dir: linear; dur: 2000;" animation=" startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
       <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
       <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
@@ -49,6 +49,8 @@
 
     </a-entity>
 
+    <a-box id="trash_test" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" opacity="1" animation="startEvents: click; property: material.opacity; to: 0.2; dur: 2000; easing: linear; loop: true"></a-box>
+
     <!-- <a-box position="-1 1.6 -5" animation="property: position; from: 0 0 0; to: 0 8 0; dir: alternate; dur: 2000; ease in and out: linear; loop: true" color="tomato"></a-box> -->
 
 
@@ -57,8 +59,8 @@
   
   console.log(document.querySelector("#trash_1"));
 
-  document.querySelector("#trash_1").addEventListener('click',function () {
-    document.querySelector("#trash_1").emit("click");
+  document.querySelector("#trash_test").addEventListener('click',function () {
+    document.querySelector("#trash_test").emit("click");
   });
   
   
