@@ -36,7 +36,7 @@
     <a-sky src="#skyTexture" material="color: #000"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity id="trash_1" opacity="1" animation="startEvents: click; property: material.opacity; from: 1; to: 0; dir: linear; dur: 2000;" animation=" startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+    <a-entity id="trash_1" opacity="1" material="color:red;" animation="startEvents: click; property: material.opacity; from: 1; to: 0; dir: linear; dur: 2000;" animation=" startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
       <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
       <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
@@ -57,7 +57,13 @@
   </a-scene>
   <script>
   
-  console.log(document.querySelector("#trash_1"));
+  var sceneEl = document.querySelector('a-scene');
+
+  AFRAME.registerComponent('foo', {
+  init: function () {
+    console.log(this.el.sceneEl);  // Reference to the scene element.
+  }
+});
 
   document.querySelector("#trash_test").addEventListener('click',function () {
     document.querySelector("#trash_test").emit("click");
