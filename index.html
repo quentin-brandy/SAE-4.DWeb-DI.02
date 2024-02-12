@@ -10,7 +10,8 @@
 
   <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
   <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.1/dist/aframe-extras.misc.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
 </head>
 
 <body>
@@ -24,38 +25,39 @@
     </a-mixin>
     <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5">
     </a-mixin>
-
-    <!-- Assets -->
-    <a-assets>
-      <img id="skyTexture" src="assets/img/sky.jpg">
-      <a-asset-item id="largeBuild-obj" src="assets/model/large_building/large_building.obj"></a-asset-item>
-      <a-asset-item id="largeBuild-mtl" src="assets/model/large_building/large_building.mtl"></a-asset-item>
-      <a-asset-item id="road-obj" src="assets/model/road/road.obj"></a-asset-item>
-      <a-asset-item id="road-mtl" src="assets/model/road/road.mtl"></a-asset-item>
-      <a-asset-item id="bigBuild-obj" src="assets/model/big_building/big_building.obj"></a-asset-item>
-      <a-asset-item id="bigBuild-mtl" src="assets/model/big_building/big_building.mtl"></a-asset-item>
-      <a-asset-item id="smallBuild-obj" src="assets/model/small_building/small_building.obj"></a-asset-item>
-      <a-asset-item id="smallBuild-mtl" src="assets/model/small_building/small_building.mtl"></a-asset-item>
-      <a-asset-item id="escBuild-obj" src="assets/model/esc_building/esc_building.obj"></a-asset-item>
-      <a-asset-item id="escBuild-mtl" src="assets/model/esc_building/esc_building.mtl"></a-asset-item>
-      <a-asset-item id="indusBuild-obj" src="assets/model/indus_building/indus_building.obj"></a-asset-item>
-      <a-asset-item id="indusBuild-mtl" src="assets/model/indus_building/indus_building.mtl"></a-asset-item>
-      <a-asset-item id="hotelBuild-obj" src="assets/model/hotel_building/hotel_building.obj"></a-asset-item>
-      <a-asset-item id="hotelBuild-mtl" src="assets/model/hotel_building/hotel_building.mtl"></a-asset-item>
-      <a-asset-item id="shopBuild-obj" src="assets/model/shop_building/shop_building.obj"></a-asset-item>
-      <a-asset-item id="shopBuild-mtl" src="assets/model/shop_building/shop_building.mtl"></a-asset-item>
-    </a-assets>
-
-    <!-- Caméra -->
-    <a-entity rotation="0 -60 0">
-      <a-camera></a-camera>
-    </a-entity>
+      
+      <!-- Assets -->
+      <a-assets>
+        <img id="skyTexture" src="assets/img/sky.jpg">
+        <a-asset-item id="largeBuild-obj" src="assets/model/large_building/large_building.obj"></a-asset-item>
+        <a-asset-item id="largeBuild-mtl" src="assets/model/large_building/large_building.mtl"></a-asset-item>
+        <a-asset-item id="road-obj" src="assets/model/road/road.obj"></a-asset-item>
+        <a-asset-item id="road-mtl" src="assets/model/road/road.mtl"></a-asset-item>
+        <a-asset-item id="bigBuild-obj" src="assets/model/big_building/big_building.obj"></a-asset-item>
+        <a-asset-item id="bigBuild-mtl" src="assets/model/big_building/big_building.mtl"></a-asset-item>
+        <a-asset-item id="smallBuild-obj" src="assets/model/small_building/small_building.obj"></a-asset-item>
+        <a-asset-item id="smallBuild-mtl" src="assets/model/small_building/small_building.mtl"></a-asset-item>
+        <a-asset-item id="escBuild-obj" src="assets/model/esc_building/esc_building.obj"></a-asset-item>
+        <a-asset-item id="escBuild-mtl" src="assets/model/esc_building/esc_building.mtl"></a-asset-item>
+        <a-asset-item id="indusBuild-obj" src="assets/model/indus_building/indus_building.obj"></a-asset-item>
+        <a-asset-item id="indusBuild-mtl" src="assets/model/indus_building/indus_building.mtl"></a-asset-item>
+        <a-asset-item id="hotelBuild-obj" src="assets/model/hotel_building/hotel_building.obj"></a-asset-item>
+        <a-asset-item id="hotelBuild-mtl" src="assets/model/hotel_building/hotel_building.mtl"></a-asset-item>
+        <a-asset-item id="shopBuild-obj" src="assets/model/shop_building/shop_building.obj"></a-asset-item>
+        <a-asset-item id="shopBuild-mtl" src="assets/model/shop_building/shop_building.mtl"></a-asset-item>
+        <a-asset-item id="cielBuild-obj" src="assets/model/skyscraper/skyscraper.obj"></a-asset-item>
+        <a-asset-item id="cielBuild-mtl" src="assets/model/skyscraper/skyscraper.mtl"></a-asset-item>
+      </a-assets>
+      
+      <!-- Caméra -->
+      <a-entity rotation="0 -60 0">
+        <a-camera></a-camera>
+      </a-entity>
 
     <!-- Eléments visuels de la scène -->
     <!-- batiments -->
     <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
     <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
-    <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
 
     <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
     <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
@@ -65,18 +67,35 @@
     <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
     <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
 
+
+    <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="10 10 10" position="-58.74231 -0.01399 -9.9384" rotation="0 90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 7.16" position="-58.49526 0 -24.294" rotation="0 -90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-58.677 -0.009 -38.647" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/skyscraper/skyscraper.obj; mtl: assets/model/skyscraper/skyscraper.mtl" scale="7 7 7" rotation="0 180 0" position="-47.096 0.096 -9.94394"></a-entity>
+    <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9 9 9" position="-33.31541 0 -9.37511" rotation="0 180 0"></a-entity>
+
     <!-- routes -->
     <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-19.047 0.036 -23.576" scale="60.616 10 15" rotation="0 -90 0"></a-entity>
     <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="5.69538 0.036 -0.641" scale="60.61631 10 15" rotation=""></a-entity>
-    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="29.90123 0.06 -25.338" scale="60.61631 10 15" rotation="0 90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="6.329 0.163 -48.383" scale="60.61631 10 15" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="29.90123 0.06 -25" scale="60.703 10 15" rotation="0 90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="6.329 0.163 -48.01" scale="60.61631 10 15" rotation=""></a-entity>
 
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-18.87132 0.0005 -0.92708" scale="7.80228 0.137 7.31321" rotation="0.2 0 0"></a-box>
-        
+    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-42.12326 -0.034 -0.641" scale="60.616 10 15" rotation="-0.28 0 -0.06"></a-entity>
+    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-42.08532 0.136 -48.012" scale="60.616 10 15" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-67.80458 0.036 -23.576" scale="60.616 10 15" rotation="0 -90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-67.805 -0.094 23.784" scale="60.616 10 15" rotation="0 -90 0"></a-entity>
+    
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-18.985 -0.012 -0.927" scale="8.091 0.137 7.313" rotation="0.27 0.31 0.52"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-66.80738 -0.052 -0.927" scale="8.89299 0.137 7.74687" rotation=""></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-66.807 0.078 -47.41319" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-18.6506 0.078 -47.829" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="29.47848 0.11349 -47.82904" scale="7.85752 0.137 7.747" rotation="0.509 0 -0.62"></a-box>
+    
+    <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.33715 0.156 -24.415" scale="38.734 0.216 37.271"></a-box>
     <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.156 -24.41533" scale="38.734 0.216 37.27071"></a-box>
 
     <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
-    <a-plane rotation="-90 0 0" width="50" height="50" repeat="10 10" color="gray" material="" geometry="" scale="2.765 2.461 0.97"></a-plane>
+    <!-- <a-plane rotation="-90 0 0" width="50" height="50" repeat="10 10" color="gray" material="" geometry="" scale="2.765 2.461 0.97"></a-plane> -->
 </a-scene>
 </body>
 
