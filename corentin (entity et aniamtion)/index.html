@@ -65,8 +65,8 @@
   }
 });
 
-  document.querySelector("#trash_1").addEventListener('click',function (ev) {
-    ev.emit("click");
+  document.querySelector("#trash_1").addEventListener('click',function () {
+    document.querySelector("#trash_1").emit("click");
 
   });
   
