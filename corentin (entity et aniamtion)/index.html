@@ -30,108 +30,94 @@
 <a-scene stats>
 
 
-    <a-assets>
-      <a-asset-item id="can-obj" src="asset/crushed_can.obj"></a-asset-item>
-      <a-asset-item id="can-mtl" src="asset/crushed_can.mtl"></a-asset-item>
-      <a-asset-item id="trash_bag-obj" src="asset/trash_bag.obj"></a-asset-item>
-      <a-asset-item id="trash_bag-mtl" src="asset/trash_bag.mtl"></a-asset-item>
-      <a-asset-item id="paper-obj" src="asset/paper.obj"></a-asset-item>
-      <a-asset-item id="paper-mtl" src="asset/paper.mtl"></a-asset-item>
-      <a-asset-item id="gear-obj" src="asset/gear.obj"></a-asset-item>
-      <a-asset-item id="gear-mtl" src="asset/gear.mtl"></a-asset-item>
-      <a-asset-item id="wine-obj" src="asset/wine.obj"></a-asset-item>
-      <a-asset-item id="wine-mtl" src="asset/wine.mtl"></a-asset-item>
-      <a-asset-item id="spring-obj" src="asset/spring.obj"></a-asset-item>
-      <a-asset-item id="spring-mtl" src="asset/spring.mtl"></a-asset-item>
-    </a-assets>
+  <a-assets>
+    <a-asset-item id="can-obj" src="asset/crushed_can.obj"></a-asset-item>
+    <a-asset-item id="can-mtl" src="asset/crushed_can.mtl"></a-asset-item>
+    <a-asset-item id="trash_bag-obj" src="asset/trash_bag.obj"></a-asset-item>
+    <a-asset-item id="trash_bag-mtl" src="asset/trash_bag.mtl"></a-asset-item>
+    <a-asset-item id="paper-obj" src="asset/paper.obj"></a-asset-item>
+    <a-asset-item id="paper-mtl" src="asset/paper.mtl"></a-asset-item>
+    <a-asset-item id="gear-obj" src="asset/gear.obj"></a-asset-item>
+    <a-asset-item id="gear-mtl" src="asset/gear.mtl"></a-asset-item>
+    <a-asset-item id="wine-obj" src="asset/wine.obj"></a-asset-item>
+    <a-asset-item id="wine-mtl" src="asset/wine.mtl"></a-asset-item>
+    <a-asset-item id="spring-obj" src="asset/spring.obj"></a-asset-item>
+    <a-asset-item id="spring-mtl" src="asset/spring.mtl"></a-asset-item>
+  </a-assets>
 
+  <!-- Remote -->
 
   <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
-            <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
-            <a-entity oculus-touch-controls="hand: left" ></a-entity>
-            <a-entity super-hands id="right"
-            laser-controls="hand: right;";
-            raycaster="objects: .clickable"
-            line="color: red; opacity: 0.75"
-            blink-controls="
-              collisionEntities: #vr-collider;
-              cameraRig: #cameraRig;
-              teleportOrigin: #head;
-              curveShootingSpeed: 6"></a-entity>
-        </a-entity>
-
-    <a-entity id="initialScene">
-
-      <a-sky src="#skyTexture" material="color: #000"></a-sky>
-      <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
-
-      <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
-  
-        <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-        <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-        <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
-  
-      </a-entity>
-  
-  
-      <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
-  
-        <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
-        <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
-  
-      </a-entity>
+    <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
+    <a-entity oculus-touch-controls="hand: left" ></a-entity>
+    <a-entity super-hands id="right" laser-controls="hand: right;"; raycaster="objects: .clickable" line="color: red; opacity: 0.75" blink-controls=" collisionEntities: #vr-collider; cameraRig: #cameraRig; teleportOrigin: #head; curveShootingSpeed: 6"></a-entity>
+  </a-entity>
 
 
-      
+  <!-- Main scene -->
+
+  <a-entity id="initialScene">
+
+    <a-sky src="#skyTexture" material="color: #000"></a-sky>
+    <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+
+    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+
+      <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+      <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+      <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
+
+    </a-entity>
+
+
+    <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
+
+      <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
+      <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+
     </a-entity>
     
-    <!-- MENU -->
-
-    <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
-      <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-      <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
-      <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
-      <a-entity position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
-    </a-entity>
+  </a-entity>
 
 
 
-    <!-- All Scenes -->
-
-    <a-entity class="scene" id="scene1" visible="false">
-      <!-- Contenu de la première scène -->
-      <a-sky color="lightblue"></a-sky>
-      <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
-      <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
-    </a-entity>
     
-    <a-entity class="scene" id="scene2" visible="false">
-      <!-- Contenu de la deuxième scène -->
-      <a-sky color="lightgreen"></a-sky>
-      <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
-      <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
-    </a-entity>
-    
-    <a-entity class="scene" id="scene3" visible="false">
-      <!-- Contenu de la troisième scène -->
-      <a-sky color="lightyellow"></a-sky>
-      <a-text value="Bienvenue dans la Scène 3!" position="-1 1.6 -3" color="black"></a-text>
-      <a-cylinder color="purple" position="0 0 -5" radius="0.75" height="2"></a-cylinder>
-    </a-entity>
+  <!-- MENU -->
+
+  <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
+    <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
+    <a-entity class="clickable" position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
+    <a-entity class="clickable" position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
+    <a-entity class="clickable" position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
+  </a-entity>
 
 
 
+  <!-- All Scenes -->
 
-    <!-- CAMERA -->
-
-
-
-
-
-
-
+  <a-entity class="scene" id="scene1" visible="false">
+    <!-- Contenu de la première scène -->
+    <a-sky color="lightblue"></a-sky>
+    <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
+    <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
+  </a-entity>
   
-  </a-scene>
+  <a-entity class="scene" id="scene2" visible="false">
+    <!-- Contenu de la deuxième scène -->
+    <a-sky color="lightgreen"></a-sky>
+    <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
+    <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
+  </a-entity>
+  
+  <a-entity class="scene" id="scene3" visible="false">
+    <!-- Contenu de la troisième scène -->
+    <a-sky color="lightyellow"></a-sky>
+    <a-text value="Bienvenue dans la Scène 3!" position="-1 1.6 -3" color="black"></a-text>
+    <a-cylinder color="purple" position="0 0 -5" radius="0.75" height="2"></a-cylinder>
+  </a-entity>
+  
+  
+</a-scene>
 
 
 
