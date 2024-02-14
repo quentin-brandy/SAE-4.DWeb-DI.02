@@ -58,10 +58,9 @@
   
   <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
     <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-    <a-entity class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" onclick="loadScene('initialScene')"></a-entity>
-    <a-entity class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
-    <a-entity class="clickable" position="-0.75 -0.25 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
-    <a-entity class="clickable" position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
+    <a-entity sceneLoading id="btn1" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
+    <a-entity sceneLoading id="btn2" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
+
   </a-entity>
   
 
@@ -166,17 +165,33 @@
 
   // Scene loader
 
-  function loadScene(sceneId) {
-    // Masque toutes les scènes
-    var scenes = document.querySelectorAll('.scene');
-    scenes.forEach(function(scene) {
-      scene.visible = 'false';
-    });
-    
-    // Affiche la scène sélectionnée
-    var selectedScene = document.getElementById(sceneId);
-    selectedScene.visible = 'true';
-  }
+  AFRAME.registerComponent('sceneLoading', {
+  init: function() {
+    let btn = document.querySelector('#btn1')
+    let sceneInit = document.querySelector('#initialScene');
+  tuto.addEventListener('click', function() {
+    if (sceneInit.getAttribute('visible') === true) {
+
+        } else {
+          scene1.setAttribute('visible' , true);
+          scene2.setAttribute('visible' , false);
+        }
+});
+      }});
+
+      AFRAME.registerComponent('sceneLoading', {
+  init: function() {
+    let btn = document.querySelector('#btn2')
+    let scene1 = document.querySelector('#scene1');
+  tuto.addEventListener('click', function() {
+    if (sceneInit.getAttribute('visible') === true) {
+
+        } else {
+          scene1.setAttribute('visible' , true);
+          scene2.setAttribute('visible' , false);
+        }
+});
+      }});
     
   let compteur = new Compteur;
 
