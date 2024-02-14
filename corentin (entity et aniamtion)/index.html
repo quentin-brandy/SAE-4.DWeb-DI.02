@@ -75,16 +75,24 @@
   
       </a-entity>
 
-      <a-entity id="menuButton" geometry="primitive: circle; radius: 0.1" position="0 1 -2" material="color: #4CC3D9" rotation="-90 0 0" look-at="[camera]" clickable toggle-menu></a-entity>
-  
-      <a-entity id="menu" position="0 1 -4" visible="false" rotation="-90 0 0" scale="0.5">
-        <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-        <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
-        <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
-        <a-entity position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
-      </a-entity>
 
+      
     </a-entity>
+    
+    <!-- MENU -->
+
+    <a-entity id="menuButton" geometry="primitive: circle; radius: 0.1" position="0 1 -2" material="color: #4CC3D9" rotation="-90 0 0" look-at="[camera]" clickable toggle-menu></a-entity>
+
+    <a-entity id="menu" animation-position position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
+      <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
+      <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
+      <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
+      <a-entity position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
+    </a-entity>
+
+
+
+    <!-- All Scenes -->
 
     <a-entity class="scene" id="scene1" visible="false">
       <!-- Contenu de la première scène -->
@@ -107,13 +115,48 @@
       <a-cylinder color="purple" position="0 0 -5" radius="0.75" height="2"></a-cylinder>
     </a-entity>
 
-  </a-scene>
+
+
+
+    <!-- CAMERA -->
+
+
+    <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
+      <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
+      <a-entity oculus-touch-controls="hand: left" ></a-entity>
+      <a-entity super-hands id="right" laser-controls="hand: right;"; raycaster="objects: .clickable" line="color: red; opacity: 0.75"
+      blink-controls="collisionEntities: #vr-collider; cameraRig: #cameraRig; teleportOrigin: #head; curveShootingSpeed: 6"></a-entity>
+
+
+  </a-entity>
+  
+</a-scene>
 
 
 
 
 
 <script>
+
+AFRAME.registerComponent('animation-position', {
+  tick: (function () {
+    let right = document.querySelector("#right");
+    var position = new THREE.Vector3();
+    return function() {
+      let menu = document.querySelector("#menu");
+      right.addEventListener('abuttondown', function() {
+        menu.setAttribute('animation', {
+          property: 'position',
+          to: { x: position.x, y: position.y, z: position.z },
+        });
+      });
+    };
+  })()
+});
+
+
+
+  // Menu loader
 
   AFRAME.registerComponent('toggle-menu', {
     init: function () {
@@ -130,6 +173,9 @@
       });
     }
   });
+
+
+  // Scene loader
 
   function loadScene(sceneId) {
     // Masque toutes les scènes
