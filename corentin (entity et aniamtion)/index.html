@@ -33,8 +33,7 @@
 
   </script>
 
-  <a-scene id="initialScene" stats physics="gravity: 0">
-    <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"></a-mixin>
+<a-scene stats physics="gravity: 0">
     <a-entity oculus-touch-controls="hand: left"></a-entity>
     <a-entity id="rightHand" oculus-touch-controls="hand: right" laser-controls="hand: right"></a-entity>
 
@@ -54,61 +53,62 @@
     </a-assets>
 
 
-    <a-sky src="#skyTexture" material="color: #000"></a-sky>
-    <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
+    <a-entity id="initialScene">
 
-    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+      <a-sky src="#skyTexture" material="color: #000"></a-sky>
+      <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-      <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-      <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-      <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
-
-    </a-entity>
-
-
-    <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
-
-      <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
-      <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
-
-    </a-entity>
-
-
-    <a-camera position="0 1.6 0"></a-camera>
-
-    <a-entity id="menuButton" geometry="primitive: circle; radius: 0.1" position="0 1 -2" material="color: #4CC3D9" rotation="-90 0 0" look-at="[camera]" clickable toggle-menu></a-entity>
-
-    <a-entity id="menu" position="0 1 -4" visible="false" rotation="-90 0 0" scale="0.5">
-      <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-      <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
-      <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
-      <a-entity position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
-    </a-entity>
-
-
-  </a-scene>
-
-  <a-scene id="scene1" style="display: none;">
-    <!-- Contenu de la première scène -->
-    <a-sky color="lightblue"></a-sky>
-    <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
-    <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
-  </a-scene>
+      <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
   
-  <a-scene id="scene2" style="display: none;">
-    <!-- Contenu de la deuxième scène -->
-    <a-sky color="lightgreen"></a-sky>
-    <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
-    <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
-  </a-scene>
+        <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+        <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+        <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
   
-  <a-scene id="scene3" style="display: none;">
-    <!-- Contenu de la troisième scène -->
-    <a-sky color="lightyellow"></a-sky>
-    <a-text value="Bienvenue dans la Scène 3!" position="-1 1.6 -3" color="black"></a-text>
-    <a-cylinder color="purple" position="0 0 -5" radius="0.75" height="2"></a-cylinder>
+      </a-entity>
+  
+  
+      <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
+  
+        <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
+        <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+  
+      </a-entity>
+
+      <a-entity id="menuButton" geometry="primitive: circle; radius: 0.1" position="0 1 -2" material="color: #4CC3D9" rotation="-90 0 0" look-at="[camera]" clickable toggle-menu></a-entity>
+  
+      <a-entity id="menu" position="0 1 -4" visible="false" rotation="-90 0 0" scale="0.5">
+        <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
+        <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
+        <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
+        <a-entity position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
+      </a-entity>
+
+    </a-entity>
+
+    <a-entity class="scene" id="scene1" style="display: none;">
+      <!-- Contenu de la première scène -->
+      <a-sky color="lightblue"></a-sky>
+      <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
+      <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
+    </a-entity>
+    
+    <a-entity class="scene" id="scene2" style="display: none;">
+      <!-- Contenu de la deuxième scène -->
+      <a-sky color="lightgreen"></a-sky>
+      <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
+      <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
+    </a-entity>
+    
+    <a-entity class="scene" id="scene3" style="display: none;">
+      <!-- Contenu de la troisième scène -->
+      <a-sky color="lightyellow"></a-sky>
+      <a-text value="Bienvenue dans la Scène 3!" position="-1 1.6 -3" color="black"></a-text>
+      <a-cylinder color="purple" position="0 0 -5" radius="0.75" height="2"></a-cylinder>
+    </a-entity>
+
   </a-scene>
+
 
 
 
@@ -133,7 +133,7 @@
 
   function loadScene(sceneId) {
     // Masque toutes les scènes
-    var scenes = document.querySelectorAll('a-scene');
+    var scenes = document.querySelectorAll('.scene');
     scenes.forEach(function(scene) {
       scene.style.display = 'none';
     });
