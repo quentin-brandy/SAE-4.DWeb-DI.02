@@ -53,21 +53,26 @@
     <a-entity super-hands id="right" laser-controls="hand: right;"; raycaster="objects: .clickable" line="color: red; opacity: 0.75" blink-controls=" collisionEntities: #vr-collider; cameraRig: #cameraRig; teleportOrigin: #head; curveShootingSpeed: 6"></a-entity>
   </a-entity>
 
+  
+  <!-- MENU -->
+  
+  <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
+    <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
+    <a-entity class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" onclick="loadScene('initialScene')"></a-entity>
+    <a-entity class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
+    <a-entity class="clickable" position="-0.75 -0.25 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
+    <a-entity class="clickable" position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
+  </a-entity>
+  
 
+
+  
   <!-- Main scene -->
 
   <a-entity id="initialScene">
 
     <a-sky src="#skyTexture" material="color: #000"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
-
-    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
-
-      <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-      <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-      <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
-
-    </a-entity>
 
 
     <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
@@ -81,26 +86,23 @@
 
 
 
-    
-  <!-- MENU -->
-
-  <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
-    <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-    <a-entity class="clickable" position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
-    <a-entity class="clickable" position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
-    <a-entity class="clickable" position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
-  </a-entity>
-
-
-
   <!-- All Scenes -->
 
   <a-entity class="scene" id="scene1" visible="false">
     <!-- Contenu de la première scène -->
     <a-sky color="lightblue"></a-sky>
-    <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
-    <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
+    <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+
+    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+
+      <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+      <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+      <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
+
+    </a-entity>
+
   </a-entity>
+
   
   <a-entity class="scene" id="scene2" visible="false">
     <!-- Contenu de la deuxième scène -->
@@ -108,6 +110,7 @@
     <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
     <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
   </a-entity>
+
   
   <a-entity class="scene" id="scene3" visible="false">
     <!-- Contenu de la troisième scène -->
