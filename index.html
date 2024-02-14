@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
@@ -8,7 +9,7 @@
 <body>
 
   <a-scene stats>
-    <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
+    <!-- <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
       <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
       <a-entity oculus-touch-controls="hand: left" ></a-entity>
       <a-entity super-hands id="right"
@@ -20,13 +21,18 @@
         cameraRig: #cameraRig;
         teleportOrigin: #head;
         curveShootingSpeed: 6"></a-entity>
-  </a-entity>
+  </a-entity> -->
+    <a-mixin id="controller" physics-collider static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+                   colliderEventProperty: els;
+                   colliderEndEvent: collisions;
+                   colliderEndEventProperty: clearedEls" collision-filter="group: hands;
+                          collidesWith: red, blue;
+                          collisionForces: false">
+    </a-mixin>
 
     <!-- Assets -->
     <a-assets>
       <img id="skyTexture" src="assets/img/sky.jpg">
-      <a-asset-item id="road-obj" src="assets/model/road_model/Road_1229.obj"></a-asset-item>
-      <a-asset-item id="road-mtl" src="assets/model/road_model/Road_1229.mtl"></a-asset-item>
       <a-asset-item id="trees1-obj" src="assets/model/trees/trees1.obj"></a-asset-item>
       <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
       <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
@@ -35,23 +41,41 @@
       <a-asset-item id="grass1-mtl" src="assets/model/grass/grass1.mtl"></a-asset-item>
       <a-asset-item id="greengrass1-obj" src="assets/model/greengrass/greengrass.obj"></a-asset-item>
       <a-asset-item id="greengrass1-mtl" src="assets/model/greengrass/greengrass.mtl"></a-asset-item>
+      <a-asset-item id="tree&rock-obj" src="assets/model/tree&rock/tree&rock.obj"></a-asset-item>
+      <a-asset-item id="tree&rock-mtl" src="assets/model/tree&rock/tree&rock.mtl"></a-asset-item>
     </a-assets>
 
-  
+
 
     <!-- Eléments visuels de la scène -->
-    <a-entity static-body id="entitttest" obj-model="obj: #road-obj; mtl: #road-mtl" position="75.67466 -11.285 -33.85483" rotation="0 175.93012874169005 0"></a-entity>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="3.3167 -0.09 -26.62986" scale="15.46898 0.5 20.68657" rotation="0 -139.05 0"></a-box>
 
-    <a-entity id="entitttest" obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="59.77097 -0.91205 11.4534" rotation="0 166.80348402305117 0" scale="0.015 0.015 0.015"></a-entity>
-    <a-entity   id="entitttest" obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="17.81981 -0.91205 15.76096" rotation="0 -97.69446068996153 0" scale="0.015 0.015 0.015"></a-entity>
+    <a-box width="5" height="5" color="#7a5109" material="" geometry="width: 1; height: 1" position="" scale="100 0.216 100"></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="17.064 -0.09035 -12.57228" scale="15.46898 0.5 20.68657" rotation="0 47.737 0"></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="33.19343 -0.09035 -8.95023" scale="40.09349 0.5 82.68944" rotation=""></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="16.75778 -0.09035 16.15784" scale="15.46898 0.5 20.68657" rotation="0 -47 0"></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="-2.70542 -0.09 35.787" scale="40.02563 0.5 111.88141" rotation="0 90 0"></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="-15.49551 -0.09035 22.04892" scale="15.46898 0.5 20.68657" rotation="0 47.737 0"></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="-36.474 -0.09035 -8.95023" scale="44.31939 0.5 82.68944" rotation=""></a-box>
+    <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="-15.02509 -0.09035 -13.31646" scale="15.46898 0.5 20.68657" rotation="0.04239887683968092 -49.62559350966599 -0.14266649098757497"></a-box>
 
-    <a-entity id="entitttest" obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="69.61153 -0.84259 9.52637"></a-entity>
 
-    <a-entity id="entitttest" obj-model="obj: assets/model/grass/grass1.obj; mtl: assets/model/grass/grass1.mtl" position="36.5179 -0.67722 8.60815" scale="0.025 0.025 0.025"></a-entity>
-    <a-entity  obj-model="obj: assets/model/greengrass/greengrass.obj; mtl: assets/model/greengrass/greengrass.mtl"></a-entity>
+    <a-entity obj-model="obj: assets/model/tree&rock/tree&rock.obj; mtl: assets/model/tree&rock/tree&rock.mtl" position="-2.65354 -0.25064 35.3751" scale="0.5 0.5 0.5"></a-entity>
+    <a-entity obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="26.31555 -0.91205 9.65888" rotation="0 -97.69446068996153 0" scale="0.01 0.01 0.01"></a-entity>
+    <a-entity obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="-14.4312 -0.91205 -16.05319" rotation="0 166.80348402305117 0" scale="0.01 0.01 0.01"></a-entity>
 
-    <a-cylinder id="entitttest" position="0.09568 -0.421 0.0378" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
+    
+    <a-entity obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="25.85726 -0.84259 -1.29658"></a-entity>
+
+    <a-entity obj-model="obj: assets/model/grass/grass1.obj; mtl: assets/model/grass/grass1.mtl"
+      position="36.5179 -0.67722 8.60815" scale="0.025 0.025 0.025"></a-entity>
+    <a-entity
+      obj-model="obj: assets/model/greengrass/greengrass.obj; mtl: assets/model/greengrass/greengrass.mtl"></a-entity>
+
+    <a-cylinder position="0.09568 -0.33209 0.0378" rotation="0 45 0" color="#4CC3D9" material=""
+      geometry=""></a-cylinder>
     <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
   </a-scene>
 </body>
+
 </html>
