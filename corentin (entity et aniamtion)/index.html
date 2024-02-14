@@ -33,7 +33,7 @@
 
   </script>
 
-  <a-scene id="forest" stats physics="gravity: 0">
+  <a-scene id="initialScene" stats physics="gravity: 0">
     <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"></a-mixin>
     <a-entity oculus-touch-controls="hand: left"></a-entity>
     <a-entity id="rightHand" oculus-touch-controls="hand: right" laser-controls="hand: right"></a-entity>
@@ -75,18 +75,81 @@
     </a-entity>
 
 
+    <a-camera position="0 1.6 0"></a-camera>
+
+    <a-entity id="menuButton" geometry="primitive: circle; radius: 0.1" position="0 1 -2" material="color: #4CC3D9" rotation="-90 0 0" look-at="[camera]" clickable toggle-menu></a-entity>
+
+    <a-entity id="menu" position="0 1 -4" visible="false" rotation="-90 0 0" scale="0.5">
+      <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
+      <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
+      <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
+      <a-entity position="-0.75 -0.5 0.05" text="value: Scène 3; align: center; color: #333" onclick="loadScene('scene3')"></a-entity>
+    </a-entity>
+
+
   </a-scene>
-  <script>
+
+  <a-scene id="scene1" style="display: none;">
+    <!-- Contenu de la première scène -->
+    <a-sky color="lightblue"></a-sky>
+    <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
+    <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
+  </a-scene>
   
+  <a-scene id="scene2" style="display: none;">
+    <!-- Contenu de la deuxième scène -->
+    <a-sky color="lightgreen"></a-sky>
+    <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
+    <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
+  </a-scene>
+  
+  <a-scene id="scene3" style="display: none;">
+    <!-- Contenu de la troisième scène -->
+    <a-sky color="lightyellow"></a-sky>
+    <a-text value="Bienvenue dans la Scène 3!" position="-1 1.6 -3" color="black"></a-text>
+    <a-cylinder color="purple" position="0 0 -5" radius="0.75" height="2"></a-cylinder>
+  </a-scene>
+
+
+
+
+<script>
+
+  AFRAME.registerComponent('toggle-menu', {
+    init: function () {
+      var toggleButton = document.querySelector('#menuButton');
+      var menu = document.querySelector('#menu');
+
+      toggleButton.addEventListener('click', function () {
+        var isVisible = menu.getAttribute('visible');
+        if (isVisible) {
+          menu.setAttribute('visible', false);
+        } else {
+          menu.setAttribute('visible', true);
+        }
+      });
+    }
+  });
+
+  function loadScene(sceneId) {
+    // Masque toutes les scènes
+    var scenes = document.querySelectorAll('a-scene');
+    scenes.forEach(function(scene) {
+      scene.style.display = 'none';
+    });
+    
+    // Affiche la scène sélectionnée
+    var selectedScene = document.getElementById(sceneId);
+    selectedScene.style.display = 'block';
+  }
+    
   let compteur = new Compteur;
 
   document.querySelector(".trashToCollect").addEventListener('click',function () {
     compteur.incrValue();
   });
-  
-  
-  
-  </script>
+
+</script>
   
 </body>
 </html>
