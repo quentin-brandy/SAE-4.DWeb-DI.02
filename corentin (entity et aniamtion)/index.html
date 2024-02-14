@@ -81,8 +81,6 @@
     
     <!-- MENU -->
 
-    <a-entity id="menuButton" geometry="primitive: circle; radius: 0.1" position="0 1 -2" material="color: #4CC3D9" rotation="-90 0 0" look-at="[camera]" clickable toggle-menu></a-entity>
-
     <a-entity id="menu" animation-position position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
       <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
       <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
@@ -129,8 +127,11 @@
 
 
   </a-entity>
+
+
+
   
-</a-scene>
+  </a-scene>
 
 
 
@@ -138,40 +139,26 @@
 
 <script>
 
-AFRAME.registerComponent('animation-position', {
-  tick: (function () {
-    let right = document.querySelector("#right");
-    var position = new THREE.Vector3();
-    return function() {
-      let menu = document.querySelector("#menu");
-      right.addEventListener('abuttondown', function() {
-        menu.setAttribute('animation', {
-          property: 'position',
-          to: { x: position.x, y: position.y, z: position.z },
-        });
-      });
-    };
-  })()
-});
-
-
-
   // Menu loader
 
-  AFRAME.registerComponent('toggle-menu', {
-    init: function () {
-      var toggleButton = document.querySelector('#menuButton');
-      var menu = document.querySelector('#menu');
-
-      toggleButton.addEventListener('click', function () {
-        var isVisible = menu.getAttribute('visible');
-        if (isVisible) {
-          menu.setAttribute('visible', false);
-        } else {
-          menu.setAttribute('visible', true);
-        }
-      });
-    }
+  AFRAME.registerComponent('animation-position', {
+    tick: (function () {
+      let right = document.querySelector("#right");
+      var position = new THREE.Vector3();
+      return function() {
+        right.object3D.getWorldPosition(position);
+        let menu = document.querySelector("#menu");
+        right.addEventListener('abuttondown', function() {
+          menu.setAttribute('position', { x: position.x, y: position.y, z: position.z });
+          var isVisible = menu.getAttribute('visible');
+          if (isVisible) {
+            menu.setAttribute('visible', false);
+          } else {
+            menu.setAttribute('visible', true);
+          }
+        });
+      };
+    })()
   });
 
 
