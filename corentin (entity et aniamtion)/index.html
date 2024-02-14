@@ -86,21 +86,21 @@
 
     </a-entity>
 
-    <a-entity class="scene" id="scene1" style="display: none;">
+    <a-entity class="scene" id="scene1" visible="false">
       <!-- Contenu de la première scène -->
       <a-sky color="lightblue"></a-sky>
       <a-text value="Bienvenue dans la Scène 1!" position="-1 1.6 -3" color="black"></a-text>
       <a-plane color="green" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
     </a-entity>
     
-    <a-entity class="scene" id="scene2" style="display: none;">
+    <a-entity class="scene" id="scene2" visible="false">
       <!-- Contenu de la deuxième scène -->
       <a-sky color="lightgreen"></a-sky>
       <a-text value="Bienvenue dans la Scène 2!" position="-1 1.6 -3" color="black"></a-text>
       <a-sphere color="red" position="0 1.25 -5" radius="1.25"></a-sphere>
     </a-entity>
     
-    <a-entity class="scene" id="scene3" style="display: none;">
+    <a-entity class="scene" id="scene3" visible="false">
       <!-- Contenu de la troisième scène -->
       <a-sky color="lightyellow"></a-sky>
       <a-text value="Bienvenue dans la Scène 3!" position="-1 1.6 -3" color="black"></a-text>
@@ -135,12 +135,12 @@
     // Masque toutes les scènes
     var scenes = document.querySelectorAll('.scene');
     scenes.forEach(function(scene) {
-      scene.style.display = 'none';
+      scene.visible = 'false';
     });
     
     // Affiche la scène sélectionnée
     var selectedScene = document.getElementById(sceneId);
-    selectedScene.style.display = 'block';
+    selectedScene.visible = 'true';
   }
     
   let compteur = new Compteur;
