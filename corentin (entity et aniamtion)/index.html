@@ -81,7 +81,7 @@
     
     <!-- MENU -->
 
-    <a-entity id="menu" animation-position position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
+    <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
       <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
       <a-entity position="-0.75 0.5 0.05" text="value: Scène 1; align: center; color: #333" onclick="loadScene('scene1')"></a-entity>
       <a-entity position="-0.75 0 0.05" text="value: Scène 2; align: center; color: #333" onclick="loadScene('scene2')"></a-entity>
@@ -150,6 +150,18 @@
         let menu = document.querySelector("#menu");
         right.addEventListener('abuttondown', function() {
           menu.setAttribute('position', { x: position.x, y: position.y, z: position.z });
+        });
+      };
+    })
+  });
+
+
+  AFRAME.registerComponent('animation-visible', {
+    init: (function () {
+      let right = document.querySelector("#right");
+      return function() {
+        let menu = document.querySelector("#menu");
+        right.addEventListener('abuttondown', function() {
           var isVisible = menu.getAttribute('visible');
           if (isVisible) {
             menu.setAttribute('visible', false);
@@ -158,7 +170,7 @@
           }
         });
       };
-    })()
+    })
   });
 
 
