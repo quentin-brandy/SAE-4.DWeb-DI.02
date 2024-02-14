@@ -1,15 +1,9 @@
 <html>
 
 <head>
-  <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
-
-
-  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
-  <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.misc.min.js"></script>
 </head>
 
 <body>
@@ -33,9 +27,8 @@
 
   </script>
 
-<a-scene stats physics="gravity: 0">
-    <a-entity oculus-touch-controls="hand: left"></a-entity>
-    <a-entity id="rightHand" oculus-touch-controls="hand: right" laser-controls="hand: right"></a-entity>
+<a-scene stats>
+
 
     <a-assets>
       <a-asset-item id="can-obj" src="asset/crushed_can.obj"></a-asset-item>
@@ -53,6 +46,19 @@
     </a-assets>
 
 
+  <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
+            <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
+            <a-entity oculus-touch-controls="hand: left" ></a-entity>
+            <a-entity super-hands id="right"
+            laser-controls="hand: right;";
+            raycaster="objects: .clickable"
+            line="color: red; opacity: 0.75"
+            blink-controls="
+              collisionEntities: #vr-collider;
+              cameraRig: #cameraRig;
+              teleportOrigin: #head;
+              curveShootingSpeed: 6"></a-entity>
+        </a-entity>
 
     <a-entity id="initialScene">
 
@@ -119,14 +125,8 @@
     <!-- CAMERA -->
 
 
-    <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
-      <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
-      <a-entity oculus-touch-controls="hand: left" ></a-entity>
-      <a-entity super-hands id="right" laser-controls="hand: right;"; raycaster="objects: .clickable" line="color: red; opacity: 0.75"
-      blink-controls="collisionEntities: #vr-collider; cameraRig: #cameraRig; teleportOrigin: #head; curveShootingSpeed: 6"></a-entity>
 
 
-  </a-entity>
 
 
 
@@ -142,24 +142,25 @@
   // Menu loader
 
   AFRAME.registerComponent('animation-position', {
-    tick: (function () {
-      let right = document.querySelector("#right");
-      var position = new THREE.Vector3();
-      return function() {
-        right.object3D.getWorldPosition(position);
-        let menu = document.querySelector("#menu");
-        right.addEventListener('abuttondown', function() {
-          menu.setAttribute('position', { x: position.x, y: position.y, z: position.z });
-        });
-      };
-    })
-  });
+  tick: (function () {
+    let right = document.querySelector("#right");
+    var position = new THREE.Vector3();
+    return function() {
+      test = right.object3D.getWorldPosition(position);
+      let menu = document.querySelector("#menu");
+      right.addEventListener('abuttondown', function() {
+        menu.setAttribute('position', { x: position.x, y: position.y, z: position.z },
+        );
+      });
+    };
+  })()
+});
 
 
   AFRAME.registerComponent('animation-visible', {
     init: (function () {
       let right = document.querySelector("#right");
-      return function() {
+    
         let menu = document.querySelector("#menu");
         right.addEventListener('abuttondown', function() {
           var isVisible = menu.getAttribute('visible');
@@ -169,7 +170,7 @@
             menu.setAttribute('visible', true);
           }
         });
-      };
+     
     })
   });
 
