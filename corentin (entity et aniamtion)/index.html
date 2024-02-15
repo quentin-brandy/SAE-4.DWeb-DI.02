@@ -155,34 +155,34 @@
 
   // Scene loader
 
-  // AFRAME.registerComponent('sceneloading', {
-  //   init: function() {
-  //     let btn1 = document.querySelector('#btn1')
-  //     let btn2 = document.querySelector('#btn2')
-  //     let scene1 = document.querySelector('#scene_start');
-  //     let scene2 = document.querySelector('#scene_lvl1');
-  //     btn1.addEventListener('click', function() {
-  //       scene1.setAttribute('visible' , true);
-  //       scene2.setAttribute('visible' , false);
-  //     });
-  //     btn2.addEventListener('click', function() {
-  //       scene1.setAttribute('visible' , false);
-  //       scene2.setAttribute('visible' , true);
-  //     });
-  //   }
-  // });
   AFRAME.registerComponent('sceneloading', {
     init: function() {
-      let el = this.el;
-      el.addEventListener('click', function() {
-        let sceneId = el.getAttribute('scene-id');
-        let scene = document.querySelector(sceneId);
-        if (scene) {
-          scene.setAttribute('visible', true);
-        }
+      let btn1 = document.querySelector('#btn1')
+      let btn2 = document.querySelector('#btn2')
+      let scene1 = document.querySelector('#scene_start');
+      let scene2 = document.querySelector('#scene_lvl1');
+      btn1.addEventListener('click', function() {
+        scene1.setAttribute('visible' , true);
+        scene2.setAttribute('visible' , false);
+      });
+      btn2.addEventListener('click', function() {
+        scene1.setAttribute('visible' , false);
+        scene2.setAttribute('visible' , true);
       });
     }
   });
+  // AFRAME.registerComponent('sceneloading', {
+  //   init: function() {
+  //     let el = this.el;
+  //     el.addEventListener('click', function() {
+  //       let sceneId = el.getAttribute('scene-id');
+  //       let scene = document.querySelector(sceneId);
+  //       if (scene) {
+  //         scene.setAttribute('visible', true);
+  //       }
+  //     });
+  //   }
+  // });
 
   // AFRAME.registerComponent('sceneLoading', {
   //   init: function() {
