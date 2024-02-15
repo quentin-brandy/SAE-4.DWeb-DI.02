@@ -203,7 +203,7 @@
   let compteur = new Compteur;
 
 
-  document.querySelector(".trashToCollect").addEventListener('click',function () {
+  document.querySelectorAll(".trashToCollect").addEventListener('click',function () {
     compteur.incrValue();
     var textContainer = document.querySelector("#progression");
     textContainer.setAttribute('text', {
