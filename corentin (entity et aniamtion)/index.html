@@ -56,7 +56,7 @@
   
   <!-- MENU -->
   
-  <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
+  <a-entity id="menu" animation-position animation-visible visible="false" rotation="0 0 0" scale="0.5">
     <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
     <a-entity sceneloading id="btn1" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
     <a-entity sceneloading id="btn2" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
@@ -130,18 +130,16 @@
   // Menu loader
 
   AFRAME.registerComponent('animation-position', {
-  tick: (function () {
-    let right = document.querySelector("#right");
-    var position = right.getAttribute('position');
-    return function() {
-      coord = right.object3D.getWorldPosition(right_position);
+    tick: function () {
+      let right = document.querySelector("#right");
+      let position = right.getAttribute('position');
       let menu = document.querySelector("#menu");
       right.addEventListener('abuttondown', function() {
-        menu.setAttribute('position', { x: position.x, y: position.y, z: position.z },
-        );
+        let coord = new THREE.Vector3();
+        right.object3D.getWorldPosition(coord);
+        menu.setAttribute('position', coord);
       });
-    };
-    })
+    }
   });
 
 
