@@ -58,8 +58,8 @@
   
   <a-entity id="menu" animation-position animation-visible position="0 0 0" visible="false" rotation="0 0 0" scale="0.5">
     <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-    <a-entity sceneLoading id="btn1" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
-    <a-entity sceneLoading id="btn2" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
+    <a-entity sceneloading id="btn1" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
+    <a-entity sceneloading id="btn2" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
     <a-entity id="progression"  position="-0.75 -0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
   </a-entity>
   
@@ -132,9 +132,9 @@
   AFRAME.registerComponent('animation-position', {
   tick: (function () {
     let right = document.querySelector("#right");
-    var position = new THREE.Vector3();
+    var position = right.getAttribute('position');
     return function() {
-      test = right.object3D.getWorldPosition(position);
+      coord = right.object3D.getWorldPosition(right_position);
       let menu = document.querySelector("#menu");
       right.addEventListener('abuttondown', function() {
         menu.setAttribute('position', { x: position.x, y: position.y, z: position.z },
@@ -164,7 +164,7 @@
 
   // Scene loader
 
-  AFRAME.registerComponent('sceneLoading', {
+  AFRAME.registerComponent('sceneloading', {
     init: function() {
       let btn1 = document.querySelector('#btn1')
       let btn2 = document.querySelector('#btn2')
