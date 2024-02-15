@@ -58,9 +58,17 @@
   
   <a-entity id="menu" animation-position animation-visible visible="false" rotation="0 0 0" scale="0.5">
     <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
-    <a-entity sceneloading id="btn1" scene-id="#scene_start" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
-    <a-entity sceneloading id="btn2" scene-id="#scene_lvl1" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
+
+    <a-entity position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333">
+      <a-box sceneloading id="btn1" scene-id="#scene_start" class="clickable" color="#080808" height="O.5" width="1"></a-box>
+    </a-entity>
+
+    <a-entity position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333">
+      <a-box sceneloading id="btn2" scene-id="#scene_lvl1" class="clickable" color="#080808" height="O.5" width="1"></a-box>
+    </a-entity>
+
     <a-entity id="progression"  position="-0.75 -0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
+
   </a-entity>
   
 
@@ -74,10 +82,11 @@
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
 
-    <a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
+    <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
 
-      <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
-      <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+      <a-entity id="gear" class="clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
+
+      <a-entity id="spring" class="clickable" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
 
     </a-entity>
     
@@ -92,11 +101,11 @@
     <a-sky color="lightblue"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
 
-      <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-      <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-      <a-entity id="can" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
+      <a-entity id="trash_bag" class="clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+      <a-entity id="paper" class="clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+      <a-entity id="can" class="clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: asset/crushed_can.obj; mtl: asset/crushed_can.mtl" ></a-entity>
 
     </a-entity>
 
