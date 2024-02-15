@@ -61,8 +61,6 @@
     <a-entity sceneLoading id="btn1" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
     <a-entity sceneLoading id="btn2" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
     <a-entity id="progression"  position="-0.75 -0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
-
-
   </a-entity>
   
 
@@ -168,27 +166,32 @@
 
   AFRAME.registerComponent('sceneLoading', {
     init: function() {
-      let btn = document.querySelector('#btn1')
+      let btn1 = document.querySelector('#btn1')
+      let btn2 = document.querySelector('#btn2')
       let sceneInit = document.querySelector('#initialScene');
       let scene1 = document.querySelector('#scene1');
-      btn.addEventListener('click', function() {
+      btn1.addEventListener('click', function() {
         sceneInit.setAttribute('visible' , true);
         scene1.setAttribute('visible' , false);
       });
-    }
-  });
-
-  AFRAME.registerComponent('sceneLoading', {
-    init: function() {
-      let btn = document.querySelector('#btn2')
-      let sceneInit = document.querySelector('#initialScene');
-      let scene1 = document.querySelector('#scene1');
-      btn.addEventListener('click', function() {
+      btn2.addEventListener('click', function() {
         sceneInit.setAttribute('visible' , false);
         scene1.setAttribute('visible' , true);
       });
     }
   });
+
+  // AFRAME.registerComponent('sceneLoading', {
+  //   init: function() {
+  //     let btn = document.querySelector('#btn2')
+  //     let sceneInit = document.querySelector('#initialScene');
+  //     let scene1 = document.querySelector('#scene1');
+  //     btn.addEventListener('click', function() {
+  //       sceneInit.setAttribute('visible' , false);
+  //       scene1.setAttribute('visible' , true);
+  //     });
+  //   }
+  // });
 
 
     
