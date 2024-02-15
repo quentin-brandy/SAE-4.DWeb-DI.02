@@ -60,6 +60,8 @@
     <a-box color="#4CC3D9" depth="0.1" height="1.5" width="3" position="0 0 0" rotation="0 0 0" shadow></a-box>
     <a-entity sceneLoading id="btn1" class="clickable" position="-0.75 0.5 0.05" text="value: Scene initiale; align: center; color: #333" ></a-entity>
     <a-entity sceneLoading id="btn2" class="clickable" position="-0.75 0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
+    <a-entity id="progression"  position="-0.75 -0.25 0.05" text="value: Scène 1; align: center; color: #333"></a-entity>
+
 
   </a-entity>
   
@@ -74,7 +76,7 @@
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
 
-    <a-entity id="trash_2" class="trashToCollect" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
+    <a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
 
       <a-entity id="gear" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl" ></a-entity>
       <a-entity id="spring" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
@@ -92,7 +94,7 @@
     <a-sky color="lightblue"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity id="trash_1" class="trashToCollect" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+    <a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
 
       <a-entity id="trash_bag" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity id="paper" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -141,14 +143,13 @@
         );
       });
     };
-  })()
-});
+    })
+  });
 
 
   AFRAME.registerComponent('animation-visible', {
     init: (function () {
       let right = document.querySelector("#right");
-    
         let menu = document.querySelector("#menu");
         right.addEventListener('abuttondown', function() {
           var isVisible = menu.getAttribute('visible');
@@ -166,32 +167,30 @@
   // Scene loader
 
   AFRAME.registerComponent('sceneLoading', {
-  init: function() {
-    let btn = document.querySelector('#btn1')
-    let sceneInit = document.querySelector('#initialScene');
-  tuto.addEventListener('click', function() {
-    if (sceneInit.getAttribute('visible') === true) {
+    init: function() {
+      let btn = document.querySelector('#btn1')
+      let sceneInit = document.querySelector('#initialScene');
+      let scene1 = document.querySelector('#scene1');
+      btn.addEventListener('click', function() {
+        sceneInit.setAttribute('visible' , true);
+        scene1.setAttribute('visible' , false);
+      });
+    }
+  });
 
-        } else {
-          scene1.setAttribute('visible' , true);
-          scene2.setAttribute('visible' , false);
-        }
-});
-      }});
+  AFRAME.registerComponent('sceneLoading', {
+    init: function() {
+      let btn = document.querySelector('#btn2')
+      let sceneInit = document.querySelector('#initialScene');
+      let scene1 = document.querySelector('#scene1');
+      btn.addEventListener('click', function() {
+        sceneInit.setAttribute('visible' , false);
+        scene1.setAttribute('visible' , true);
+      });
+    }
+  });
 
-      AFRAME.registerComponent('sceneLoading', {
-  init: function() {
-    let btn = document.querySelector('#btn2')
-    let scene1 = document.querySelector('#scene1');
-  tuto.addEventListener('click', function() {
-    if (sceneInit.getAttribute('visible') === true) {
 
-        } else {
-          scene1.setAttribute('visible' , true);
-          scene2.setAttribute('visible' , false);
-        }
-});
-      }});
     
   let compteur = new Compteur;
 
