@@ -203,15 +203,19 @@
   let compteur = new Compteur;
 
 
-  document.querySelectorAll(".trashToCollect").addEventListener('click',function () {
-    compteur.incrValue();
-    var textContainer = document.querySelector("#progression");
-    textContainer.setAttribute('text', {
-        value: 'Score :' +compteur.getValue(),
-        align: 'center', 
-        color: '#ffffff' 
-    })
+  document.querySelectorAll(".trashToCollect").forEach(elt => {
+    elt.addEventListener('click',function () {
+      compteur.incrValue();
+      var textContainer = document.querySelector("#progression");
+      textContainer.setAttribute('text', {
+          value: 'Score :' +compteur.getValue(),
+          align: 'center', 
+          color: '#ffffff' 
+      })
+    });
+    
   });
+  
 
 </script>
   
