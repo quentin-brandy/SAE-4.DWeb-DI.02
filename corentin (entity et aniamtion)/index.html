@@ -60,14 +60,14 @@
     <a-box color="#4CC3D9" depth="0.01" height="1.5" width="2" position="0 0 0" rotation="0 0 0" shadow></a-box>
 
     <a-entity position="0 0.5 0.01" text="value: Scene initiale; align: center; color: #FFF">
-      <a-box sceneloading id="btn1" scene-id="#scene_start" class="clickable" color="#080808" height="0.1" width="0.3" depth="0.01" position="0 0 -0.01"></a-box>
+      <a-box sceneloading id="btn1" scene-id="#scene_start" class="clickable" color="#080808" height="0.1" width="0.3" depth="0.009" position="0 0 -0.01"></a-box>
     </a-entity>s
 
     <a-entity position="0 0.25 0.01" text="value: Scene1; align: center; color: #FFF">
-      <a-box sceneloading id="btn2" scene-id="#scene_lvl1" class="clickable" color="#080808" height="0.1" width="0.2" depth="0.01" position="0 0 -0.01"></a-box>
+      <a-box sceneloading id="btn2" scene-id="#scene_lvl1" class="clickable" color="#080808" height="0.1" width="0.2" depth="0.009" position="0 0 -0.01"></a-box>
     </a-entity>
 
-    <a-entity id="progression"  position="0 -0.25 0.01" text="value: Score; align: center; color: #FFF"></a-entity>
+    <a-entity id="progression"  position="0 -0.25 0.01"></a-entity>
 
   </a-entity>
   
@@ -164,10 +164,12 @@
       btn1.addEventListener('click', function() {
         scene1.setAttribute('visible' , true);
         scene2.setAttribute('visible' , false);
+        document.querySelector("#menu").setAttribute('visible' , false);
       });
       btn2.addEventListener('click', function() {
         scene1.setAttribute('visible' , false);
         scene2.setAttribute('visible' , true);
+        document.querySelector("#menu").setAttribute('visible' , false);
       });
     }
   });
@@ -203,6 +205,15 @@
   document.querySelector(".trashToCollect").addEventListener('click',function () {
     compteur.incrValue();
   });
+
+  var textContainer = document.querySelector("#progression");
+  var newText = document.createElement('a-text');
+
+  newText.setAttribute('value', 'Score :' +compteur.getValue());
+  newText.setAttribute('color', 'white');
+  newText.setAttribute('align', 'center');
+
+  textContainer.appendChild(newText);
 
 </script>
   
