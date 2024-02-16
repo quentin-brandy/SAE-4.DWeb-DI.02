@@ -4,11 +4,12 @@
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.misc.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 </head>
 
 <body>
 
-  <a-scene stats>
+  <a-scene>
     <!-- <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
       <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
       <a-entity oculus-touch-controls="hand: left" ></a-entity>
@@ -55,13 +56,18 @@
       <a-asset-item id="moun1-mtl" src="assets/model/mountain1/mountain1.mtl"></a-asset-item>
       <a-asset-item id="moun2-obj" src="assets/model/mountain2/mountain2.obj"></a-asset-item>
       <a-asset-item id="moun2-mtl" src="assets/model/mountain2/mountain2.mtl"></a-asset-item>
+      <a-asset-item id="fence-obj" src="assets/model/fence/fence.obj"></a-asset-item>
+      <a-asset-item id="fence-mtl" src="assets/model/fence/fence.mtl"></a-asset-item>
     </a-assets>
 
-    <a-camera position="-0.64251 1.600 13.53574"></a-camera>
+    <a-camera position="-0.64251 1.600 13.53574" id="player"></a-camera>
+
+    <a-image width="1" height="0.5" position="-0.65765 7.28515 1.42932" look-at="#player" src="/assets/img/logo.png" material="" geometry="" rotation="10.579 93.438 0" scale="10 10 10"></a-image>
+    <a-image width="1" height="0.75" position="-0.01639 3.16653 -13.89145" src="/assets/img/frame1.png" material="side: front" geometry="" rotation="" scale="5 5 5"></a-image>
 
 
     <!-- Eléments visuels de la scène -->
-    <a-entity obj-model="obj: assets/model/mini_city/mini_city.obj; mtl: assets/model/mini_city/mini_city.mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637"></a-entity>
+    <a-entity obj-model="obj: assets/model/mini_city/mini_city.obj; mtl: assets/model/mini_city/mini_city.mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637" color="#808080"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="11.54948 14.14194 106.61522" scale="25 25 25" rotation="0 60.692 0"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="-81.52 14.72645 35.029" scale="25 20 25" rotation="0 60.692 0"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="89.61489 14.71575 -10.02129" scale="25 25 25" rotation="0 80.95377983182915 0"></a-entity>
@@ -109,6 +115,17 @@
     
     <a-entity obj-model="obj: assets/model/farm/farm.obj; mtl: assets/model/farm/farm.mtl" position="-22.87185 0.03 -44.87673" rotation=""></a-entity>
     <a-entity obj-model="obj: assets/model/farm/farm.obj; mtl: assets/model/farm/farm.mtl" position="21.45359 0.03 -43.67685" rotation="0 -90 0"></a-entity>
+    
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="28.5786 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="22.85247 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="17.12503 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="11.40237 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="5.68672 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-0.06099 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-10.25056 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-16.01966 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-21.75066 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-28.05095 0.02992 -50.29378" rotation="" scale="1.1915 1 1"></a-entity>
 
     <!-- <a-entity obj-model="obj: assets/model/grass/grass1.obj; mtl: assets/model/grass/grass1.mtl" position="36.5179 -0.67722 8.60815" scale="0.025 0.025 0.025"></a-entity>
     <a-entity obj-model="obj: assets/model/greengrass/greengrass.obj; mtl: assets/model/greengrass/greengrass.mtl"></a-entity> -->
