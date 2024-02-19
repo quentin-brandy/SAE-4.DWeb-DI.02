@@ -12,14 +12,23 @@
 
     class Compteur  {
 
-      value = 0;
+      compteur = 0;
+      nombreObj = 0;
 
-      getValue()  {
-        return this.value;
+      getCompteur()  {
+        return this.compteur;
       }
 
-      incrValue() {
-        this.value++
+      incrCompteur() {
+        this.compteur++
+      }
+
+      getNombreObj()  {
+        return this.nombreObj;
+      }
+
+      setNombreObj(value) {
+        this.nombreObj= value;
       }
 
 
@@ -205,16 +214,58 @@
 
   document.querySelectorAll(".trashToCollect").forEach(elt => {
     elt.addEventListener('click',function () {
-      compteur.incrValue();
+      compteur.incrCompteur();
       var textContainer = document.querySelector("#progression");
       textContainer.setAttribute('text', {
-          value: 'Score :' +compteur.getValue(),
+          value: 'Score :' +compteur.getCompteur()+" /"+nombreObj,
           align: 'center', 
           color: '#ffffff' 
       })
     });
     
   });
+
+  // 32 emplacement max
+
+  let emplacement = [
+  {id: "emp_1", x: 1, y:1, z:1},
+  {id: "emp_2", x: 1, y:2, z:1},
+  {id: "emp_3", x: 3, y:1, z:2},
+  ]
+
+  // function melangerTableau(tableau) {
+  //   for (let i = tableau.length - 1; i > 0; i--) {
+  //       const j = Math.floor(Math.random() * (i + 1));
+  //       [tableau[i], tableau[j]] = [tableau[j], tableau[i]];
+  //   }
+  //   return tableau;
+  // }
+  
+  function getPlace() {
+    for (let i = emplacement.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [emplacement[i], emplacement[j]] = [emplacement[j], emplacement[i]];
+    }
+    return emplacement.pop();
+  };
+
+  compteur.setNombreObj(Math.floor(Math.random() * 22)+10)
+
+
+  for (let i = 0; i < compteur.getNombreObj(); i++) {
+    let pileFace =Math.random() * 2;
+    let obj;
+    if (pileFace>1){
+      obj = document.querySelector("#trash_1").cloneNode(true);
+    }
+    else {
+      obj = document.querySelector("#trash_2").cloneNode(true);
+    }
+    let place = getPlace();
+    obj.setAttribute("position",{x: place.x, y: place.y, z: place.z})
+    console.log(obj, place);
+    document.querySelector("#scene_start").appendChild(obj);
+  }
   
 
 </script>
