@@ -1,21 +1,13 @@
 <html>
 
 <head>
-  <script
-    src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
-
-
-  <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
-  <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.1/dist/aframe-extras.misc.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.misc.min.js"></script>
 </head>
 
 <body>
-  <a-scene stats >
+  <a-scene  debug stats >
     <a-entity id="cameraRig"  wasd-controls position="-0.64251 1.600 13.53574" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
         <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
         <a-entity oculus-touch-controls="hand: left" ></a-entity>
@@ -28,16 +20,14 @@
           cameraRig: #cameraRig;
           teleportOrigin: #head;
           curveShootingSpeed: 6;
-         
-          "></a-entity>
+          button: trackpad"></a-entity>
     </a-entity>
 
 
     <a-entity  animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
       <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
       <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
-      <a-entity id="progression"  position="0.1 0.9 -0.25"></a-entity>
-    <a-entity position="0.18 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
+    <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
       <a-image class="clickable" id="tuto" src="#tutorielimg" scene1-visible  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
       <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
       <a-image class="clickable" id="level1" scene2-visible tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
@@ -89,27 +79,10 @@
         <a-asset-item id="moun1-mtl" src="assets/model/mountain1/mountain1.mtl"></a-asset-item>
         <a-asset-item id="moun2-obj" src="assets/model/mountain2/mountain2.obj"></a-asset-item>
         <a-asset-item id="moun2-mtl" src="assets/model/mountain2/mountain2.mtl"></a-asset-item>
-        <a-asset-item id="can-obj" src="assets/crushed_can.obj"></a-asset-item>
-        <a-asset-item id="can-mtl" src="assets/crushed_can.mtl"></a-asset-item>
-        <a-asset-item id="trash_bag-obj" src="assets/trash_bag.obj"></a-asset-item>
-        <a-asset-item id="trash_bag-mtl" src="assets/trash_bag.mtl"></a-asset-item>
-        <a-asset-item id="paper-obj" src="assets/paper.obj"></a-asset-item>
-        <a-asset-item id="paper-mtl" src="assets/paper.mtl"></a-asset-item>
-        <a-asset-item id="gear-obj" src="assets/gear.obj"></a-asset-item>
-        <a-asset-item id="gear-mtl" src="assets/gear.mtl"></a-asset-item>
-        <a-asset-item id="wine-obj" src="assets/wine.obj"></a-asset-item>
-        <a-asset-item id="wine-mtl" src="assets/wine.mtl"></a-asset-item>
-        <a-asset-item id="spring-obj" src="assets/spring.obj"></a-asset-item>
-        <a-asset-item id="spring-mtl" src="assets/spring.mtl"></a-asset-item>
       </a-assets>
       
      <!-- scène 1 -->
       <a-entity id="scene1" visible="true">
-
-        <a-entity position="-0.448 2.600 11.53574" width="2" height="5"  text="value: teleportez-vous en appuyant sur le joystic et maintenez le en pointant la direction ou vous voulez allez. Une fois que c'est fait relacher et vous serez teleporter sur le rond bleu."></a-entity>
-
-        <a-entity position="3.743 1.382 -3.811" width="2" height="5"  text="value: En cliquant sur la gachette de la manette vous ouvrez le menu qui vous permets de voyager entre les niveaux et voir le score pour cela il vous suffit de cliquer avec le meme bouton sur un des déchets present devant vous."></a-entity>
-
 
         <a-entity obj-model="obj: assets/model/mini_city/mini_city.obj; mtl: assets/model/mini_city/mini_city.mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637"></a-entity>
         <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="11.54948 14.14194 106.61522" scale="25 25 25" rotation="0 60.692 0"></a-entity>
@@ -161,31 +134,6 @@
         <a-entity obj-model="obj: assets/model/farm/farm.obj; mtl: assets/model/farm/farm.mtl" position="21.45359 0.03 -43.67685" rotation="0 -90 0"></a-entity>
     
         <a-cylinder position="-0.64251 -0.33209 13.53574" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
-
-
-        <a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position=" 0 0.151 -8.491">
-
-          <a-entity id="trash_bag" class="clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-          <a-entity id="paper" class="clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-          <a-entity id="can" class="clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: assets/crushed_can.obj; mtl: assets/crushed_can.mtl" ></a-entity>
-    
-        </a-entity>
-
-        
-    <a-entity id="trash_2" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="2 0.151 -8.491">
-
-      <a-entity id="trash_bag" class="clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-      <a-entity id="paper" class="clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-      <a-entity id="can" class="clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: assets/crushed_can.obj; mtl: assets/crushed_can.mtl" ></a-entity>
-
-    </a-entity>
-
-    
-    <a-entity id="trash_3" position="1 0.151 -8.491" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
-      <a-entity id="gear" class="clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
-      <a-entity id="spring" class="clickable" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
-    </a-entity>
-
 
 </a-entity>
 
@@ -270,38 +218,6 @@
 
 <script>
 
-class Compteur  {
-
-value = 0;
-
-getValue()  {
-  return this.value;
-}
-
-incrValue() {
-  this.value++
-}
-
-}
-
-
-let compteur = new Compteur;
-
-
-document.querySelectorAll(".trashToCollect").forEach(elt => {
-  elt.addEventListener('click',function () {
-    compteur.incrValue();
-    var textContainer = document.querySelector("#progression");
-    textContainer.setAttribute('text', {
-        value: 'Score :' +compteur.getValue(),
-        align: 'center', 
-        color: '#ffffff' 
-    })
-  });
-  
-});
-
-
 
     AFRAME.registerComponent('scene1-visible', {
       init: function() {
@@ -378,6 +294,29 @@ document.querySelectorAll(".trashToCollect").forEach(elt => {
         };
       })()
     });
+
+
+
+
+
+//menu rotation
+
+
+AFRAME.registerComponent('animation-rotation', {
+  tick: (function () {
+    let head = document.querySelector("#head");
+    let right = document.querySelector("#right");
+    var quaternion = new THREE.Quaternion();
+    return function() {
+      test = head.object3D.getWorldQuaternion(quaternion);
+      let menu = document.querySelector("#menu");
+      right.addEventListener('abuttondown', function() {
+        menu.object3D.rotation.set(quaternion._x , quaternion._y , quaternion._z
+);
+      });
+    };
+  })()
+});
 
 
 // menu position 
