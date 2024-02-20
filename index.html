@@ -14,7 +14,7 @@
         <nav class="header__nav">
             <ul>
                 <li><a href="#lore">Lore</a></li>
-                <li><a href="#features">Fonctionnement</a></li>
+                <li><a href="#fonctionnent">Fonctionnement</a></li>
                 <li><a href="#level_design">Level Design</a></li>
             </ul>
         </nav>
@@ -23,13 +23,19 @@
 
     <main class="main">
 
+        <div id="imgLoaded">
+            <img class="imgToLoad" src="" alt="image Loaded">
+            <button class="toClose">X</button>
+        </div>
+
         <h1>HellCleaner - Jeu de nettoyage en VR</h1>
 
-        <section class="section">
-            <figure class="section__figure">
-                <img class="section__img" src="assets/lobby.png" alt="image du tutoriel">
-                <figcaption class="section__figcaption">
-                    HellCleaner est un jeu aux allures rafraîchissantes, mais qui cache un sombre secret !Un individu mystérieux a semé le trouble et la saleté dans ShinyCity. C’est la panique pour les habitants qui ont déserté la ville, maintenant surnommée DirtyCity.
+        <section id="lore" class="section1">
+            <h2 class="section1__h2">Lore</h2>
+            <figure class="section1__figure">
+                <img class="section1__img toClick" src="assets/lobby.png" alt="image du tutoriel">
+                <figcaption class="section1__figcaption">
+                    HellCleaner est un jeu aux allures rafraîchissantes, mais qui cache un sombre secret ! Un individu mystérieux a semé le trouble et la saleté dans ShinyCity. C’est la panique pour les habitants qui ont déserté la ville, maintenant surnommée DirtyCity.
                     <br><br>
                     Votre mission est de nettoyer la ville de son impureté. HellCleaner est un jeu d’exploration dont le but est de collecter l’entièreté de la saleté présente dans DirtCity.
                     <br><br>
@@ -39,6 +45,54 @@
             </figure>
         </section>
 
+
+        <section id="fonctionnent" class="section2">
+            <h2 class="section2__h2">Fonctionnement</h2>
+            <figure class="section2__figure">
+                <img class="section2__img toClick" src="assets/lobby.png" alt="image du tutoriel">
+                <figcaption class="section2__figcaption">
+                    Jouer à HellCleaner VR est assez simple. On se déplace en se téléportant avec le joystick de la manète. On ramasse des objets, ou tout simplement on intéragit avec l'environnement avec la gachette de la manète. Une fois le tutoriel suivi, on arrive dans le 1er niveau (1/1), une grande ville. HellCleaner est codé avec a-frame, un framework.
+                </figcaption>
+            </figure>
+            <figure class="section2__figure">
+                <h3 class="section2__h3">Scene Loader</h3>
+                <img class="section2__img toClick" src="assets/sceneloader.png" alt="code du loader des scenes">
+                <img class="section2__img toClick" src="assets/scenes.png" alt="code des scenes">
+                <figcaption class="section2__figcaption">
+                    Pour les niveau, notre logique est de charger/décharger une scène, en jouant sur son attribut "visible". Ce ne sont pas des "scène" a proprement parlé, mais des entités avec un identifiant (comme "scene_tuto", "scene_lvl1") car dans a-frame, on ne peut avoir qu'une seule balise a-scene.
+                </figcaption>
+            </figure>
+            <figure class="section2__figure">
+                <h3 class="section2__h3">Menu</h3>
+                <img class="section2__img toClick" src="assets/menu.png" alt="code du menu">
+                <img class="section2__img toClick" src="assets/menuloader.png" alt="code du menuloader">
+                <figcaption class="section2__figcaption">
+                    Pour permuter entre ces différents niveaux, nous avons créé un menu qui s'ouvre en fonction de la position de la manette. Ce menu est une a-entity qui contient une a-box pour donner une texture visuelle, mais également qui contient des images clickables. Ces images fonctionnent avec des registerComponent pour la visibilité et la position du menu, et ont un addEventListener qui s'occupe de charger/décharger une scène.
+                </figcaption>
+            </figure>
+            <figure class="section2__figure">
+                <h3 class="section2__h3">Emplacements</h3>
+                <img class="section2__img toClick" src="assets/places.png" alt="code du placement des objets">
+                <figcaption class="section2__figcaption">
+                    Pour les objets à ramasser, c'est une a-entity qui contient différents model trouvés sur le net. Ils sont positionés sur la map de manière dynamique et alétoire.
+                    L'idée derrière et d'avoir une liste d'emplacement possible (un tableau d'objets contenant des coordonées), de définir un nombre aléatoire d'objets (un Math.random avec un maximum de 32 car c'est le nombre maximum d'emplacement), et avec une boucle for i, assigner un objets, parmis les quelques preset d'objets qu'on a créé, à un emplacement aléatoire.
+                </figcaption>
+            </figure>
+        </section>
+
+
+        <!-- TODO -->
+
+
+        <section id="level_design" class="section3">
+            <h2 class="section3__h2">Level Design</h2>
+            <figure class="section3__figure">
+                <img class="section3__img toClick" src="assets/lobby.png" alt="image du tutoriel">
+                <figcaption class="section3__figcaption">
+                    HellCleaner est un jeu aux allures rafraîchissantes, mais qui cache un sombre secret ! Un individu mystérieux a semé le trouble et la saleté dans ShinyCity. C’est la panique pour les habitants qui ont déserté la ville, maintenant surnommée DirtyCity.
+                </figcaption>
+            </figure>
+        </section>
 
 
 
