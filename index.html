@@ -15,16 +15,16 @@
 </head>
 
 <body>
-  <a-scene stats physics="gravity: 0">
-    <a-mixin id="controller" physics-collider static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
+  <a-scene stats="" physics="gravity: 0" inspector="" keyboard-shortcuts="" screenshot="" xr-mode-ui="" device-orientation-permission-ui="">
+    <a-mixin id="controller" physics-collider="" static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;
                    colliderEventProperty: els;
                    colliderEndEvent: collisions;
                    colliderEndEventProperty: clearedEls" collision-filter="group: hands;
                           collidesWith: red, blue;
                           collisionForces: false">
     </a-mixin>
-    <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5">
-    </a-mixin>
+    <!-- <a-mixin id="cube" dynamic-body grabbable geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"> -->
+    
       
       <!-- Assets -->
       <a-assets>
@@ -50,42 +50,229 @@
       </a-assets>
       
       <!-- Caméra -->
-      <a-entity rotation="0 -60 0">
-        <a-camera></a-camera>
+      <a-entity rotation="0 -59.99999999999999 0">
+        <a-camera camera="" position="9.450316248530145 1.6 68.25430974033338" rotation="-11.11538122553798 163.86592940741536 0" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-camera>
       </a-entity>
+      
+      <!-- Eléments visuels de la scène -->
+      <!-- batiments -->
+      <a-entity id="group_bat_1">
+        <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.156 -24.41533" scale="38.734 0.216 37.27071"></a-box>
+        <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
+        <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
+        <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
+        <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
+        <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
+        <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
+        <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
+        <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
+      </a-entity>
+      
+      <a-entity id="group_bat_2">
+        <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.33715 0.156 -24.415" scale="38.734 0.216 37.271"></a-box>
+      <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="10 10 10" position="-58.74231 -0.01399 -9.9384" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 7.16" position="-58.49526 0 -24.294" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-58.677 -0.009 -38.647" rotation=""></a-entity>
+      <a-entity obj-model="obj: assets/model/skyscraper/skyscraper.obj; mtl: assets/model/skyscraper/skyscraper.mtl" scale="7 7 7" rotation="0 180 0" position="-47.096 0.096 -9.94394"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9 9 9" position="-33.31541 0 -9.37511" rotation="0 180 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="-28.357 0 -21.066" visible="" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="-30.24273 0.036 -37.1066" scale="10 10 10" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9 9 9" position="-45.484 0 -39.456" rotation=""></a-entity>
+    </a-entity>
+    
+    <a-entity id="group_bat_3">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="53.61152 0.156 -24.415" scale="36.90555 0.216 37.271"></a-box>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="54.20421 0 -39.20413" rotation=""></a-entity>
+      <a-entity obj-model="obj: assets/model/skyscraper/skyscraper.obj; mtl: assets/model/skyscraper/skyscraper.mtl" scale="7.75 7.75 7.75" rotation="" position="39.88292 0.096 -38.346"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="67.979 -0.009 -38.955" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="9 9 9" position="40.66 0 -24.37498" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="39.64253 -0.006 -8.9476" rotation="0 180 0" scale="11 10 8"></a-entity>
+      <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="52.15398 -0.026 -9.79974" visible="" rotation="0 180 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="13.32379 10 10" position="66.655 -0.01399 -9.76102" rotation="0 180 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="66.16957 0.036 -28.02772" scale="11 10 10" rotation="0 -90 0"></a-entity>
+    </a-entity>
 
-    <!-- Eléments visuels de la scène -->
-    <!-- batiments -->
-    <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
-    <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
+    <a-entity id="group_bat_4" position="77.43216 -0.18 28.83798" rotation="0 90 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.156 -24.41533" scale="38.734 0.216 38.32828"></a-box>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
+    </a-entity>
 
-    <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
+    <a-entity id="bat_cote_1" position="-0.47 0 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.88 -0.058 -0.28" scale="112.083 0.216 3.505" rotation="0 90 0.151"></a-box>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="9 9 9" position="87.83621 0 -30.2205" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="7.34217 9.5 9.5" position="86.16507 0 -46.66094" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.425 -0.006 49.236" rotation="0 90 0" scale="7.10944 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+    </a-entity>
 
-    <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
-    <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
-    <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
+    <a-entity id="bat_cote_1-2" position="9.86822 0 0" rotation="0 180 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.88 0.052 -0.28" scale="112.083 0.216 3.505" rotation="0 90 0.009"></a-box>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="9 9 9" position="87.83621 0 -30.2205" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="6.00054 9.5 9.5" position="86.165 0 -45.25987" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.425 -0.006 49.81298" rotation="0 90 0" scale="8.30902 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="bat_cote_1-3" position="-19.95277 0 -31.24" rotation="0 -90 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.88 -0.04308 -24.97459" scale="160.22277 0.216 3.505" rotation="0 89.84 -0.061"></a-box>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity><a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="9 9 9" position="87.836 0 -30.2205" rotation="0 90 0"></a-entity><a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="7.34217 9.5 9.5" position="86.16507 0 -46.66094" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.425 -0.006 49.44983" rotation="0 90 0" scale="7.60796 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity><a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="bat_cote_1-4" position="29.79227 0 29.5381" rotation="0 90 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.62 0.247 -24.975" scale="160.223 0.216 3.505" rotation="0 90 -0.021"></a-box>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity><a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="9 9 9" position="87.836 0 -30.2205" rotation="0 90 0"></a-entity><a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="7.34217 9.5 9.5" position="86.16507 0 -46.66094" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.425 -0.006 49.47941" rotation="0 90 0" scale="7.69626 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity><a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+    </a-entity>
 
 
-    <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="10 10 10" position="-58.74231 -0.01399 -9.9384" rotation="0 90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="10 10 7.16" position="-58.49526 0 -24.294" rotation="0 -90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="-58.677 -0.009 -38.647" rotation=""></a-entity>
-    <a-entity obj-model="obj: assets/model/skyscraper/skyscraper.obj; mtl: assets/model/skyscraper/skyscraper.mtl" scale="7 7 7" rotation="0 180 0" position="-47.096 0.096 -9.94394"></a-entity>
-    <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9 9 9" position="-33.31541 0 -9.37511" rotation="0 180 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="-28.357 0 -21.066" visible="" rotation="0 -90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="-30.24273 0.036 -37.1066" scale="10 10 10" rotation="0 -90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9 9 9" position="-45.484 0 -39.456" rotation=""></a-entity>
+    <!-- Parc -->
+    <a-box width="5" height="5" color="#98aaae" material="color: #009A16; shader: flat" geometry="width: 1; height: 1" position="-19.394 -0.004 23.072" scale="86.91415 0.216 36.94074"></a-box>
+    
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="-25.83839 3.07146 19.03725" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="-13.07623 3.07146 30.82424" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="-0.47329 3.07146 14.30871" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="19.28385 3.07146 20.14343" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="7.6198 3.07146 36.34142" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="-51.47282 3.07146 12.46517" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="-57.11478 3.07146 30.5767" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/tree/tree.obj; mtl: assets/model/tree/tree.mtl" position="-37.27628 3.07146 36.46937" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    
+    <a-entity obj-model="obj: assets/model/bench/bench.obj; mtl: assets/model/bench/bench.mtl" position="-5.16601 0.439 28.57531" scale="3 3 3" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/bench/bench.obj; mtl: assets/model/bench/bench.mtl" position="9.26005 0.439 20.1279" scale="3 3 3" rotation="0 180 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/bench/bench.obj; mtl: assets/model/bench/bench.mtl" position="-31.90339 0.439 19.8285" scale="3 3 3" rotation="0 180 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/bench/bench.obj; mtl: assets/model/bench/bench.mtl" position="-50.45191 0.439 29.16289" scale="3 3 3" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/bench/bench.obj; mtl: assets/model/bench/bench.mtl" position="-14.26774 0.439 12.69988" scale="3 3 3" rotation="0 90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/bench/bench.obj; mtl: assets/model/bench/bench.mtl" position="-24.07324 0.439 34.91413" scale="3 3 3" rotation="0 -90 0"></a-entity>
 
-    <a-entity obj-model="obj: assets/model/indus_building/indus_building.obj; mtl: assets/model/indus_building/indus_building.mtl" scale="9.5 9.5 9.5" position="54.20421 0 -39.20413" rotation=""></a-entity>
-    <a-entity obj-model="obj: assets/model/skyscraper/skyscraper.obj; mtl: assets/model/skyscraper/skyscraper.mtl" scale="7.75 7.75 7.75" rotation="" position="39.88292 0.096 -38.346"></a-entity>
-    <a-entity obj-model="obj: assets/model/small_building/small_building.obj; mtl: assets/model/small_building/small_building.mtl" scale="10 10 10" position="67.979 -0.009 -38.955" rotation="0 -90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/big_building/big_building.obj; mtl: assets/model/big_building/big_building.mtl" scale="9 9 9" position="40.66 0 -24.37498" rotation="0 90 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/large_building/large_building.obj; mtl: assets/model/large_building/large_building.mtl" position="39.64253 -0.006 -8.9476" rotation="0 180 0" scale="11 10 8"></a-entity>
-    <a-entity obj-model="obj: assets/model/shop_building/shop_building.obj; mtl: assets/model/shop_building/shop_building.mtl" scale="10 10 10" position="52.15398 -0.026 -9.79974" visible="" rotation="0 180 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/esc_building/esc_building.obj; mtl: assets/model/esc_building/esc_building.mtl" scale="13.32379 10 10" position="66.655 -0.01399 -9.76102" rotation="0 180 0"></a-entity>
-    <a-entity obj-model="obj: assets/model/hotel_building/hotel_building.obj; mtl: assets/model/hotel_building/hotel_building.mtl" position="66.16957 0.036 -28.02772" scale="11 10 10" rotation="0 -90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/path/path.obj" position="-19.471 0.024 22.95289" scale="3.57523 7.5 19.79493" rotation="0 -0.8531341569497958 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/path/path.obj" position="3.88126 0.024 24.39245" scale="3.57523 7.5 21.40508" rotation="0 90 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/path/path.obj" position="-42.77113 0.024 24.58095" scale="3.57523 7.5 21.40508" rotation="0 90 0"></a-entity>
+    
+    <a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
 
+    <a-entity position="-48.68 0 0">
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-48.68 0 36.66547">
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-0.02617 0 36.66547">
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="18.897 0 27.74514" rotation="0 90 0">
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.43089 1.66262 1.66262" rotation="" position="21.80344 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.47923 1.66262 1.66262" rotation="" position="19.25154 0.46105 4.774"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-57.64849 0 18.55861" rotation="0 -90 0">
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.50767 1.66262 1.66262" rotation="" position="21.7104 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.50993 1.66262 1.66262" rotation="" position="19.31463 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
 
     <!-- routes -->
     <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-19.047 0.036 -23.576" scale="60.616 10 15" rotation="0 -90 0"></a-entity>
@@ -108,27 +295,62 @@
     <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="-43.493 -0.097 46.485" scale="60.616 10 15" rotation="-0.28 0 -0.06"></a-entity>
     <a-entity obj-model="obj: assets/model/road/road.obj; mtl: assets/model/road/road.mtl" position="29.142 -0.014 23.824" scale="60.73 10 15" rotation="-1.1500000000000001 -90 0"></a-entity>
     
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-18.98332 -0.01346 -0.61765" scale="8.091 0.137 7.79695" rotation="0.27 0.31 0.52"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-66.80738 -0.052 -0.69019" scale="8.89299 0.137 7.684" rotation=""></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-66.807 0.078 -47.41319" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-18.6506 0.078 -47.829" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="29.47846 0.108 -47.82904" scale="8.26533 0.137 7.747" rotation="0 180 0.83"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="29.47848 -0.027 -0.44491" scale="9.28789 0.137 7.747" rotation="0.509 0 -0.62"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="77.55596 -0.034 -0.346" scale="8.26533 0.137 7.747" rotation="0 180 0"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="77.50349 0.036 -48.12924" scale="8.26533 0.137 7.93523" rotation="0.776 0 0"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-66.807 -0.102 46.16063" scale="8.893 0.137 7.684" rotation=""></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="-19.67386 -0.102 46.53373" scale="9.25668 0.137 7.35708" rotation=""></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="29.23819 -0.082 46.53373" scale="9.25668 0.137 7.35708" rotation="0.3907572162792215 -0.005156620156177409 -0.6978625944693427"></a-box>
-    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F" geometry="" position="77.17346 -0.124 46.26902" scale="8.26533 0.137 7.747" rotation="0 180 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-18.98332 -0.01346 -0.61765" scale="8.091 0.137 10.63638" rotation="0.27 0.31 0.52"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-66.80738 -0.052 -0.69019" scale="8.89299 0.137 7.684" rotation=""></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-66.807 0.078 -47.41319" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-18.6506 0.078 -47.829" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.47846 0.108 -47.82904" scale="8.26533 0.137 7.747" rotation="0 180 0.83"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.47848 -0.027 -0.44491" scale="9.28789 0.137 7.747" rotation="0.509 0 -0.62"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.55596 -0.034 -0.346" scale="8.26533 0.137 7.747" rotation="0 180 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.50349 0.036 -48.12924" scale="8.26533 0.137 7.93523" rotation="0.776 0 0"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-66.807 -0.102 46.16063" scale="8.893 0.137 7.684" rotation=""></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-19.67386 -0.102 46.53373" scale="9.25668 0.137 10.42671" rotation=""></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.23819 -0.082 46.53373" scale="9.25668 0.137 7.35708" rotation="0.3907572162792215 -0.005156620156177409 -0.6978625944693427"></a-box>
+    <a-box width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.173 -0.154 46.269" scale="8.265 0.137 7.747" rotation="0 180 0"></a-box>
     
-    <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.33715 0.156 -24.415" scale="38.734 0.216 37.271"></a-box>
-    <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.156 -24.41533" scale="38.734 0.216 37.27071"></a-box>
-    <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="53.61152 0.156 -24.415" scale="36.90555 0.216 37.271"></a-box>
     
 
-    <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+    <a-sky src="#skyTexture" material="color: #FFFFFF" geometry=""></a-sky>
     <!-- <a-plane rotation="-90 0 0" width="50" height="50" repeat="10 10" color="gray" material="" geometry="" scale="2.765 2.461 0.97"></a-plane> -->
-</a-scene>
+
+    <!-- Détritus à collecter -->
+
+    <!-- 1 position : 3.83935 0.15928 -30.77648 -->
+    <!-- 2 position : 16.40803 0.286 -18.17951 -->
+    <!-- 3 position : -23.12582 3.67893 -19.24529 -->
+    <!-- 4 position : -28.55774 0.04187 -5.39985 -->
+    <!-- 5 position : -36.53177 0.29766 -35.34442 -->
+    <!-- 6 position : -54.41494 0.18826 -18.57678 -->
+    <!-- 7 position : -51.93509 0.03713 12.54512 -->
+    <!-- 8 position : -49.860 0.521 28.921 -->
+    <!-- 9 position : -24.385 0.123 33.231 -->
+    <!-- 10 position : -28.159 0.096 50.369 -->
+    <!-- 11 position : 23.087 0.100 5.150 -->
+    <!-- 12 position : 49.014 3.687 -4.926 -->
+    <!-- 13 position : 59.699 4.795 -6.027 -->
+    <!-- 14 position : 72.244 0.197 -6.621 -->
+    <!-- 15 position : 59.435 0.273 -34.924 -->
+    <!-- 16 position : 46.217 0.268 -15.878 -->
+    <!-- 17 position : 40.129 0.393 -53.524 -->
+    <!-- 18 position : 18.138 0.393 -43.214 -->
+    <!-- 19 position : 8.965 5.025 -42.953 -->
+    <!-- 20 position : 16.241 5.006 -35.194 -->
+    <!-- 21 position : 9.318 0.355 -6.242 -->
+    <!-- 22 position : 7.513 0.347 20.740 -->
+    <!-- 23 position : -14.017 0.471 -9.412 -->
+    <!-- 24 position : -72.257 0.387 3.074 -->
+    <!-- 25 position : -63.007 0.446 -36.424 -->
+    <!-- 26 position : 6.837 0.318 36.454 -->
+    <!-- 27 position : 63.403 0.320 34.211 -->
+    <!-- 28 position : 42.748 0.320 19.952 -->
+    <!-- 29 position : 24.991 0.481 -26.685 -->
+    <!-- 30 position : 17.141 0.513 -6.276 -->
+    <!-- 31 position : 24.200 0.429 33.185 -->
+    <!-- 32 position : 81.350 0.616 -52.198 -->
+
+
+
+<div class="a-loader-title" style="display: none;"></div></a-scene>
 </body>
 
 </html>
