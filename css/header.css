@@ -89,14 +89,15 @@
     .header__nav ul {
         display: flex;
         margin: 0;
+        gap: 1rem;
         list-style: none;
     }
     
     .header__nav ul li {
-        padding: auto 0;
+        /* padding: auto 0; */
         line-height: 3;
         text-align: center;
-        width: 10rem;
+        width: auto;
         /* border-bottom: 1px solid rgb(116, 29, 29); */
         border-top: none;
     }
@@ -115,7 +116,12 @@
     
     .header__nav ul li a {
         text-decoration: none;
-        color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    .header__nav ul li a:hover {
+        text-decoration: none;
+        text-decoration: underline;
     }
 }
 

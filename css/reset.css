@@ -10,6 +10,7 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   scroll-behavior: smooth;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
