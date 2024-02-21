@@ -47,7 +47,20 @@
           curveShootingSpeed: 6"></a-entity>
     </a-entity>
 
-<!-- trash -->
+
+
+<!-- menu -->
+    <a-entity  animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
+      <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
+      <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
+    <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
+      <a-image class="clickable" id="tuto" src="#tutorielimg" sceneloading  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
+      <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
+      <a-image class="clickable" id="level1" sceneloading tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
+      <a-entity id="progression" position="0.749 0.852 -0.240"></a-entity>
+    </a-entity>
+   
+    <!-- trash -->
 
 <a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-0 0 0">
 
@@ -65,17 +78,6 @@
 
 </a-entity>
 
-<!-- menu -->
-    <a-entity  animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
-      <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
-      <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
-    <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
-      <a-image class="clickable" id="tuto" src="#tutorielimg" scene1-visible  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
-      <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
-      <a-image class="clickable" id="level1" scene2-visible tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
-      <a-entity id="progression" position="0.749 0.852 -0.240"></a-entity>
-    </a-entity>
-   
       <!-- Assets -->
       <a-assets>
         <img id="skyTexture" src="assets/img/sky.jpg">
@@ -539,40 +541,57 @@
  let compteur = new Compteur;
 
 
- 
+ AFRAME.registerComponent('sceneloading', {
+    init: function() {
+      let btn1 = document.querySelector('#tuto')
+      let btn2 = document.querySelector('#level1')
+      let scene1 = document.querySelector('#scene1');
+      let scene2 = document.querySelector('#scene2');
+      btn1.addEventListener('click', function() {
+        scene1.setAttribute('visible' , true);
+        scene2.setAttribute('visible' , false);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+      btn2.addEventListener('click', function() {
+        scene1.setAttribute('visible' , false);
+        scene2.setAttribute('visible' , true);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+    }
+  });
     
-    AFRAME.registerComponent('scene1-visible', {
-      init: function() {
-        let tuto = document.querySelector('#tuto')
-        let scene1 = document.querySelector('#scene1');
-        let scene2 = document.querySelector('#scene2');
-      tuto.addEventListener('click', function() {
-        console.log(scene1.getAttribute('visible'));
-        if (scene1.getAttribute('visible') === true) {
+    // AFRAME.registerComponent('scene1-visible', {
+    //   init: function() {
+    //     let tuto = document.querySelector('#tuto')
+    //     let scene1 = document.querySelector('#scene1');
+    //     let scene2 = document.querySelector('#scene2');
+    //   tuto.addEventListener('click', function() {
+    //     console.log(scene1.getAttribute('visible'));
+    //     if (scene1.getAttribute('visible') === true) {
     
-            } else {
-              scene1.setAttribute('visible' , true);
-              scene2.setAttribute('visible' , false);
-            }
-    });
-          }});
+    //         } else {
+    //           scene1.setAttribute('visible' , true);
+    //           scene2.setAttribute('visible' , false);
+    //         }
+    // });
+    //       }});
     
-          AFRAME.registerComponent('scene2-visible', {
-      init: function() {
-        let tuto = document.querySelector('#level1');
-        let scene1 = document.querySelector('#scene1');
-        let scene2 = document.querySelector('#scene2');
-      tuto.addEventListener('click', function() {
-        console.log(scene2.getAttribute('visible'));
-        if (scene2.getAttribute('visible') === true) {
+    //       AFRAME.registerComponent('scene2-visible', {
+    //   init: function() {
+    //     let tuto = document.querySelector('#level1');
+    //     let scene1 = document.querySelector('#scene1');
+    //     let scene2 = document.querySelector('#scene2');
+    //   tuto.addEventListener('click', function() {
+    //     console.log(scene2.getAttribute('visible'));
+    //     if (scene2.getAttribute('visible') === true) {
     
-            } else {
-              scene2.setAttribute('visible' , true);
-              scene1.setAttribute('visible' , false);
+    //         } else {
+    //           scene2.setAttribute('visible' , true);
+    //           scene1.setAttribute('visible' , false);
              
-            }
-    });
-          }});
+    //         }
+    // });
+    //       }});
     
     //tuto position
     let positiontuto = {x:-0.64251 , y:0 , z:13.53574};

@@ -36,7 +36,7 @@
 
   </script>
 
-
+<!-- -0.64251 1.52 13.53574 -->
    <a-scene cursor="rayOrigin: mouse">
       <a-entity id="head" position="-0.64251 1.52 13.53574" wasd-controls camera look-controls="reverseMouseDrag: true"></a-entity>
       <a-entity  id="right"
@@ -55,7 +55,7 @@
 
   </a-entity>
 
-  <a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="0.64251 1.52 13.53574">
+  <a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="0 0 0">
 
     <a-entity id="trash_bag" class="clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
     <a-entity id="paper" class="clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -68,9 +68,9 @@
     <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
     <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
   <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
-    <a-image class="clickable" id="tuto" src="#tutorielimg" scene1-visible  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
+    <a-image class="clickable" id="tuto" src="#tutorielimg" sceneloading  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
     <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
-    <a-image class="clickable" id="level1" scene2-visible tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2" ></a-image>
+    <a-image class="clickable" id="level1" sceneloading tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2" ></a-image>
     <a-entity id="progression" position="0.33588 0.852 0.01"></a-entity>
   </a-entity>
   
@@ -80,9 +80,9 @@
     <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
     <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
   <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
-    <a-image class="clickable" id="tuto2" src="#tutorielimg" scene1-visible  scene1-positionlvl1 position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
+    <a-image class="clickable" id="tuto2" src="#tutorielimg" sceneloading2  scene1-positionlvl1 position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
     <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
-    <a-image class="clickable" id="level12" scene2-visible tuto-positionlvl1  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2" ></a-image>
+    <a-image class="clickable" id="level12" sceneloading2 tuto-positionlvl1  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2" ></a-image>
     <a-entity id="progression" position="0.849 0.852 -0.240"></a-entity>
   </a-entity>
 
@@ -114,10 +114,6 @@
           <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
           <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
           <a-asset-item id="smallRock-mtl" src="assets/model/smallRock/SmallRock.mtl"></a-asset-item>
-          <!-- <a-asset-item id="grass1-obj" src="assets/model/grass/grass1.obj"></a-asset-item>
-          <a-asset-item id="grass1-mtl" src="assets/model/grass/grass1.mtl"></a-asset-item>
-          <a-asset-item id="greengrass1-obj" src="assets/model/greengrass/greengrass.obj"></a-asset-item>
-          <a-asset-item id="greengrass1-mtl" src="assets/model/greengrass/greengrass.mtl"></a-asset-item> -->
           <a-asset-item id="tree&rock-obj" src="assets/model/tree&rock/tree&rock.obj"></a-asset-item>
           <a-asset-item id="tree&rock-mtl" src="assets/model/tree&rock/tree&rock.mtl"></a-asset-item>
           <a-asset-item id="miniCity-obj" src="assets/model/mini_city/mini_city.obj"></a-asset-item>
@@ -150,8 +146,6 @@
           <a-asset-item id="tree-mtl" src="assets/model/tree/tree.mtl"></a-asset-item>
           <a-asset-item id="bench-obj" src="assets/model/bench/bench.obj"></a-asset-item>
           <a-asset-item id="bench-mtl" src="assets/model/bench/bench.mtl"></a-asset-item>
-          <!-- <a-asset-item id="bush-obj" src="assets/model/bush/bush.obj"></a-asset-item>
-          <a-asset-item id="bush-mtl" src="assets/model/bush/bush.mtl"></a-asset-item> -->
           <a-asset-item id="paper-obj" src="assets/model/paper/paper.obj"></a-asset-item>
           <a-asset-item id="paper-mtl" src="assets/model/paper/paper.mtl"></a-asset-item>
         </a-assets>
@@ -269,7 +263,7 @@
   
        <!-- scène 2 -->
   
-      <a-entity position="200 0 0" id="scene2" visible="true">
+      <a-entity position="200 0 0" id="scene2" visible="false">
   
 
 
@@ -538,7 +532,10 @@
       <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-19.67386 -0.102 46.53373" scale="9.25668 0.137 10.42671" rotation=""></a-box>
       <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.23819 -0.082 46.53373" scale="9.25668 0.137 7.35708" rotation="0.3907572162792215 -0.005156620156177409 -0.6978625944693427"></a-box>
       <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.173 -0.154 46.269" scale="8.265 0.137 7.747" rotation="0 180 0"></a-box>
-   
+      </a-entity>
+
+
+      <!-- scène final -->
       <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
   </body>
    </a-scene>
@@ -565,6 +562,50 @@ document.querySelectorAll(".trashToCollect").forEach(elt => {
   });
 
     
+
+  AFRAME.registerComponent('sceneloading', {
+    init: function() {
+      let btn1 = document.querySelector('#tuto')
+      let btn2 = document.querySelector('#level1')
+      let scene1 = document.querySelector('#scene1');
+      let scene2 = document.querySelector('#scene2');
+      btn1.addEventListener('click', function() {
+        scene1.setAttribute('visible' , true);
+        scene2.setAttribute('visible' , false);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+      btn2.addEventListener('click', function() {
+        scene1.setAttribute('visible' , false);
+        scene2.setAttribute('visible' , true);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+    }
+  });
+    
+
+
+  AFRAME.registerComponent('sceneloading2', {
+    init: function() {
+      let btn1 = document.querySelector('#tuto2')
+      let btn2 = document.querySelector('#level12')
+      let scene1 = document.querySelector('#scene1');
+      let scene2 = document.querySelector('#scene2');
+      btn1.addEventListener('click', function() {
+        scene1.setAttribute('visible' , true);
+        scene2.setAttribute('visible' , false);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+      btn2.addEventListener('click', function() {
+        scene1.setAttribute('visible' , false);
+        scene2.setAttribute('visible' , true);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+    }
+  });
+    
+
+
+
     //tuto position 
     let positiontuto = {x:-0.64251 , y:1.52 , z:13.53574};  
     
