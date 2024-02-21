@@ -248,10 +248,12 @@
     init: (function () {
       let position = this.el.getAttribute('position');
       
-      right.addEventListener('click', function() {
+      this.el.addEventListener('click', function() {
+        let coord = new THREE.Vector3();
+        this.el.object3D.getWorldPosition(coord);
         el.setAttribute('animation__position', {
           property: "position",
-          to: {x: position.x, y: position.y + 0.2, z: position.z},
+          to: {x: coord.x, y: coord.y + 0.2, z: coord.z},
           dur: 2000
         });
       });
