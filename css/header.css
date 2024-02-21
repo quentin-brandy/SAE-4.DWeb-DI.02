@@ -1,6 +1,7 @@
 .header {
     position: relative;
     height: 5rem;
+    width: 100%;
     background-color: brown;
 }
 
@@ -68,8 +69,53 @@
 
 
 @media screen and (min-width: 800px) {
-    body {
-        background-color:  blue;
+
+    .header {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        top: 0;
+    }
+
+    .header__nav-icon {
+        display: none;
+    }
+
+    .header__nav {
+        position: relative;
+        display: flex;
+        background-color: transparent;
+    }
+    .header__nav ul {
+        display: flex;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .header__nav ul li {
+        padding: auto 0;
+        line-height: 3;
+        text-align: center;
+        width: 10rem;
+        /* border-bottom: 1px solid rgb(116, 29, 29); */
+        border-top: none;
+    }
+    
+    .header__nav ul li:hover {
+        background-color: transparent;
+    
+    }
+    
+    .header__nav ul li:last-child {
+        padding: auto 0;
+        line-height: 3;
+
+        border-bottom: none;
+    }
+    
+    .header__nav ul li a {
+        text-decoration: none;
+        color: #000000;
     }
 }
 

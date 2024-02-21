@@ -9,7 +9,7 @@ h1 {
 
 #imgLoaded {
     display: none;
-    top: 40%;
+    /* top: 40%; */
     position: relative;
     position: fixed;
     width: 100%;
@@ -21,6 +21,23 @@ h1 {
 
 .toClose {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 1rem;
+    aspect-ratio: 1;
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    scale: 1.2;
+    font-weight: 900;
+}
+
+@media screen and (min-width: 800px) {
+    .imgToLoad {
+        width: 60%;
+    }
+
+    .toClose {
+        right: 41%;
+    }
 }

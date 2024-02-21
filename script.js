@@ -18,8 +18,17 @@ let imgs = document.querySelectorAll(".toClick");
 function handlerImg(ev) {
     console.log(ev);
     divImg.style.display = "block";
-    divImg.style.top = (window.innerHeight - ev.target.clientHeight) / 2 + "px";
     imgContainer.src = ev.target.currentSrc;
+
+    let imgHeight = imgContainer.clientHeight;
+    let windowHeight = window.innerHeight;
+    let topOffset = Math.max((windowHeight - imgHeight) / 2, 0); 
+    divImg.style.top = topOffset + "px";
+
+    let imgWidth = imgContainer.clientWidth;
+    let windowWidth = window.innerWidth;
+    let leftOffset = Math.max((windowWidth - imgWidth) / 2, 0); 
+    divImg.style.left = leftOffset + "px";
 }
 
 imgs.forEach(img => {
