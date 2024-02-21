@@ -91,7 +91,7 @@
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
 
-    <a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
+    <a-entity animation-obj id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position;to: 0 0.2 0; dir: linear; dur: 2000;" position="-1 0 0">
 
       <a-entity id="gear" class="clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
 
@@ -110,7 +110,7 @@
     <a-sky color="lightblue"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
+    <a-entity animation-obj id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; to: 0 0.2 0; dir: linear; dur: 2000;"  position="">
 
       <a-entity id="trash_bag" class="clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity id="paper" class="clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -182,30 +182,6 @@
       });
     }
   });
-  // AFRAME.registerComponent('sceneloading', {
-  //   init: function() {
-  //     let el = this.el;
-  //     el.addEventListener('click', function() {
-  //       let sceneId = el.getAttribute('scene-id');
-  //       let scene = document.querySelector(sceneId);
-  //       if (scene) {
-  //         scene.setAttribute('visible', true);
-  //       }
-  //     });
-  //   }
-  // });
-
-  // AFRAME.registerComponent('sceneLoading', {
-  //   init: function() {
-  //     let btn = document.querySelector('#btn2')
-  //     let sceneInit = document.querySelector('#initialScene');
-  //     let scene1 = document.querySelector('#scene1');
-  //     btn.addEventListener('click', function() {
-  //       sceneInit.setAttribute('visible' , false);
-  //       scene1.setAttribute('visible' , true);
-  //     });
-  //   }
-  // });
 
 
     
@@ -267,6 +243,20 @@
     document.querySelector("#scene_start").appendChild(obj);
   }
   
+
+  AFRAME.registerComponent('animation-obj', {
+    init: (function () {
+      let position = this.el.getAttribute('position');
+      
+      right.addEventListener('click', function() {
+        el.setAttribute('animation__position', {
+          property: "position",
+          to: {x: position.x, y: position.y + 0.2, z: position.z},
+          dur: 2000
+        });
+      });
+    })
+  });
 
 </script>
   
