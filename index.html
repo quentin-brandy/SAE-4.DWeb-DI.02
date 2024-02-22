@@ -4,11 +4,12 @@
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.misc.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 </head>
 
 <body>
 
-  <a-scene stats>
+  <a-scene>
     <!-- <a-entity id="cameraRig"  wasd-controls position="0 0 0" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: #vr-collider; ignoreEntities: .clickable">
       <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
       <a-entity oculus-touch-controls="hand: left" ></a-entity>
@@ -55,13 +56,22 @@
       <a-asset-item id="moun1-mtl" src="assets/model/mountain1/mountain1.mtl"></a-asset-item>
       <a-asset-item id="moun2-obj" src="assets/model/mountain2/mountain2.obj"></a-asset-item>
       <a-asset-item id="moun2-mtl" src="assets/model/mountain2/mountain2.mtl"></a-asset-item>
+      <a-asset-item id="fence-obj" src="assets/model/fence/fence.obj"></a-asset-item>
+      <a-asset-item id="fence-mtl" src="assets/model/fence/fence.mtl"></a-asset-item>
     </a-assets>
 
-    <a-camera position="-0.64251 1.600 13.53574"></a-camera>
+    <!-- Camera représentant le joueur -->
+    <a-camera position="-0.64251 1.600 13.53574" id="player"></a-camera>
 
+    <!-- Images tutoriel -->
+    <a-image width="1" height="0.5" position="-0.65765 7.28515 1.42932" look-at="#player" src="/assets/img/logo.png" material="" geometry="" rotation="10.579 93.438 0" scale="10 10 10"></a-image>
+    <a-image width="1" height="0.75" position="-0.01639 3.16653 -13.89145" src="/assets/img/tuto1.png" material="side: front" geometry="" rotation="" scale="5 5 5"></a-image>
+    <a-image width="1" height="0.75" position="-11.45806 3.16653 -29.29473" src="/assets/img/tuto2.png" material="side: front" geometry="" rotation="" scale="5.036 5 5"></a-image>
+    <a-image width="1" height="0.75" position="-5.96753 3.16653 -38.02361" src="/assets/img/tuto3.png" material="side: front" geometry="" rotation="" scale="5.036 5 5"></a-image>
+    
 
     <!-- Eléments visuels de la scène -->
-    <a-entity obj-model="obj: assets/model/mini_city/mini_city.obj; mtl: assets/model/mini_city/mini_city.mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637"></a-entity>
+    <a-entity obj-model="obj: assets/model/mini_city/mini_city.obj; mtl: assets/model/mini_city/mini_city.mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637" color="#808080"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="11.54948 14.14194 106.61522" scale="25 25 25" rotation="0 60.692 0"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="-81.52 14.72645 35.029" scale="25 20 25" rotation="0 60.692 0"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain1/mountain1.obj; mtl: assets/model/mountain1/mountain1.mtl" position="89.61489 14.71575 -10.02129" scale="25 25 25" rotation="0 80.95377983182915 0"></a-entity>
@@ -69,10 +79,11 @@
     <a-entity obj-model="obj: assets/model/mountain2/mountain2.obj; mtl: assets/model/mountain2/mountain2.mtl" position="-59.89295 6.945 -70.5962" scale="77.567 70.118 74.052" rotation="0 -105.03863370794842 0"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain2/mountain2.obj; mtl: assets/model/mountain2/mountain2.mtl" position="60.98612 7.28445 55.94678" scale="77.56673 70.11828 74.0523" rotation="0 60.69170036482271 0"></a-entity>
     <a-entity obj-model="obj: assets/model/mountain2/mountain2.obj; mtl: assets/model/mountain2/mountain2.mtl" position="-49.57546 7.0135 69.65056" scale="77.567 70.118 74.052" rotation="0 8.649370875294908 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/mountain2/mountain2.obj; mtl: assets/model/mountain2/mountain2.mtl" position="51.64287 6.945 -260.16099" scale="77.567 70.118 74.052" rotation="0 155.243 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/mountain2/mountain2.obj; mtl: assets/model/mountain2/mountain2.mtl" position="-64.73932 6.945 -259.59202" scale="77.567 70.118 74.052" rotation="0 -105.03863370794842 0"></a-entity>
 
-
+    <!-- Herbes -->
     <a-box width="5" height="5" color="#7a5109" material="" geometry="width: 1; height: 1" position="0 0 -56.56458" scale="100 0.216 150"></a-box>
-    
     <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="3.3167 -0.09 -26.62986" scale="15.46898 0.5 20.68657" rotation="0 -139.05 0"></a-box>
     <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="17.064 -0.09035 -12.57228" scale="15.46898 0.5 20.68657" rotation="0 47.737 0"></a-box>
     <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="33.19343 -0.09035 -8.95023" scale="40.09349 0.5 82.68944" rotation=""></a-box>
@@ -82,7 +93,7 @@
     <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="-36.474 -0.09035 -8.95023" scale="44.31939 0.5 82.68944" rotation=""></a-box>
     <a-box width="5" height="5" color="#35682d" material="" geometry="width: 1; height: 1" position="-16.10469 -0.08619 -14.58614" scale="18.92639 0.5 20.68657" rotation="0.04239887683968092 -49.62559350966599 -0.14266649098757497"></a-box>
 
-
+    <!-- Arbres et caillous -->
     <a-entity obj-model="obj: assets/model/tree&rock/tree&rock.obj; mtl: assets/model/tree&rock/tree&rock.mtl" position="-32.5264 -0.251 16.15963" scale="0.5 0.5 0.5" rotation="0 90 0"></a-entity>
     <a-entity obj-model="obj: assets/model/tree&rock/tree&rock.obj; mtl: assets/model/tree&rock/tree&rock.mtl" position="-2.65354 -0.25064 35.3751" scale="0.5 0.5 0.5"></a-entity>
     <a-entity obj-model="obj: assets/model/tree&rock/tree&rock.obj; mtl: assets/model/tree&rock/tree&rock.mtl" position="-69.23434 -0.251 -17.19411" scale="0.5 0.5 0.5" rotation="0 -90 0"></a-entity>
@@ -96,24 +107,43 @@
     <a-entity obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="-41.98134 -0.91205 34.91692" rotation="0 -97.69446068996153 0" scale="0.01 0.01 0.01"></a-entity>
     <a-entity obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="-0.00913 -0.912 -29.52281" rotation="0 60.31870484019254 0" scale="0.01 0.01 0.01"></a-entity>
     <a-entity obj-model="obj: assets/model/trees/trees1.obj; mtl: assets/model/trees/trees1.mtl" position="-46.89155 -0.91205 -18.04619" rotation="0 -88.82106331677048 0" scale="0.01 0.01 0.01"></a-entity>
+    <a-entity obj-model="obj: assets/model/tree&amp;rock/tree&amp;rock.obj; mtl: assets/model/tree&amp;rock/tree&amp;rock.mtl" position="-21.83783 -0.251 -76.71474" scale="0.5 0.5 0.5" rotation="0 86.7973763843684 0"></a-entity>
+    <a-entity obj-model="obj: assets/model/tree&amp;rock/tree&amp;rock.obj; mtl: assets/model/tree&amp;rock/tree&amp;rock.mtl" position="13.90461 -0.251 -77.91192" scale="0.5 0.5 0.5" rotation="0 -133.22701131279467 0"></a-entity>
 
-    
+    <!-- Petit rochés -->
     <a-entity obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="25.85726 -0.84259 -1.29658"></a-entity>
     <a-entity obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="-23.74738 -0.84259 -13.01252"></a-entity>
     <a-entity obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="-35.81195 -0.843 41.91801"></a-entity>
     <a-entity obj-model="obj: assets/model/smallRock/SmallRock.obj; mtl: assets/model/smallRock/SmallRock.mtl" scale="20 20 20" position="6.8967 -0.843 -21.87597" rotation="0 -143.25721047435485 0"></a-entity>
     
+    <!-- Fontaine et rivières -->
     <a-entity obj-model="obj: assets/model/fontaine/fontaine.obj; mtl: assets/model/fontaine/fontaine.mtl" scale="7.5 7.5 7.5" position="-1.22608 1.21259 1.18776"></a-entity>
     <a-entity obj-model="obj: assets/model/river2/river2.obj; mtl: assets/model/river2/river2.mtl" position="-38.07 0.849 -5.36665" scale="7.5 7.5 7.5"></a-entity>
     <a-entity obj-model="obj: assets/model/river2/river2.obj; mtl: assets/model/river2/river2.mtl" position="40.26363 0.889 2.96591" scale="7.5 7.5 7.5"></a-entity>
     
+    <!-- Batiment Ferme -->
     <a-entity obj-model="obj: assets/model/farm/farm.obj; mtl: assets/model/farm/farm.mtl" position="-22.87185 0.03 -44.87673" rotation=""></a-entity>
     <a-entity obj-model="obj: assets/model/farm/farm.obj; mtl: assets/model/farm/farm.mtl" position="21.45359 0.03 -43.67685" rotation="0 -90 0"></a-entity>
+    
+    <!-- Barrières -->
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="28.5786 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="22.85247 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="17.12503 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="11.40237 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="5.68672 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-0.06099 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-10.25056 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-16.01966 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-21.75066 0.02992 -50.29378" rotation=""></a-entity>
+    <a-entity obj-model="obj: assets/model/fence/fence.obj; mtl: assets/model/fence/fence.mtl" position="-28.05095 0.02992 -50.29378" rotation="" scale="1.1915 1 1"></a-entity>
 
     <!-- <a-entity obj-model="obj: assets/model/grass/grass1.obj; mtl: assets/model/grass/grass1.mtl" position="36.5179 -0.67722 8.60815" scale="0.025 0.025 0.025"></a-entity>
     <a-entity obj-model="obj: assets/model/greengrass/greengrass.obj; mtl: assets/model/greengrass/greengrass.mtl"></a-entity> -->
 
+    <!-- Point de spawn -->
     <a-cylinder position="-0.64251 -0.33209 13.53574" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
+    
+    <!-- Ciel -->
     <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
   </a-scene>
 </body>
