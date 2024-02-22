@@ -32,6 +32,9 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* Set shorter line heights on headings and interactive elements */

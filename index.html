@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/vnd.icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/base.css">
     <title>HellCleaner - Website</title>
 </head>
+
 <body>
     <header class="header">
         <a>
@@ -18,6 +24,7 @@
                 <li><a href="#lore">Lore</a></li>
                 <li><a href="#fonctionnent">Fonctionnement</a></li>
                 <li><a href="#level_design">Level Design</a></li>
+                <li><a href="#source">Sources</a></li>
                 <li><a href="https://github.com/quentin-brandy/SAE-4.DWeb-DI.02/tree/main">Lien GitHub</a></li>
             </ul>
         </nav>
@@ -30,49 +37,102 @@
             <img class="imgToLoad" src="" alt="image Loaded">
             <button class="toClose">X</button>
         </div>
-        <div class="intro">
-            <h1 class="acceuil" id="accueil">HellCleaner - Jeu de nettoyage en VR</h1>
-        <img class="imagegame" src="assets/lobby.png" alt="image du tutoriel">
-        <div class="jouable2">
-            <h2 class="jouabletext">Jouable sur :</h2>
-            <ul class="listjouable">
-                <li>  <a class="buttongame" href="">oculus version</a></li>
-                <li> <a class="buttongame" href="">vive version</a></li>
-                <li><a class="buttongame" href="">web version</a></li>
-        </ul>
+        <div class="accueil">
+            <h1 class="accueil__title" id="accueil">HellCleaner - Jeu de nettoyage en VR</h1>
+            <img class="accueil__img" src="assets/lobby.png" alt="image du tutoriel">
+            <div class="acceuil__jouable2">
+                <h2 class="acceuil__jouable_text">Jouable sur :</h2>
+                <ul class="acceuil__jouable_list">
+                    <li> <a class="buttongame" href="Oculus/index.html"> Quest</a></li>
+                    <li> <a class="buttongame" href="Vive/index.html">Vive</a></li>
+                    <li><a class="buttongame" href="Web/index.html">Web</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="jouable">
-        <h2  class="jouabletext">Jouable sur :</h2>
-        <ul class="listjouable">
-            <li>  <a class="buttongame" href="">oculus version</a></li>
-            <li> <a class="buttongame" href="">vive version</a></li>
-            <li><a class="buttongame" href="">web version</a></li>
-    </ul>
-    </div>
+        <div class="acceuil__jouable">
+            <h2 class="acceuil__jouable_text">Jouable sur :</h2>
+            <ul class="acceuil__jouable_list">
+                <li> <a class="buttongame" href="Oculus/index.html"> Quest</a></li>
+                <li> <a class="buttongame" href="Vive/index.html">Vive</a></li>
+                <li><a class="buttongame" href="Web/index.html">Web</a></li>
+            </ul>
+        </div>
         <section id="lore" class="section">
             <h2 class="section__h2">Lore</h2>
             <figure class="section__figure">
                 <figcaption class="section__figcaption">
-                    HellCleaner est un jeu aux allures rafraîchissantes, mais qui cache un sombre secret ! Un individu mystérieux a semé le trouble et la saleté dans ShinyCity. C’est la panique pour les habitants qui ont déserté la ville, maintenant surnommée DirtyCity.
+                    HellCleaner est un jeu au charme rafraîchissant, mais dissimulant un sombre secret ! Un individu
+                    mystérieux a semé le trouble et la saleté dans ShinyCity, plongeant les habitants dans la panique,
+                    les contraignant à déserter la ville désormais rebaptisée DirtyCity.
                     <br><br>
-                    Votre mission est de nettoyer la ville de son impureté. HellCleaner est un jeu d’exploration dont le but est de collecter l’entièreté de la saleté présente dans DirtCity.
+                    Votre mission consiste à purger la cité de cette impureté. HellCleaner est un jeu d'exploration où
+                    l'objectif est de nettoyer intégralement DirtCity, en collectant toute la saleté qui la pollue.
                     <br><br>
-                    Le thème de notre jeu est la pollution des villes par les déchets.
-                    Le concept du jeu est de se déplacer dans une ville parsemée de plusieurs « objets » (de la saleté, comme des canettes de soda, du plastique, ou encore des papiers journaux) avec lesquels on peut interagir pour les ramasser.
+                    Le thème central de notre jeu est la pollution urbaine engendrée par les déchets. Le concept du jeu
+                    repose sur l'exploration d'une ville jonchée de divers "objets" souillants tels que des canettes de
+                    soda, du plastique ou encore des papiers journaux, que le joueur peut interagir avec afin de les
+                    ramasser.
                 </figcaption>
             </figure>
         </section>
 
 
         <section id="fonctionnent" class="section">
-            <h2 class="section__h2">Fonctionnement</h2>
-            <figure class="section__figure">
-                <img class="section__img toClick" src="assets/lobby.png" alt="image du tutoriel">
-                <figcaption class="section__figcaption">
-                    Jouer à HellCleaner VR est assez simple. On se déplace en se téléportant avec le joystick de la manette. On ramasse des objets, ou tout simplement on interagit avec l'environnement avec la gâchette de la manette. Une fois le tutoriel suivi, on arrive dans le 1er niveau (1/1), une grande ville. HellCleaner est codé avec a-frame, un framework.
-                </figcaption>
-            </figure>
+            <h2 class="section__h2">Comment jouer ?</h2>
+
+
+            <p class="section__figcaption">Pour jouer à HellCleaner VR, c'est assez simple. Le jeu est compatible VR
+                avec les casques Meta Quest ou Vive, mais également en version web avec les touches ZQSD et votre
+                souris.</p>
+
+            <h2 class="section__h2">Jouer en VR : </h2>
+            <h3 class="fonctionnement__vr_title">Pour jouer en VR, il vous suffit d'apprendre seulement 3 boutons. </h3>
+            <div class="fonctionnement__vr">
+                <img class="section__img" src="assets/tuto3.png" alt="">
+                <div class="fonctionnement__vr_text">
+                    <div class="fonctionnement__vr_device">
+                        <h3>Sur Oculus : </h3>
+                        <ul class="fonctionnement__vr_device_list">
+                            <li class="fonctionnement__vr_device_listitem">
+                                Le bouton "A" ouvre le menu du jeu, où vous pouvez changer de niveau et consulter le
+                                nombre de déchets récupérés dans le niveau.
+                            </li>
+                            <li class="fonctionnement__vr_device_listitem">
+                                La gâchette permet de récupérer les déchets et d'interagir avec les boutons et les
+                                menus. </li>
+                            <li class="fonctionnement__vr_device_listitem">
+                                Le joystick permet de se déplacer par téléportation en pointant simplement dans la
+                                direction où vous souhaitez vous rendre.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fonctionnement__vr_device">
+                        <h3>Sur Vive : </h3>
+                        <ul class="fonctionnement__vr_device_list">
+                            <li class="fonctionnement__vr_device_listitem">
+                                Il faut cette fois-ci appuyer sur la gâchette située à gauche de la manette pour ouvrir
+                                le menu.
+                            </li>
+                            <li class="fonctionnement__vr_device_listitem">
+                                Ici, la gâchette permet de récupérer les objets et d'interagir avec les boutons et les
+                                menus. </li>
+                            <li class="fonctionnement__vr_device_listitem">
+                                Pour vous déplacer, maintenez pressé le joystick et pointez dans la direction où vous
+                                souhaitez aller.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <h2 class="section__h2">Les déchets à récupérer :</h2>
+            <div class="fonctionnement__trash">
+                <img class="section__img" src="assets/tuto2.png" alt="">
+                <p class="">Il y a 2 types de déchets a récupérer dans le jeu. Le nombre de déchets a récupérer par
+                    parties et aléatoire et leurs postion aussi comme ça vvous pourrez recommencer le jeu autant de fois
+                    que vous le voulez et si vous parvenez a tous les trouvez ou récompense vous attendras peut être !!!
+                </p>
+            </div>
+            <h2 class="section__h2">Fonctionnement du code </h2>
             <h3 class="section__h3">Scene Loader</h3>
             <figure class="section__figure">
                 <section class="section__imgs">
@@ -80,24 +140,59 @@
                     <img class="section__img toClick" src="assets/scenes.png" alt="code des scenes">
                 </section>
                 <figcaption class="section__figcaption">
-                    Pour les niveaux, notre logique est de charger/décharger une scène, en jouant sur son attribut "visible". Ce ne sont pas des "scène" a proprement parlé, mais des entités avec un identifiant (comme "scene_tuto", "scene_lvl1") car dans a-frame, on ne peut avoir qu'une seule balise a-scene.
+                    Pour les niveaux, notre logique est de charger/décharger une scène, en jouant sur son attribut
+                    "visible". Ce ne sont pas des "scène" a proprement parlé, mais des entités avec un identifiant
+                    (comme "scene_tuto", "scene_lvl1") car dans a-frame, on ne peut avoir qu'une seule balise a-scene.
                 </figcaption>
             </figure>
-            <h3 class="section__h3">Menu</h3>
+            <h3 class="section__h3">Position du menu</h3>
             <figure class="section__figure">
                 <section class="section__imgs">
-                    <img class="section__img toClick" src="assets/menu.png" alt="code du menu">
-                    <img class="section__img toClick" src="assets/menuloader.png" alt="code du menuloader">
+                    <img class="section__img test toClick" src="assets/menu.png" alt="code du menu">
+                    <img class="section__img test toClick" src="assets/menuposition.png" alt="code du menuposition">
                 </section>
                 <figcaption class="section__figcaption">
-                    Pour permuter entre ces différents niveaux, nous avons créé un menu qui s'ouvre en fonction de la position de la manette. Ce menu est une a-entity qui contient une a-box pour donner une texture visuelle, mais également qui contient des images cliquables. Ces images fonctionnent avec des registerComponent pour la visibilité et la position du menu, et ont un addEventListener qui s'occupe de charger/décharger une scène.
+                    "Pour pouvoir changer de niveau, nous avons créé un menu qui s'ouvre en appuyant sur un bouton de la
+                    manette. Grâce à l'A-Frame register component "menu-position", il se positionne à la position de
+                    notre personnage pour s'ouvrir toujours vers lui peu importe l'endroit où il se téléporte. Pour
+                    faire cela, nous utilisons la fonction Three.js THREE.Vector3() qui crée un vecteur en 3 dimensions
+                    que nous stockons dans la variable position. Ensuite, nous récupérons la position de la manette en
+                    récupérant l'ID de la manette droite. Ensuite, nous utilisons à nouveau une fonction de Three.js :
+                    "right.object3D.getWorldPosition(position)" pour récupérer la position de la manette dans la
+                    variable position. À partir de là, il suffit de prendre le menu et de faire un
+                    Object3D.position.set(position.x , position.y , position.z); et le menu apparaît à la position de la
+                    manette au moment de la pression du bouton."
+                </figcaption>
+            </figure>
+            <h3 class="section__h3">Rotation du Menu</h3>
+            <figure class="section__figure">
+                <section class="section__imgs">
+                    <img class="section__img test toClick" src="assets/menu.png" alt="code du menu">
+                    <img class="section__img test toClick" src="assets/menurotation.png" alt="code du menurotation">
+                </section>
+                <figcaption class="section__figcaption">
+                    "Ensuite, nous avons également fait en sorte que le menu s'ouvre en face de la vision du joueur.
+                    Pour cela, nous avons créé un autre A-Frame register component "menu-rotation". Le principe est le
+                    même que pour la position, mais cette fois-ci, nous utilisons un THREE.Quaternion() pour récupérer
+                    les données de rotation. Nous utilisons la tête du personnage pour récupérer la rotation. Ce n'est
+                    pas parfait car parfois la rotation est mal prise, mais ça fonctionne quand même assez bien. Enfin,
+                    pour appliquer cette rotation, il suffit de faire comme pour la position :
+                    Object3D.position.set(quaternion._x , quaternion._y , quaternion._z). En ce qui concerne la
+                    visibilité, nous avons un booléen qui gère si le menu est ouvert lorsqu'on clique, alors nous le
+                    rendons invisible et inversement."
                 </figcaption>
             </figure>
             <h3 class="section__h3">Emplacements</h3>
             <figure class="section__figure">
-                <img class="section__img toClick" src="assets/places.png" alt="code du placement des objets">
+                <img class="section__img section__img_alone toClick " src="assets/places.png"
+                    alt="code du placement des objets">
                 <figcaption class="section__figcaption">
-                    Pour les objets à ramasser, c'est une a-entity qui contient différents modèle trouvés sur le net. Ils sont positionnés sur la map de manière dynamique et aléatoire. L'idée derrière et d'avoir une liste d'emplacement possible (un tableau d'objets contenant des coordonnées), de définir un nombre aléatoire d'objets (un Math.random avec un maximum de 32 car c'est le nombre maximum d'emplacements), et avec une boucle for i, assigner un objet, parmi les quelques preset d'objets qu'on a créés, à un emplacement aléatoire.
+                    Pour les objets à ramasser, c'est une a-entity qui contient différents modèle trouvés sur le net.
+                    Ils sont positionnés sur la map de manière dynamique et aléatoire. L'idée derrière et d'avoir une
+                    liste d'emplacement possible (un tableau d'objets contenant des coordonnées), de définir un nombre
+                    aléatoire d'objets (un Math.random avec un maximum de 32 car c'est le nombre maximum
+                    d'emplacements), et avec une boucle for i, assigner un objet, parmi les quelques preset d'objets
+                    qu'on a créés, à un emplacement aléatoire.
                 </figcaption>
             </figure>
         </section>
@@ -111,25 +206,86 @@
                     <img class="section__img toClick" src="assets/3dmaplvl1.png" alt="image du lvl1 en 3d">
                 </section>
                 <figcaption class="section__figcaption">
-                    Pour le tutoriel, l'objectif est de guider le joueur avec un chemin de terre, ainsi qu'avec des explications tout du long.
-                    Pour le niveau 1, nous avons décidé d'une carte simple d'un centre ville avec un grand nombre de batiment, avec un schéma en 2d.
-                    La "construction" des différentes scènes s'est faite à l'aide de fichier OBJ, qui ont été placés à l'aide de l'interface de développement d'a-frame (ctrl+alt+i).
+                    Pour le tutoriel, l'objectif est de guider le joueur avec un chemin de terre, ainsi qu'avec des
+                    explications tout du long.
+                    Pour le niveau 1, nous avons décidé d'une carte simple d'un centre ville avec un grand nombre de
+                    batiment, avec un schéma en 2d.
+                    La "construction" des différentes scènes s'est faite à l'aide de fichier OBJ, qui ont été placés à
+                    l'aide de l'interface de développement d'a-frame (ctrl+alt+i).
                 </figcaption>
             </figure>
         </section>
 
         <section id="apprentissage" class="section">
-            <h2 class="section__h2">Leçon écologique</h2>
-            <figure class="section__figure">
-                <figcaption class="section__figcaption">
-                    Pendant le développement du jeu, nous avons pris conscience que la pollution reste un problème d'actualité, notamment la pollution en milieu urbain, qui représente l'un des principaux défis sociétaux. Il est essentiel de collecter les déchets en ville, même s'ils ne vous appartiennent pas. En encourageant chacun à ramasser les détritus abandonnés par d'autres, il devient envisageable de rendre nos villes totalement propres. C'est le message que nous cherchons à transmettre à travers notre jeu Hell Cleaner.
-                </figcaption>
-            </figure>
+            <h2 class="section__h2">Impact écologique</h2>
+
+            <p class="apprentissage__text">Nous avons décidé de choisir comme éco-geste le ramassage des déchets qui se
+                trouvent par terre, que ce soit dans les villes, les océans ou les forêts. Il est essentiel de collecter
+                les déchets en ville, même s'ils ne vous appartiennent pas. En encourageant chacun à ramasser les
+                détritus abandonnés par d'autres, il devient envisageable de rendre nos villes totalement propres. C'est
+                le message que nous cherchons à transmettre à travers notre jeu Hell Cleaner. L'objectif ultime du jeu
+                aurait été de pouvoir avoir plusieurs niveaux, avec chaque niveau correspondant à un endroit où l'on
+                retrouve souvent des déchets par terre, comme la plage.</p>
+
+
+        </section>
+
+        <section id="source" class="section">
+            <h2 class="section__h2">Nos sources</h2>
+            <ul class="source__logo">
+                <li>
+                    <img class="source__img" src="assets/githublogo.png" alt="">
+                </li>
+                <li>
+                    <img class="source__img" src="assets/aframelogo.png" alt="">
+                </li>
+                <li>
+                    <img class="source__img" src="assets/stackoverflowlogo.jpg" alt="">
+                </li>
+                <li>
+                    <img class="source__img" src="assets/polypizzalogo.png" alt="">
+                </li>
+                <li>
+                    <img class="source__img" src="assets/chatgptlogo.png" alt="">
+                </li>
+            </ul>
+            <div class="source__list"></div>
+            <div class="source__element">
+                <h3 class="source__name">Github : </h3>
+                <ul class="source__links">
+                    <li> <a class="source__link"
+                            href="https://github.com/jure/aframe-blink-controls/blob/main/docs/dist/aframe-blink-controls.js">
+                            Docs téléportation</a></li>
+                    <li> <a class="source__link" href="https://github.com/aframevr/a-painter">A-Frame painter</a></li>
+                    <li><a class="source__link" href="https://github.com/aframevr/aframe/issues/1023">Changement de
+                            scène</a></li>
+                </ul>
+            </div>
+            <div class="source__element">
+                <h3 class="source__name">A-Frame : </h3>
+                <a class="source__link" href="https://aframe.io/docs/1.5.0">Documentation A-Frame</a>
+            </div>
+            <div class="source__element">
+                <h3 class="source__name">Poly-pizza : </h3>
+                <a class="source__link" href="https://poly.pizza">Récupération des Objets 3D</a>
+            </div>
+            <div class="source__element">
+                <h3 class="source__name">StackOverflow : </h3>
+                <a class="source__link"
+                    href="https://stackoverflow.com/questions/71194219/a-frame-keep-one-entity-in-front-of-another-and-facing-camera">
+                    Position et rotation du menu</a>
+            </div>
+            <div class="source__element">
+                <h3 class="source__name">ChatGPT : </h3>
+                <a class="source__link" href="https://chat.openai.com/">Aides diverses</a>
+            </div>
+            </div>
         </section>
 
     </main>
-    
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
