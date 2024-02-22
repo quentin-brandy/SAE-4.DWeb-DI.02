@@ -62,6 +62,26 @@
    
     <!-- trash -->
 
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+<!-- Ajouté ("animation-obj" dans les trash_1 et trash_2; suppression de animation__position="etc...") -->
+
+
+
 <a-entity id="trash_2" animation-obj class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;"  position="-0 0 0">
 
   <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
@@ -727,20 +747,34 @@ for (let i = 0; i < compteur.getNombreObj(); i++) {
     attachClickEventToClones([obj]);
 }
 
-AFRAME.registerComponent('animation-obj', {
-    init: function () {
-      var el = this.el;
-      var initialPosition = el.getAttribute('position');
-      console.log(initialPosition);
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 
-      el.addEventListener('click', function() {
-        el.setAttribute('animation__position', {
-          property: "position",
-          to: {x: initialPosition.x, y: initialPosition.y + 0.2, z: initialPosition.z},
-          dur: 2000,
-        });
+// Ajouté --------------------------------------------
+
+AFRAME.registerComponent('animation-obj', {
+  init: function () {
+    var el = this.el;
+    var initialPosition = el.getAttribute('position');
+    console.log(initialPosition);
+
+    el.addEventListener('click', function() {
+      el.setAttribute('animation__position', {
+        property: "position",
+        to: {x: initialPosition.x, y: initialPosition.y + 0.2, z: initialPosition.z},
+        dur: 2000,
       });
-    }
-  });
+    });
+  }
+});
+
+// --------------------------------------------
     
 </script>
