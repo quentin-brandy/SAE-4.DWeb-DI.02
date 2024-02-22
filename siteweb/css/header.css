@@ -1,0 +1,136 @@
+.header {
+    position: relative;
+    height: 5rem;
+    width: 100%;
+    background-color: var(--clr-bg-brown);
+    z-index: 2;
+}
+
+.header__logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+}
+
+.header__nav {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    height: 100%;
+    background-color: var(--clr-bg-brown-mobile);
+}
+
+.header__nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5rem;
+}
+
+.header__nav ul li {
+    padding: 15px;
+    /* border-bottom: 1px solid rgb(116, 29, 29); */
+    border-top: 1px solid var(--clr-border-mobile);
+}
+
+.header__nav ul li:hover {
+    background-color: var(--clr-bg-brown-mobile-hover);
+
+}
+
+.header__nav ul li:last-child {
+    padding: 15px;
+    border-bottom: 1px solid var(--clr-border-mobile);
+}
+
+.header__nav ul li a {
+    text-decoration: none;
+    color: var(--font-white);
+}
+
+
+.header__nav-icon {
+    display: block;
+    position: fixed;
+    top: 1.5rem;
+    right: 1rem;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#header__nav-toggle {
+    display: none;
+}
+
+.animate {
+    right: 0;
+}
+
+
+
+@media screen and (min-width: 800px) {
+
+    .header {
+        position: fixed;
+        display: flex;
+        justify-content: space-evenly;
+        top: 0;
+    }
+
+    .header__nav-icon {
+        display: none;
+    }
+
+    .header__nav {
+        width: auto;
+        position: relative;
+        display: flex;
+        background-color: transparent;
+        font-size: 1.2rem;
+    }
+    .header__nav ul {
+        display: flex;
+        margin: 0;
+        gap: 1rem;
+        list-style: none;
+    }
+    
+    .header__nav ul li {
+        /* padding: auto 0; */
+        line-height: 3;
+        text-align: center;
+        width: auto;
+        /* border-bottom: 1px solid rgb(116, 29, 29); */
+        border-top: none;
+    }
+    
+    .header__nav ul li:hover {
+        background-color: transparent;
+    
+    }
+    
+    .header__nav ul li:last-child {
+        padding: auto 0;
+        line-height: 3;
+
+        border-bottom: none;
+    }
+    
+    .header__nav ul li a {
+        text-decoration: none;
+        color: var(--font-white);
+        font-weight: bold;
+    }
+    .header__nav ul li a:hover {
+        text-decoration: none;
+        text-decoration: underline;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
+
+h1 {
+    margin: 7rem 0 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: "Joti One", serif;
+}
+
+
+
+#imgLoaded {
+    display: none;
+    /* top: 40%; */
+    position: relative;
+    position: fixed;
+    width: 100%;
+}
+
+.imgToLoad {
+    width: 100%;
+}
+
+.toClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 1rem;
+    aspect-ratio: 1;
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    scale: 1.2;
+    font-weight: 900;
+}
+
+@media screen and (min-width: 800px) {
+    .imgToLoad {
+        width: 60%;
+    }
+
+    .toClose {
+        right: 41%;
+    }
+}

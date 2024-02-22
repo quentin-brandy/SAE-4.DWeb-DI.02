@@ -1,0 +1,365 @@
+.section {
+  padding: 1rem;
+  margin: 2rem 2rem;
+  background-color: var(--font-white);
+  border-bottom: 0.25rem solid var(--clr-bg-brown-mobile-hover);
+  box-shadow: 5px 5px 25px 5px var(--box-shadow-black);
+}
+
+.section__h2 {
+  padding: 0 0 1rem;
+  text-align: center;
+  font-family: "Joti One", serif;
+  font-size: 2rem;
+}
+
+.section__h3 {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.section__imgs {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.section__img_alone {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.accueil {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin-top: 3.8rem;
+}
+
+.accueil__title {
+  grid-area: 1 / 2 / 2 / 5;
+  color: var(--clr-bg-brown-light);
+  font-size: 1.7rem;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  z-index: 1;
+  margin-top: 5rem;
+  z-index: 1;
+}
+
+.accueil__img {
+  filter: brightness(50%);
+  grid-area: 1 / 1 / 4 / 6;
+  width: 100%;
+}
+
+.acceuil__jouable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.acceuil__jouable2 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.acceuil__jouable_text {
+  color: var(--font-black);
+}
+.acceuil__jouable_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-left: 0;
+}
+
+.buttongame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-white);
+  background: rgb(192, 32, 22);
+  background: linear-gradient(
+    45deg,
+    rgba(192, 32, 22, 1) 10%,
+    rgba(233, 96, 52, 1) 27%,
+    rgba(192, 32, 22, 1) 100%
+  );
+  border-radius: 50px;
+  height: 3em;
+  width: 10em;
+  font-size: large;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.section__figcaption {
+  font-size: 1.25rem;
+}
+.fonctionnement__vr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+.fonctionnement__vr_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fonctionnement__vr_title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.fonctionnement__vr_device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.fonctionnement__vr_device_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.fonctionnement__vr_device_listitem {
+  display: list-item;
+  list-style: inside;
+}
+
+.fonctionnement__trash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+.apprentissage__text {
+  font-size: 1.25rem;
+}
+
+.source__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.source__img {
+  max-width: 10rem;
+  max-height: 10rem;
+}
+.source__name {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+.source__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-white);
+  background: rgb(192, 32, 22);
+  background: linear-gradient(
+    45deg,
+    rgba(192, 32, 22, 1) 10%,
+    rgba(233, 96, 52, 1) 27%,
+    rgba(192, 32, 22, 1) 100%
+  );
+  border-radius: 50px;
+  height: 3em;
+  width: fit-content;
+  font-size: large;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-decoration: none;
+  padding: 1em 1.5em;
+  text-align: center;
+}
+.source__element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.source__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+}
+
+@media screen and (min-width: 800px) {
+  /* DEBUT */
+  .accueil {
+    margin-top: 5rem;
+  }
+  .accueil__title {
+    grid-area: 1 / 2 / 2 / 5;
+    font-size: 3rem;
+  }
+  .accueil__img {
+    grid-area: 1 / 1 / 6 / 6;
+  }
+  .acceuil__jouable2 {
+    display: flex;
+    z-index: 1;
+    grid-area: 3 / 2 / 4 / 5;
+    margin-bottom: 8rem;
+    gap: 2rem;
+  }
+  .acceuil__jouable_list {
+    flex-direction: row;
+  }
+  .acceuil__jouable {
+    display: none;
+  }
+  .acceuil__jouable_text {
+    color: white;
+  }
+
+  .section {
+    padding: 2rem;
+    margin: 4rem 6rem;
+    background-color: var(--font-white);
+    border-bottom: 0.5rem solid var(--clr-bg-brown-mobile-hover);
+    box-shadow: 5px 5px 25px 5px var(--box-shadow-black);
+  }
+
+  .section__h2 {
+    padding: 0 0 2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Joti One", serif;
+    font-size: 3rem;
+  }
+
+  .section__figure {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .section__img {
+    width: 50%;
+    height: 100%;
+    margin-top: 0;
+    cursor: pointer;
+  }
+  .section__imgs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .section__figcaption {
+    font-size: 1.25rem;
+  }
+  .fonctionnement__vr_device {
+    font-size: 1.3rem;
+  }
+  .fonctionnement__trash {
+    flex-direction: row;
+  }
+  .source__logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .source_element {
+    flex-direction: column;
+    align-items: start;
+  }
+  .source__links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .accueil__title {
+    font-size: 5rem;
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+  }
+  .acceuil__jouable2 {
+    gap: 5rem;
+  }
+  .acceuil__jouable_list {
+    flex-direction: row;
+    gap: 6rem;
+  }
+
+  .acceuil__jouable_text {
+    color: white;
+    font-size: 3rem;
+  }
+  .buttongame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-white);
+    background: rgb(192, 32, 22);
+    background: linear-gradient(
+      45deg,
+      rgba(192, 32, 22, 1) 0%,
+      rgba(233, 96, 52, 1) 17%,
+      rgba(192, 32, 22, 1) 100%
+    );
+    border-radius: 50px;
+    height: 3em;
+    width: 10em;
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+  .fonctionnement__vr {
+    flex-direction: row;
+  }
+  .fonctionnement__trash {
+    font-size: 1.4rem;
+  }
+  .source__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: rgb(192, 32, 22);
+    background: linear-gradient(
+      45deg,
+      rgba(192, 32, 22, 1) 0%,
+      rgba(233, 96, 52, 1) 17%,
+      rgba(192, 32, 22, 1) 100%
+    );
+    border-radius: 50px;
+    height: 3em;
+    width: fit-content;
+  }
+  .source__img {
+    max-width: 10rem;
+    max-height: 10rem;
+  }
+}

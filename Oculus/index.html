@@ -1,0 +1,536 @@
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.misc.min.js"></script>
+</head>
+
+<body>
+  
+  <a-scene stats  >
+    <a-entity id="cameraRig"  wasd-controls position="-0.64251 1.600 13.53574" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable">
+        <a-entity id="head" position="0 1.6 0" camera look-controls="reverseMouseDrag: true"></a-entity>
+        <a-entity oculus-touch-controls="hand: left" ></a-entity>
+        <a-entity super-hands id="right"
+        laser-controls="hand: right;";
+        raycaster="objects: .clickable"
+        line="color: red; opacity: 0.75"
+        blink-controls="
+          collisionEntities: .collision;
+          cameraRig: #cameraRig;
+          teleportOrigin: #head;
+          curveShootingSpeed: 6"></a-entity>
+    </a-entity>
+
+
+
+<!-- menu -->
+    
+<a-entity   animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
+  <a-image src="#imagemenu" width="1.4" height="0.7" position="0 0.5 -0.3" material geometry></a-image>
+  <a-image sceneloading class="clickable" id="tuto" src="#tutorielimg"  scene1-position position="-0.20799 0.45 -0.29" rotation="" scale="0.99 1.75 0.00001" width="0.4" height="0.2"  depth="1"></a-image>
+  <a-image sceneloading class="clickable" id="level1"  tuto-position src="#scene1img" position="0.25388 0.45 -0.29" rotation="" scale="0.99 1.75 0.00001" width="0.4" height="0.2" ></a-image>
+  <a-entity id="progression" position="-0.02675 0.78439 -0.29"></a-entity>
+</a-entity>
+
+    <!-- trash -->
+
+<a-entity id="trash_2"  animation-obj class="trashToCollect clickable" scale="1.5 1.5 1.5" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;">
+
+  <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
+
+  <a-entity id="spring" class="trashToCollect clickable" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+
+</a-entity>
+
+<a-entity id="trash_1"   animation-obj class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;"  scale="2 2 2">
+
+  <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+  <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+  <a-entity id="can" class="trashToCollect clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: #can-obj; mtl: #can-mtl" ></a-entity>
+
+</a-entity>
+
+      <!-- Assets -->
+      <a-assets>
+        <img id="skyTexture" src="assets/img/sky.jpg">
+        <img id="tutorielimg" src="assets/img/tutoriel.png">
+        <img id="scene1img" src="assets/img/scene1.png">
+        <img id="logo" src="assets/img/logo.png">
+        <img id="scene1img" src="assets/img/scene1.png">
+        <img id="tuto1" src="assets/img/tuto1.png">
+        <img id="tuto2" src="assets/img/tuto2.png">
+        <img id="tuto3" src="assets/img/tuto3.png">
+        <img id="imagemenu" src="assets/img/interface_menu.png">
+        <a-asset-item id="largeBuild-obj" src="assets/model/large_building/large_building.obj"></a-asset-item>
+        <a-asset-item id="largeBuild-mtl" src="assets/model/large_building/large_building.mtl"></a-asset-item>
+        <a-asset-item id="road-obj" src="assets/model/road/road.obj"></a-asset-item>
+        <a-asset-item id="road-mtl" src="assets/model/road/road.mtl"></a-asset-item>
+        <a-asset-item id="bigBuild-obj" src="assets/model/big_building/big_building.obj"></a-asset-item>
+        <a-asset-item id="bigBuild-mtl" src="assets/model/big_building/big_building.mtl"></a-asset-item>
+        <a-asset-item id="smallBuild-obj" src="assets/model/small_building/small_building.obj"></a-asset-item>
+        <a-asset-item id="smallBuild-mtl" src="assets/model/small_building/small_building.mtl"></a-asset-item>
+        <a-asset-item id="escBuild-obj" src="assets/model/esc_building/esc_building.obj"></a-asset-item>
+        <a-asset-item id="escBuild-mtl" src="assets/model/esc_building/esc_building.mtl"></a-asset-item>
+        <a-asset-item id="indusBuild-obj" src="assets/model/indus_building/indus_building.obj"></a-asset-item>
+        <a-asset-item id="indusBuild-mtl" src="assets/model/indus_building/indus_building.mtl"></a-asset-item>
+        <a-asset-item id="hotelBuild-obj" src="assets/model/hotel_building/hotel_building.obj"></a-asset-item>
+        <a-asset-item id="hotelBuild-mtl" src="assets/model/hotel_building/hotel_building.mtl"></a-asset-item>
+        <a-asset-item id="shopBuild-obj" src="assets/model/shop_building/shop_building.obj"></a-asset-item>
+        <a-asset-item id="shopBuild-mtl" src="assets/model/shop_building/shop_building.mtl"></a-asset-item>
+        <a-asset-item id="cielBuild-obj" src="assets/model/skyscraper/skyscraper.obj"></a-asset-item>
+        <a-asset-item id="cielBuild-mtl" src="assets/model/skyscraper/skyscraper.mtl"></a-asset-item>
+        <a-asset-item id="trees1-obj" src="assets/model/trees/trees1.obj"></a-asset-item>
+        <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
+        <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
+        <a-asset-item id="smallRock-mtl" src="assets/model/smallRock/SmallRock.mtl"></a-asset-item>
+        <a-asset-item id="tree&rock-obj" src="assets/model/tree&rock/tree&rock.obj"></a-asset-item>
+        <a-asset-item id="tree&rock-mtl" src="assets/model/tree&rock/tree&rock.mtl"></a-asset-item>
+        <a-asset-item id="miniCity-obj" src="assets/model/mini_city/mini_city.obj"></a-asset-item>
+        <a-asset-item id="miniCity-mtl" src="assets/model/mini_city/mini_city.mtl"></a-asset-item>
+        <a-asset-item id="fontaine-obj" src="assets/model/fontaine/fontaine.obj"></a-asset-item>
+        <a-asset-item id="fontaine-mtl" src="assets/model/fontaine/fontaine.mtl"></a-asset-item>
+        <a-asset-item id="river2-obj" src="assets/model/river2/river2.obj"></a-asset-item>
+        <a-asset-item id="river2-mtl" src="assets/model/river2/river2.mtl"></a-asset-item>
+        <a-asset-item id="farm-obj" src="assets/model/farm/farm.obj"></a-asset-item>
+        <a-asset-item id="farm-mtl" src="assets/model/farm/farm.mtl"></a-asset-item>
+        <a-asset-item id="moun1-obj" src="assets/model/mountain1/mountain1.obj"></a-asset-item>
+        <a-asset-item id="moun1-mtl" src="assets/model/mountain1/mountain1.mtl"></a-asset-item>
+        <a-asset-item id="moun2-obj" src="assets/model/mountain2/mountain2.obj"></a-asset-item>
+        <a-asset-item id="moun2-mtl" src="assets/model/mountain2/mountain2.mtl"></a-asset-item>
+        <a-asset-item id="fence-obj" src="assets/model/fence/fence.obj"></a-asset-item>
+        <a-asset-item id="fence-mtl" src="assets/model/fence/fence.mtl"></a-asset-item>
+        <a-asset-item id="fencelvl1-obj" src="assets/model/fencelvl1/fence.obj"></a-asset-item>
+        <a-asset-item id="fencelvl1-mtl" src="assets/model/fencelvl1/fence.mtl"></a-asset-item>
+        <a-asset-item id="can-obj" src="assets/model/crushed_can/crushed_can.obj"></a-asset-item>
+        <a-asset-item id="can-mtl" src="assets/model/crushed_can/crushed_can.mtl"></a-asset-item>
+        <a-asset-item id="trash_bag-obj" src="assets/model/trash_bag/trash_bag.obj"></a-asset-item>
+        <a-asset-item id="trash_bag-mtl" src="assets/model/trash_bag/trash_bag.mtl"></a-asset-item>
+        <a-asset-item id="gear-obj" src="assets/model/gear/gear.obj"></a-asset-item>
+        <a-asset-item id="gear-mtl" src="assets/model/gear/gear.mtl"></a-asset-item>
+        <a-asset-item id="wine-obj" src="assets/model/wine/wine.obj"></a-asset-item>
+        <a-asset-item id="wine-mtl" src="assets/model/wine/wine.mtl"></a-asset-item>
+        <a-asset-item id="spring-obj" src="assets/model/spring/spring.obj"></a-asset-item>
+        <a-asset-item id="spring-mtl" src="assets/model/spring/spring.mtl"></a-asset-item>
+        <a-asset-item id="tree-obj" src="assets/model/tree/tree.obj"></a-asset-item>
+        <a-asset-item id="tree-mtl" src="assets/model/tree/tree.mtl"></a-asset-item>
+        <a-asset-item id="bench-obj" src="assets/model/bench/bench.obj"></a-asset-item>
+        <a-asset-item id="bench-mtl" src="assets/model/bench/bench.mtl"></a-asset-item>
+        <a-asset-item id="paper-obj" src="assets/model/paper/paper.obj"></a-asset-item>
+        <a-asset-item id="paper-mtl" src="assets/model/paper/paper.mtl"></a-asset-item>
+        <a-asset-item id="button-obj" src="assets/model/boutton/button.obj"></a-asset-item>
+        <a-asset-item id="button-mtl" src="assets/model/boutton/button.mtl"></a-asset-item>
+        <a-asset-item id="pedestal-obj" src="assets/model/pedestal/pedestal.obj"></a-asset-item>
+        <a-asset-item id="pedestal-mtl" src="assets/model/pedestal/pedestal.mtl"></a-asset-item>
+      </a-assets>
+     <!-- scène 1 -->
+      <a-entity   id="scene1" visible="true">
+     <!-- Images tutoriel -->
+     <a-image width="1" height="0.5" position="-0.65765 7.28515 1.42932" look-at="#head" src="#logo"      material="" geometry="" rotation="10.579 0 0" scale="10 10 10"></a-image>
+     <a-image width="1" height="0.75" position="-0.01639 3.16653 -13.89145" src="#tuto1" material="side:      front" geometry="" rotation="" scale="5 5 5"></a-image>
+     <a-image width="1" height="0.75" position="-11.45806 3.16653 -29.29473" src="#tuto2" material="side:       front" geometry="" rotation="" scale="5.036 5 5"></a-image>
+     <a-image width="1" height="0.75" position="-5.96753 3.16653 -38.02361" src="#tuto3" material="side: front" geometry="" rotation="" scale="5.036 5 5"></a-image>
+     <a-entity  obj-model="obj: #miniCity-obj; mtl: #miniCity-mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637" color="#808080"></a-entity>
+
+     <!-- montagnes -->
+     <a-entity    obj-model="obj: #moun1-obj; mtl: #moun1-mtl" position="11.54948 14.14194 106.61522" scale="25 25 25" rotation="0 60.692 0"></a-entity>
+     <a-entity    obj-model="obj: #moun1-obj; mtl: #moun1-mtl" position="-81.52 14.72645 35.029" scale="25 20 25" rotation="0 60.692 0"></a-entity>
+     <a-entity obj-model="obj: #moun1-obj; mtl: #moun1-mtl" position="84.50299 14.71575 -10.02129" scale="25 25 25" rotation="0 80.95377983182915 0"></a-entity>
+     <a-entity    obj-model="obj: #moun2-obj; mtl: #moun2-mtl" position="56.05225 6.945 -82.44227" scale="77.567 70.118 74.052" rotation="0 155.2434875484917 0"></a-entity>
+     <a-entity    obj-model="obj: #moun2-obj; mtl: #moun2-mtl" position="-59.89295 6.945 -70.5962" scale="77.567 70.118 74.052" rotation="0 -105.03863370794842 0"></a-entity>
+     <a-entity    obj-model="obj: #moun2-obj; mtl: #moun2-mtl" position="60.98612 7.28445 55.94678" scale="77.56673 70.11828 74.0523" rotation="0 60.69170036482271 0"></a-entity>
+     <a-entity    obj-model="obj: #moun2-obj; mtl: #moun2-mtl" position="-49.57546 7.0135 69.65056" scale="77.567 70.118 74.052" rotation="0 8.649370875294908 0"></a-entity>
+     <a-entity    obj-model="obj: #moun2-obj; mtl: #moun2-mtl" position="51.64287 6.945 -260.16099" scale="77.567 70.118 74.052" rotation="0 155.243 0"></a-entity>
+     <a-entity    obj-model="obj: #moun2-obj; mtl: #moun2-mtl" position="-64.73932 6.945 -259.59202" scale="77.567 70.118 74.052" rotation="0 -105.03863370794842 0"></a-entity>
+ 
+     <!-- Herbes -->
+     <!-- dirt -->
+     <a-box class="collision" color="#7a5109" material="" geometry="" position="0 0 -84.9218" scale="100 0.216 70"></a-box>
+     <a-box class="collision" color="#7a5109" material="" geometry="" position="-0.50555 0 -15.495" scale="37.74 0.216 71.08"></a-box>
+     <!-- dirt -->
+   
+     <a-box    class="  collision" color="#35682d" material="" geometry="width: 1; height: 1" position="3.3167 -0.09 -26.62986" scale="15.46898 0.5 20.68657" rotation="0 -139.05 0"></a-box>
+     <a-box    class="  collision" color="#35682d" material="" geometry="width: 1; height: 1" position="3.3167 -0.09 -26.62986" scale="15.46898 0.5 20.68657" rotation="0 -139.05 0"></a-box>
+     <a-box    class="collision" color="#35682d" material="" geometry="width: 1; height: 1" position="12.644 -0.09035 -11.422" scale="14.939 0.5 13.537" rotation="0 47.737 0"></a-box>
+      <!-- caillou right -->  
+      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="21.04003 -0.09035 4.46708" scale="5.06349 0.5 3.41" rotation=""></a-box>
+      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="22.49042 -0.09035 -36.53442" scale="4.74349 0.5 5.41" rotation=""></a-box>
+     <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="23.45197 -0.09035 18.21155" scale="20.58349 0.5 25.99" rotation=""></a-box>
+     <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="15.50697 -0.09035 -17.619" scale="12.20349 0.5 46" rotation=""></a-box>
+     <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="40.94697 -0.09 9.3351" scale="19.393 0.5 38.09" rotation=""></a-box>
+     <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="27.18816 -0.09 -16.48441" scale="4.12349 0.5 20.42" rotation=""></a-box>
+     <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="29.47205 -0.17517 -44.62051" scale="9.38349 0.5 16.89" rotation=""></a-box>
+     <a-box class=" caillouright " color="#35682d" material="" geometry="" position="21.93197 -0.17517 -44.62051" scale="12.43349 0.5 10.66" rotation=""></a-box>
+     <a-circle class="caillouright" color="#35682d" material="" geometry="radius: 8.69; segments: 34" position="26.68522 0.15 -3.30739" scale="-1.254 1.05 1.197" rotation="-90 360 -26.873"></a-circle>
+     <a-circle class="caillouright" color="#35682d" material="" geometry="radius: 8.69; segments: 34" position="30.50692 0.15 -18.01396" scale="-1.944 2.58 12.247" rotation="-90 360 -26.873"></a-circle>
+     <!-- caillou right -->
+
+
+     <a-box class=" collision" color="#35682d" material="" geometry="" position="-15.01952 -0.08619 -10.60513" scale="18.63639 0.5 7.45657" rotation="0.04239887683968092 80 -0.14266649098757497"></a-box>
+     <!-- cailloux gauche -->
+ 
+     <a-box class=" caillouleft collision" color="#35682d" material="" geometry="" position="-26.44723 -0.09035 13.05534" scale="19.84 0.5 39.9" rotation=""></a-box>
+     <a-box class=" caillouleft collision" color="#35682d" material="" geometry="" position="-26.447 -0.09 15.56739" scale="18.83 0.5 35.42" rotation=""></a-box>
+     <a-box class=" caillouleft collision" color="#35682d" material="" geometry="" position="-21.25228 -0.09 -4.23497" scale="14.87 0.5 5.62" rotation=""></a-box>
+     <a-box class=" caillouleft collision" color="#35682d" material="" geometry="" position="-34.56687 -1.23284 -16.67784" scale="17.5 0.5 9.8" rotation=""></a-box>
+     <a-box class=" caillouleft collision" color="#35682d" material="" geometry="" position="-50.99218 -0.09035 -9.95023" scale="14.42939 0.5 78.81944" rotation=""></a-box>
+     <a-box class="caillouleft collision" color="#35682d" material="" geometry="" position="-21.89933 -0.09 -29.593" scale="20.219 0.5 23.479" rotation=""></a-box>
+     <a-box class="caillouleft " color="#35682d" material="" geometry="" position="-22.61104 -0.09 -44.0622" scale="18.359 0.5 11.759" rotation=""></a-box>
+     <a-circle class="caillouleft " color="#35682d" material="color: #16e9db; width: 514.17" geometry="radius: 20.08; segments: 34" position="-37.45463 0.5152 -5.36054" scale="-0.334 -0.33 1.737" rotation="-90 360 -27.983"></a-circle>
+     <a-circle class="caillouleft " color="#35682d" material="width: 514.17" geometry="radius: 11.08; segments: 34" position="-40.448 0.15 16.527" scale="-1.494 -1.76 1.737" rotation="-90 360 -27.983"></a-circle>
+     <a-circle class="caillouleft " color="#35682d" material="width: 514.17" geometry="radius: 24.23; segments: 34" position="-23.57994 0.255 -11.80804" scale="-0.334 -0.33 60.257" rotation="-90 360 -27.983"></a-circle>
+     <a-circle class="caillouleft " color="#35682d" material="width: 514.17" geometry="radius: 24.23; segments: 34" position="-40.27789 0.255 -28.53114" scale="-0.454 -0.68 1.737" rotation="-90 360 -27.983"></a-circle>
+      <!--  caillou derrière spawn   -->
+     <a-box class="caillouback collision" color="#35682d" material="" geometry="" position="-11.27755 -0.61 42.657" scale="50.836 1.3 20.361" rotation=""></a-box>
+     <a-box class="caillouback collision" color="#35682d" material="" geometry="" position="-0.05805 -0.09 20.90227" scale="28.546 0.45 5.891" rotation=""></a-box>
+     <a-box class="caillouback collision" color="#35682d" material="" geometry="" position="10.35 -0.09 24.15581" scale="5.616 0.45 5.051" rotation=""></a-box>
+     <a-circle class="caillouback"  color="#35682d" material="" geometry="radius: 8.69; segments: 34" position="5.274 0.15 32.72819" scale="3.726 1.05 1.197" rotation="-90 360 -26.873"></a-circle>
+ 
+     <!-- Arbres et caillous -->
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="-32.5264 -0.251 16.15963" scale="0.5 0.5 0.5" rotation="0 90 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="-2.65354 -0.25064 35.3751" scale="0.5 0.5 0.5"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="-69.23434 -0.251 -17.19411" scale="0.5 0.5 0.5" rotation="0 -90 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="28.14848 -0.251 24.24189" scale="0.5 0.5 0.5" rotation="0 -149.38327521989362 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="26.12708 -0.251 -18.44073" scale="0.5 0.5 0.5" rotation="0 -67.77403167043481 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="63.37432 -0.251 5.64072" scale="0.5 0.5 0.5" rotation="0 89.76816255212174 0"></a-entity>
+     <a-entity    class="collision"  obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="-33.9671 -0.251 -36.3291" scale="0.5 0.5 0.5" rotation="0 112.12554867592158 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #tree&rock-obj; mtl: #tree&rock-mtl" position="44.25195 -0.251 -48.52742" scale="0.5 0.5 0.5" rotation="0 89.76816255212174 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="19.5799 -0.91205 8.77712" rotation="0 -97.69446068996153 0" scale="0.01 0.01 0.01"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="-14.4312 -0.91205 -16.05319" rotation="0 166.80348402305117 0" scale="0.01 0.01 0.01"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="-41.98134 -0.91205 34.91692" rotation="0 -97.69446068996153 0" scale="0.01 0.01 0.01"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="-0.00913 -0.912 -29.52281" rotation="0 60.31870484019254 0" scale="0.01 0.01 0.01"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #trees1-obj; mtl: #trees1-mtl" position="-46.89155 -0.91205 -18.04619" rotation="0 -88.82106331677048 0" scale="0.01 0.01 0.01"></a-entity>
+     <a-entity     class="collision" obj-model="obj: assets/model/tree&amp;rock/tree&amp;rock.obj; mtl: assets/model/tree&amp;rock/tree&amp;rock.mtl" position="-21.83783 -0.251 -76.71474" scale="0.5 0.5 0.5" rotation="0 86.7973763843684 0"></a-entity>
+     <a-entity     class="collision" obj-model="obj: assets/model/tree&amp;rock/tree&amp;rock.obj; mtl: assets/model/tree&amp;rock/tree&amp;rock.mtl" position="13.90461 -0.251 -77.91192" scale="0.5 0.5 0.5" rotation="0 -133.22701131279467 0"></a-entity>
+ 
+     <!-- Petit rochés -->
+     <a-entity     class="collision" obj-model="obj: #smallRock-obj; mtl: #smallRock-mtl" scale="20 20 20" position="25.85726 -0.84259 -1.29658"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #smallRock-obj; mtl: #smallRock-mtl" scale="20 20 20" position="-23.74738 -0.84259 -13.01252"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #smallRock-obj; mtl: #smallRock-mtl" scale="20 20 20" position="-35.81195 -0.843 41.91801"></a-entity>
+     <a-entity     class="collision" obj-model="obj: #smallRock-obj; mtl: #smallRock-mtl" scale="20 20 20" position="6.8967 -0.843 -21.87597" rotation="0 -143.25721047435485 0"></a-entity>
+     
+     <!-- Fontaine et rivières -->
+     <a-entity  class="collision" obj-model="obj: #fontaine-obj; mtl: #fontaine-mtl" scale="7.5 7.5 7.5" position="-1.22608 1.21259 1.18776"></a-entity>
+     <a-entity class="collision"  obj-model="obj: #river2-obj; mtl: #river2-mtl" position="-38.07 0.849 -5.36665" scale="8.25 8.03 9.91"></a-entity>
+   
+     
+     <!-- Batiment Ferme -->
+     <a-entity  obj-model="obj: #farm-obj; mtl: #farm-mtl" position="-22.87185 0.03 -44.87673" rotation=""></a-entity>
+     <a-entity  obj-model="obj: #farm-obj; mtl: #farm-mtl" position="21.45359 0.03 -43.67685" rotation="0 -90 0"></a-entity>
+     
+     <!-- Barrières -->
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="28.5786 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="22.85247 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="17.12503 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="11.40237 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="5.68672 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-0.06099 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-10.25056 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-16.01966 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-21.75066 0.02992 -50.29378" rotation=""></a-entity>
+     <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-28.05095 0.02992 -50.29378" rotation="" scale="1.1915 1 1"></a-entity>
+    <!-- spawn plateform bleu -->
+        <a-cylinder class="collision" position="-0.64251 -0.33209 13.53574" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
+    <!-- bouton -->
+    <a-entity id="boutontuto" bouton-position sceneloading class="clickable" obj-model="obj: assets/model/boutton/button.obj" position="-5.05777 1.20267 -49.95421" rotation="" scale="0.04 0.04 0.04" material="color:#cf1b1b;"></a-entity>
+    <a-entity class="collision" obj-model="obj: assets/model/pedestal/pedestal.obj" position="-5.06666 0 -49.98237" rotation="" scale="0.6 0.5 0.6" material="color:#665f6b;"></a-entity>
+</a-entity>
+
+     <!-- scène 2 -->
+
+    <a-entity position="200 0 0" id="scene2" visible="false">
+
+      <a-entity id="group_bat_1">
+        <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.0156 -24.41533" scale="23.774 0.216 21.28071"></a-box>
+        <a-box width="5"  class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="3.53935 0.0156 -12.59358" scale="2.524 0.216 13.43071"></a-box>
+        <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-4.69991 0.0156 -37.28802" scale="2.524 0.216 13.43071"></a-box>
+        <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="4.77211 0.16 -24.17475" scale="40 0.216 40"></a-box>
+        <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
+        <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
+        <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
+        <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
+        <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
+        <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
+        <a-entity obj-model="obj: #shopBuild-obj; mtl: #shopBuild-mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
+        <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
+      </a-entity>
+      
+      <a-entity id="group_bat_2">
+        <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.44675 0.156 -24.415" scale="21.944 0.216 22.881"></a-box>
+        <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-28.11484 0.156 -30.0628" scale="9.284 0.216 2.711"></a-box>
+        <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-53.34958 0.156 -9.59746" scale="3.484 0.216 8.621"></a-box>
+        <a-box  width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.45206 0.156 -23.96868" scale="40 0.216 40"></a-box>
+      <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="10 10 10" position="-58.74231 -0.01399 -9.9384" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 7.16" position="-58.49526 0 -24.294" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="-58.677 -0.009 -38.647" rotation=""></a-entity>
+      <a-entity obj-model="obj: #cielBuild-obj; mtl: #cielBuild-mtl" scale="7 7 7" rotation="0 180 0" position="-47.096 0.096 -9.94394"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9 9 9" position="-33.31541 0 -9.37511" rotation="0 180 0"></a-entity>
+      <a-entity obj-model="obj: #shopBuild-obj; mtl: #shopBuild-mtl" scale="10 10 10" position="-28.357 0 -21.066" visible="" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="-30.24273 0.036 -37.1066" scale="10 10 10" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9 9 9" position="-45.484 0 -39.456" rotation=""></a-entity>
+    </a-entity>
+    
+    <a-entity id="group_bat_3">
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="52.43687 0.156 -24.415" scale="14.20555 0.216 21.881"></a-box>
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="40.2867 0.156 -13.63215" scale="12.20555 0.216 3.331"></a-box>
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="65.65882 0.156 -17.52645" scale="13.95555 0.216 7.691"></a-box>
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="53.30248 0.156 -23.9122" scale="40 0.216 40"></a-box>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="54.20421 0 -39.20413" rotation=""></a-entity>
+      <a-entity obj-model="obj: #cielBuild-obj; mtl: #cielBuild-mtl" scale="7.75 7.75 7.75" rotation="" position="39.88292 0.096 -38.346"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="67.979 -0.009 -38.955" rotation="0 -90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="9 9 9" position="40.66 0 -24.37498" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="39.64253 -0.006 -8.9476" rotation="0 180 0" scale="11 10 8"></a-entity>
+      <a-entity obj-model="obj: #shopBuild-obj; mtl: #shopBuild-mtl" scale="10 10 10" position="52.15398 -0.026 -9.79974" visible="" rotation="0 180 0"></a-entity>
+      <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="13.32379 10 10" position="66.655 -0.01399 -9.76102" rotation="0 180 0"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="66.16957 0.036 -28.02772" scale="11 10 10" rotation="0 -90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="group_bat_4" position="77.43216 -0.18 28.83798" rotation="0 90 0">
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.156 -24.41533" scale="22.544 0.216 20.33828"></a-box>
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-4.87125 0.156 -38.05542" scale="2.414 0.216 10.57"></a-box>
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="3.56253 0.15 -10.81768" scale="2.824 0.216 10.11"></a-box>
+      <a-box  width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.4409 0.15 -24.05336" scale="40 0.216 40"></a-box>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #shopBuild-obj; mtl: #shopBuild-mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="bat_cote_1" position="-0.47 0 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.88 -0.058 -0.28" scale="112.083 0.216 3.505" rotation="0 90 0.151"></a-box>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="9 9 9" position="87.83621 0 -30.2205" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="7.34217 9.5 9.5" position="86.16507 0 -46.66094" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.425 -0.006 49.236" rotation="0 90 0" scale="7.10944 10 10"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="bat_cote_1-2" position="9.86822 0 0" rotation="0 180 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.88 0.052 -0.28" scale="112.083 0.216 3.505" rotation="0 90 0.009"></a-box>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="9 9 9" position="87.83621 0 -30.2205" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="6.00054 9.5 9.5" position="86.165 0 -45.25987" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.425 -0.006 49.81298" rotation="0 90 0" scale="8.30902 10 10"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="bat_cote_1-3" position="-19.95277 0 -31.24" rotation="0 -90 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.88 -0.04308 -24.97459" scale="160.22277 0.216 3.505" rotation="0 89.84 -0.061"></a-box>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity><a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="9 9 9" position="87.836 0 -30.2205" rotation="0 90 0"></a-entity><a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="7.34217 9.5 9.5" position="86.16507 0 -46.66094" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.425 -0.006 49.44983" rotation="0 90 0" scale="7.60796 10 10"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity><a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+    </a-entity>
+
+    <a-entity id="bat_cote_1-4" position="29.79227 0 29.5381" rotation="0 90 0">
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="82.62 0.247 -24.975" scale="160.223 0.216 3.505" rotation="0 90 -0.021"></a-box>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.16507 0 -3.4" rotation="0 90 0"></a-entity><a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="9 9 9" position="87.836 0 -30.2205" rotation="0 90 0"></a-entity><a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="88.42433 0.036 40.34429" scale="10 10 10" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="7.34217 9.5 9.5" position="86.16507 0 -46.66094" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.425 -0.006 49.47941" rotation="0 90 0" scale="7.69626 10 10"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.471 -0.006 30.312" rotation="0 90 0" scale="10 10 10"></a-entity><a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="88.36 0.129 16.19" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10.22476 10 10" position="86.396 -0.009 -17.06473" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="86.391 -0.006 -58.12063" rotation="0 90 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="9.5 9.5 9.5" position="86.19507 0 -71.66817" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10.52712 9 9" position="87.836 0 -91.73392" rotation="0 90 0"></a-entity>
+    </a-entity>
+
+
+    <!-- Parc -->
+    <a-box class="collision" width="5" height="5" color="#98aaae" material="color: #009A16; shader: flat" geometry="width: 1; height: 1" position="-19.394 -0.004 23.072" scale="86.91415 0.216 36.94074"></a-box>
+    
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-25.83839 3.07146 19.03725" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-13.07623 3.07146 30.82424" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-0.47329 3.07146 14.30871" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="19.28385 3.07146 20.14343" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="7.6198 3.07146 36.34142" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-51.47282 3.07146 12.46517" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-57.11478 3.07146 30.5767" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-37.27628 3.07146 36.46937" scale="7.5 7.5 7.5" rotation=""></a-entity>
+    
+    <a-entity class="collision" obj-model="obj: #bench-obj; mtl: #bench-mtl" position="-5.16601 0.439 28.57531" scale="3 3 3" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #bench-obj; mtl: #bench-mtl" position="9.26005 0.439 20.1279" scale="3 3 3" rotation="0 180 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #bench-obj; mtl: #bench-mtl" position="-31.90339 0.439 19.8285" scale="3 3 3" rotation="0 180 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #bench-obj; mtl: #bench-mtl" position="-50.45191 0.439 29.16289" scale="3 3 3" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #bench-obj; mtl: #bench-mtl" position="-14.26774 0.439 12.69988" scale="3 3 3" rotation="0 90 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #bench-obj; mtl: #bench-mtl" position="-24.07324 0.439 34.91413" scale="3 3 3" rotation="0 -90 0"></a-entity>
+
+    <a-entity class="collision" obj-model="obj: assets/model/path/path.obj" position="-19.471 0.024 22.95289" scale="3.57523 7.5 19.79493" rotation="0 -0.8531341569497958 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: assets/model/path/path.obj" position="3.88126 0.024 24.39245" scale="3.57523 7.5 21.40508" rotation="0 90 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: assets/model/path/path.obj" position="-42.77113 0.024 24.58095" scale="3.57523 7.5 21.40508" rotation="0 90 0"></a-entity>
+    
+    <!-- fence -->
+    
+    <a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-48.68 0 0">
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-48.68 0 36.66547">
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-0.02617 0 36.66547">
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="22.34106 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="19.43979 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="5.00221 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="18.897 0 27.74514" rotation="0 90 0">
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.43089 1.66262 1.66262" rotation="" position="21.80344 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.47923 1.66262 1.66262" rotation="" position="19.25154 0.46105 4.774"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="7.88632 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <a-entity position="-57.64849 0 18.55861" rotation="0 -90 0">
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.50767 1.66262 1.66262" rotation="" position="21.7104 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.50993 1.66262 1.66262" rotation="" position="19.31463 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="16.55381 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="13.6655 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="10.77046 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="2.08549 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-0.8126 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-3.7135 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-6.59627 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-9.49919 0.46105 4.77387"></a-entity>
+      <a-entity class="collision" obj-model="obj: #fencelvl1-obj; mtl: #fencelvl1-mtl" scale="1.66262 1.66262 1.66262" rotation="" position="-12.38672 0.46105 4.77387"></a-entity>
+    </a-entity>
+
+    <!-- routes -->
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="-19.047 0.036 -23.576" scale="60.616 10 15" rotation="0 -90 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="5.69538 0.036 -0.641" scale="60.61631 10 15" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="29.90123 0.06 -25" scale="60.703 10 15" rotation="0 90 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="6.329 0.163 -48.01" scale="60.61631 10 15" rotation=""></a-entity>
+
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="-42.12326 -0.034 -0.641" scale="60.616 10 15" rotation="-0.28 0 -0.06"></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="-42.08532 0.136 -48.012" scale="60.616 10 15" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="-67.80458 0.036 -23.576" scale="60.616 10 15" rotation="0 -90 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="-67.805 -0.094 23.574" scale="60 10 15" rotation="0 -90 0"></a-entity>
+
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="54.338 -0.026 -0.641" scale="60.61631 10 15" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="54.341 0.063 -48.06" scale="60.61631 10 15" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="77.276 -0.03 -25" scale="60.703 10 15" rotation="0 90 0"></a-entity>
+
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="77.276 -0.12 22.417" scale="60.703 10 15" rotation="0 90 0"></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="54.348 -0.116 46.769" scale="60.61631 10 15" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="5.665 -0.034 46.788" scale="60.616 10 15" rotation=""></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="-43.493 -0.097 46.485" scale="60.616 10 15" rotation="-0.28 0 -0.06"></a-entity>
+    <a-entity class="collision" obj-model="obj: #road-obj; mtl: #road-mtl" position="29.142 -0.014 23.824" scale="60.73 10 15" rotation="-1.1500000000000001 -90 0"></a-entity>
+    
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-18.98332 -0.01346 -0.61765" scale="8.091 0.137 10.63638" rotation="0.27 0.31 0.52"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-66.80738 -0.052 -0.69019" scale="8.89299 0.137 7.684" rotation=""></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-66.807 0.078 -47.41319" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-18.6506 0.078 -47.829" scale="8.893 0.137 7.747" rotation="0.509 0 0"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.47846 0.108 -47.82904" scale="8.26533 0.137 7.747" rotation="0 180 0.83"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.47848 -0.027 -0.44491" scale="9.28789 0.137 7.747" rotation="0.509 0 -0.62"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.55596 -0.034 -0.346" scale="8.26533 0.137 7.747" rotation="0 180 0"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.50349 0.036 -48.12924" scale="8.26533 0.137 7.93523" rotation="0.776 0 0"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-66.807 -0.102 46.16063" scale="8.893 0.137 7.684" rotation=""></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-19.67386 -0.102 46.53373" scale="9.25668 0.137 10.42671" rotation=""></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.23819 -0.082 46.53373" scale="9.25668 0.137 7.35708" rotation="0.3907572162792215 -0.005156620156177409 -0.6978625944693427"></a-box>
+    <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.173 -0.154 46.269" scale="8.265 0.137 7.747" rotation="0 180 0"></a-box>
+ </a-entity>
+    <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+
+    <a-entity position="-200 0 0" id="scene-endGame" visible="true">
+      <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+      <a-plane material="color: #C9C930" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+      <!-- insérer effet de particule ici -->
+      <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-image width="1" height="0.5" position="0 6 -5" look-at="#player" src="/assets/img/endgame.png"rotation="10.579 93.438 0" scale="10 10 10"></a-image>
+    </a-entity>
+</a-scene>
+
+<script src="js/Model/model.js"></script>
+
+<script>
+  
+  let compteur = new Compteur;
+  
+  compteur.setNombreObj(Math.floor(Math.random() * 22) + 10);
+  
+</script>
+
+<script src="js/Controller/controller.js"></script>
+<script src="js/View/view.js"></script>
+</body>
+
+</html>
+
