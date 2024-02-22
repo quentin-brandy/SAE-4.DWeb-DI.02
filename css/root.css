@@ -1,0 +1,10 @@
+:root {
+    --font-white: #ffffff;
+    --font-black: #000000;
+    --clr-bg-brown: #a52a2a;
+    --clr-bg-brown-light: #e62525;
+    --clr-bg-brown-mobile: #982626;
+    --clr-bg-brown-mobile-hover: #bb2f2f;
+    --clr-border-mobile: #741d1d;
+    --box-shadow-black: #0000001d;
+}

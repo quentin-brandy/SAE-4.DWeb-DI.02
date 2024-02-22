@@ -1,10 +1,19 @@
-let btnMenu = document.querySelector("#header__nav-toggle");
+let body = document.querySelector("body");
 
-function handlerMenu() {
-    document.querySelector(".header__nav").classList.toggle("animate");
+function handlerMenu(ev) {
+    console.log(ev.target.id);
+
+    if (ev.target.id == 'header__nav-toggle') {
+        document.querySelector(".header__nav").classList.toggle("animate");
+    }
+    else if(ev.target.id != 'header__nav-toggle') {
+        document.querySelector(".header__nav").classList.remove("animate");
+
+    }
+
 }
 
-btnMenu.addEventListener("click", handlerMenu);
+body.addEventListener("click", handlerMenu);
 
 
 
@@ -16,7 +25,7 @@ let imgs = document.querySelectorAll(".toClick");
 
 
 function handlerImg(ev) {
-    console.log(ev);
+    console.log(ev.target.className);
     divImg.style.display = "block";
     imgContainer.src = ev.target.currentSrc;
 
@@ -43,3 +52,15 @@ function handlerCloseImg() {
 }
 
 btnCloseImg.addEventListener("click", handlerCloseImg);
+
+
+
+// click img to scroll on top
+
+let imgLogo = document.querySelector('.header__logo');
+
+imgLogo.addEventListener('click', handlerTranslate);
+
+function handlerTranslate() {
+    window.scrollTo(0, 0);
+}
