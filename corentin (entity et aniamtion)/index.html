@@ -32,35 +32,36 @@
 
   }
 </script>
-  <a-scene stats  >
-    <a-entity id="cameraRig"  wasd-controls position="-0.64251 1.600 13.53574" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable">
-        <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
-        <a-entity oculus-touch-controls="hand: left" ></a-entity>
-        <a-entity super-hands id="right"
-        laser-controls="hand: right;";
-        raycaster="objects: .clickable"
-        line="color: red; opacity: 0.75"
-        blink-controls="
-          collisionEntities: .collision;
-          cameraRig: #cameraRig;
-          teleportOrigin: #head;
-          curveShootingSpeed: 6"></a-entity>
-    </a-entity>
+<a-scene stats>
+
+  <a-entity id="cameraRig"  wasd-controls position="-0.64251 1.600 13.53574" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable">
+      <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
+      <a-entity oculus-touch-controls="hand: left" ></a-entity>
+      <a-entity super-hands id="right"
+      laser-controls="hand: right;";
+      raycaster="objects: .clickable"
+      line="color: red; opacity: 0.75"
+      blink-controls="
+        collisionEntities: .collision;
+        cameraRig: #cameraRig;
+        teleportOrigin: #head;
+        curveShootingSpeed: 6"></a-entity>
+  </a-entity>
 
 
 
-<!-- menu -->
-    <a-entity  animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
-      <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
-      <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
+  <!-- menu -->
+  <a-entity  animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
+    <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
+    <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
     <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
-      <a-image class="clickable" id="tuto" src="#tutorielimg" sceneloading  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
-      <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
-      <a-image class="clickable" id="level1" sceneloading tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
-      <a-entity id="progression" position="0.749 0.852 -0.240"></a-entity>
-    </a-entity>
+    <a-image class="clickable" id="tuto" src="#tutorielimg" sceneloading  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
+    <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
+    <a-image class="clickable" id="level1" sceneloading tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
+    <a-entity id="progression" position="0.749 0.852 -0.240"></a-entity>
+  </a-entity>
    
-    <!-- trash -->
+  <!-- trash -->
 
 <!--  -->
 <!--  -->
@@ -82,24 +83,24 @@
 
 
 
-<a-entity id="trash_2" animation-obj class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;"  position="-0 0 0">
+  <a-entity id="trash_2" animation-obj class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;"  position="-0 0 0">
 
-  <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
+    <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
 
-  <a-entity id="spring" class="trashToCollect clickable" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+    <a-entity id="spring" class="trashToCollect clickable" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
 
-</a-entity>
+  </a-entity>
 
-<a-entity id="trash_1" animation-obj class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" position=" 0 0 0">
+  <a-entity id="trash_1" animation-obj class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" position=" 0 0 0">
 
-  <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
-  <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
-  <a-entity id="can" class="trashToCollect clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: #can-obj; mtl: #can-mtl" ></a-entity>
+    <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+    <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+    <a-entity id="can" class="trashToCollect clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: #can-obj; mtl: #can-mtl" ></a-entity>
 
-</a-entity>
+  </a-entity>
 
-    <!-- Assets -->
-    <a-assets>
+  <!-- Assets -->
+  <a-assets>
       <img id="skyTexture" src="assets/img/sky.jpg">
       <img id="tutorielimg" src="assets/img/tutoriel.png">
       <img id="scene1img" src="assets/img/scène1.png">
@@ -166,9 +167,10 @@
       <a-asset-item id="bush-mtl" src="assets/model/bush/bush.mtl"></a-asset-item> -->
       <a-asset-item id="paper-obj" src="assets/model/paper/paper.obj"></a-asset-item>
       <a-asset-item id="paper-mtl" src="assets/model/paper/paper.mtl"></a-asset-item>
-    </a-assets>
-     <!-- scène 1 -->
-      <a-entity   id="scene1" visible="true">
+  </a-assets>
+
+  <!-- scène 1 -->
+  <a-entity   id="scene1" visible="true">
      <!-- Images tutoriel -->
      <a-image width="1" height="0.5" position="-0.65765 7.28515 1.42932" look-at="#player" src="/assets/img/logo.png"      material="" geometry="" rotation="10.579 93.438 0" scale="10 10 10"></a-image>
      <a-image width="1" height="0.75" position="-0.01639 3.16653 -13.89145" src="/assets/img/tuto1.png" material="side:      front" geometry="" rotation="" scale="5 5 5"></a-image>
@@ -279,11 +281,10 @@
 
         <a-cylinder class="collision" position="-0.64251 -0.33209 13.53574" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
 
-</a-entity>
+  </a-entity>
 
-     <!-- scène 2 -->
-
-    <a-entity position="200 0 0" id="scene2" visible="true">
+  <!-- scène 2 -->
+  <a-entity position="200 0 0" id="scene2" visible="true">
 
     <a-entity id="group_bat_1">
       <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.0156 -24.41533" scale="23.774 0.216 21.28071"></a-box>
@@ -552,6 +553,16 @@
     <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.173 -0.154 46.269" scale="8.265 0.137 7.747" rotation="0 180 0"></a-box>
  
     <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+  </a-entity>
+
+  <a-entity position="-200 0 0" id="scene-endGame" visible="true">
+    <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+    <a-plane material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+    <!-- insérer effet de particule ici -->
+    <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity>
+    <a-image width="1" height="0.5" position="0 6 0" look-at="#player" src="/assets/img/endgame.png"rotation="10.579 93.438 0" scale="10 10 10"></a-image>
+  </a-entity>
+
 </a-scene>
 </body>
 
@@ -673,38 +684,40 @@ AFRAME.registerComponent('animation-visible', {
 
 
     let emplacement = [
-  {id: "emp_1", x:3.83935,y: 0.15928,z: -30.77648},
-  {id: "emp_2", x:16.40803,y: 0.286,z: -18.17951},
-  {id: "emp_3", x:-23.12582,y: 3.67893,z: -19.24529},
-  {id: "emp_4", x:-28.55774,y: 0.04187,z: -5.39985},
-  {id: "emp_5", x:-36.53177,y: 0.29766,z: -35.34442},
-  {id: "emp_6", x:-54.41494,y: 0.18826,z: -18.57678},
-  {id: "emp_7", x:-51.93509,y: 0.03713,z: 12.54512},
-  {id: "emp_8", x:-49.86,y: 0.521,z: 28.921},
-  {id: "emp_9", x:-24.385,y: 0.123,z: 33.231},
-  {id: "emp_10", x:-28.159,y: 0.096,z: 50.369},
-  {id: "emp_11", x:23.087,y: 0.1,z: 5.15},
-  {id: "emp_12", x:49.014,y: 3.687,z: -4.926},
-  {id: "emp_13", x:59.699,y: 4.795,z: -6.027},
-  {id: "emp_14", x:72.244,y: 0.197,z: -6.621},
-  {id: "emp_15", x:59.435,y: 0.273,z: -34.924},
-  {id: "emp_16", x:46.217,y: 0.268,z: -15.878},
-  {id: "emp_17", x:40.129,y: 0.393,z: -53.524},
-  {id: "emp_18", x:18.138,y: 0.393,z: -43.214},
-  {id: "emp_19", x:8.965,y: 5.025,z: -42.953},
-  {id: "emp_20", x:16.241,y: 5.006,z: -35.194},
-  {id: "emp_21", x:9.318,y: 0.355,z: -6.242},
-  {id: "emp_22", x:7.513,y: 0.347,z: 20.74},
-  {id: "emp_23", x:-14.017,y: 0.471,z: -9.412},
-  {id: "emp_24", x:-72.257,y: 0.387,z: 3.074},
-  {id: "emp_25", x:-63.007,y: 0.446,z: -36.424},
-  {id: "emp_26", x:6.837,y: 0.318,z: 36.454},
-  {id: "emp_27", x:63.403,y: 0.32,z: 34.211},
-  {id: "emp_28", x:42.748,y: 0.32,z: 19.952},
-  {id: "emp_29", x:24.991,y: 0.481,z: -26.685},
-  {id: "emp_30", x:17.141,y: 0.513,z: -6.276},
-  {id: "emp_31", x:24.2,y: 0.429,z: 33.185},
-  {id: "emp_32", x:81.35,y: 0.616,z: -52.198}
+    {id: "emp_1", x:0,y: 0,z: 0},
+
+  // {id: "emp_1", x:3.83935,y: 0.15928,z: -30.77648},
+  // {id: "emp_2", x:16.40803,y: 0.286,z: -18.17951},
+  // {id: "emp_3", x:-23.12582,y: 3.67893,z: -19.24529},
+  // {id: "emp_4", x:-28.55774,y: 0.04187,z: -5.39985},
+  // {id: "emp_5", x:-36.53177,y: 0.29766,z: -35.34442},
+  // {id: "emp_6", x:-54.41494,y: 0.18826,z: -18.57678},
+  // {id: "emp_7", x:-51.93509,y: 0.03713,z: 12.54512},
+  // {id: "emp_8", x:-49.86,y: 0.521,z: 28.921},
+  // {id: "emp_9", x:-24.385,y: 0.123,z: 33.231},
+  // {id: "emp_10", x:-28.159,y: 0.096,z: 50.369},
+  // {id: "emp_11", x:23.087,y: 0.1,z: 5.15},
+  // {id: "emp_12", x:49.014,y: 3.687,z: -4.926},
+  // {id: "emp_13", x:59.699,y: 4.795,z: -6.027},
+  // {id: "emp_14", x:72.244,y: 0.197,z: -6.621},
+  // {id: "emp_15", x:59.435,y: 0.273,z: -34.924},
+  // {id: "emp_16", x:46.217,y: 0.268,z: -15.878},
+  // {id: "emp_17", x:40.129,y: 0.393,z: -53.524},
+  // {id: "emp_18", x:18.138,y: 0.393,z: -43.214},
+  // {id: "emp_19", x:8.965,y: 5.025,z: -42.953},
+  // {id: "emp_20", x:16.241,y: 5.006,z: -35.194},
+  // {id: "emp_21", x:9.318,y: 0.355,z: -6.242},
+  // {id: "emp_22", x:7.513,y: 0.347,z: 20.74},
+  // {id: "emp_23", x:-14.017,y: 0.471,z: -9.412},
+  // {id: "emp_24", x:-72.257,y: 0.387,z: 3.074},
+  // {id: "emp_25", x:-63.007,y: 0.446,z: -36.424},
+  // {id: "emp_26", x:6.837,y: 0.318,z: 36.454},
+  // {id: "emp_27", x:63.403,y: 0.32,z: 34.211},
+  // {id: "emp_28", x:42.748,y: 0.32,z: 19.952},
+  // {id: "emp_29", x:24.991,y: 0.481,z: -26.685},
+  // {id: "emp_30", x:17.141,y: 0.513,z: -6.276},
+  // {id: "emp_31", x:24.2,y: 0.429,z: 33.185},
+  // {id: "emp_32", x:81.35,y: 0.616,z: -52.198}
 ];
 
 
@@ -716,7 +729,8 @@ function getPlace() {
     return emplacement.pop();
 }
 
-compteur.setNombreObj(Math.floor(Math.random() * 22) + 10);
+compteur.setNombreObj(1);
+// Math.floor(Math.random() * 22) + 10
 
 function attachClickEventToClones(clones) {
     clones.forEach(clone => {
@@ -728,6 +742,14 @@ function attachClickEventToClones(clones) {
                 align: 'center',
                 color: '#ffffff'
             })
+            if (compteur.getCompteur()== compteur.getNombreObj()) {
+              document.querySelector("#cameraRig").setAttribute('position', {x:-200, y:0,z:0} );
+              document.querySelector("#scene-endGame").setAttribute("visible", true);
+              // document.querySelectorAll(".endGame").forEach(feu => {
+              //   feu.setAttribute("visible", true);
+                
+              // })
+            }
         });
     });
 }
@@ -742,7 +764,6 @@ for (let i = 0; i < compteur.getNombreObj(); i++) {
     }
     let place = getPlace();
     obj.setAttribute("position", { x: place.x, y: place.y, z: place.z });
-    console.log(obj, place);
     document.querySelector("#scene2").appendChild(obj);
     attachClickEventToClones([obj]);
 }
@@ -763,7 +784,6 @@ AFRAME.registerComponent('animation-obj', {
   init: function () {
     var el = this.el;
     var initialPosition = el.getAttribute('position');
-    console.log(initialPosition);
 
     el.addEventListener('click', function() {
       el.setAttribute('animation__position', {
