@@ -62,7 +62,7 @@
    
     <!-- trash -->
 
-<a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-0 0 0">
+<a-entity id="trash_2" animation-obj class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" position="-0 0 0">
 
   <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
 
@@ -70,7 +70,7 @@
 
 </a-entity>
 
-<a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position=" 0 0 0">
+<a-entity id="trash_1" animation-obj class="trashToCollect clickable" visible="true"  position=" 0 0 0">
 
   <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
   <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -78,75 +78,75 @@
 
 </a-entity>
 
-      <!-- Assets -->
-      <a-assets>
-        <img id="skyTexture" src="assets/img/sky.jpg">
-        <img id="tutorielimg" src="assets/img/tutoriel.png">
-        <img id="scene1img" src="assets/img/scène1.png">
-        <img id="logo" src="assets/img/logo.png">
-        <a-asset-item id="largeBuild-obj" src="assets/model/large_building/large_building.obj"></a-asset-item>
-        <a-asset-item id="largeBuild-mtl" src="assets/model/large_building/large_building.mtl"></a-asset-item>
-        <a-asset-item id="road-obj" src="assets/model/road/road.obj"></a-asset-item>
-        <a-asset-item id="road-mtl" src="assets/model/road/road.mtl"></a-asset-item>
-        <a-asset-item id="bigBuild-obj" src="assets/model/big_building/big_building.obj"></a-asset-item>
-        <a-asset-item id="bigBuild-mtl" src="assets/model/big_building/big_building.mtl"></a-asset-item>
-        <a-asset-item id="smallBuild-obj" src="assets/model/small_building/small_building.obj"></a-asset-item>
-        <a-asset-item id="smallBuild-mtl" src="assets/model/small_building/small_building.mtl"></a-asset-item>
-        <a-asset-item id="escBuild-obj" src="assets/model/esc_building/esc_building.obj"></a-asset-item>
-        <a-asset-item id="escBuild-mtl" src="assets/model/esc_building/esc_building.mtl"></a-asset-item>
-        <a-asset-item id="indusBuild-obj" src="assets/model/indus_building/indus_building.obj"></a-asset-item>
-        <a-asset-item id="indusBuild-mtl" src="assets/model/indus_building/indus_building.mtl"></a-asset-item>
-        <a-asset-item id="hotelBuild-obj" src="assets/model/hotel_building/hotel_building.obj"></a-asset-item>
-        <a-asset-item id="hotelBuild-mtl" src="assets/model/hotel_building/hotel_building.mtl"></a-asset-item>
-        <a-asset-item id="shopBuild-obj" src="assets/model/shop_building/shop_building.obj"></a-asset-item>
-        <a-asset-item id="shopBuild-mtl" src="assets/model/shop_building/shop_building.mtl"></a-asset-item>
-        <a-asset-item id="cielBuild-obj" src="assets/model/skyscraper/skyscraper.obj"></a-asset-item>
-        <a-asset-item id="cielBuild-mtl" src="assets/model/skyscraper/skyscraper.mtl"></a-asset-item>
-        <a-asset-item id="trees1-obj" src="assets/model/trees/trees1.obj"></a-asset-item>
-        <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
-        <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
-        <a-asset-item id="smallRock-mtl" src="assets/model/smallRock/SmallRock.mtl"></a-asset-item>
-        <!-- <a-asset-item id="grass1-obj" src="assets/model/grass/grass1.obj"></a-asset-item>
-        <a-asset-item id="grass1-mtl" src="assets/model/grass/grass1.mtl"></a-asset-item>
-        <a-asset-item id="greengrass1-obj" src="assets/model/greengrass/greengrass.obj"></a-asset-item>
-        <a-asset-item id="greengrass1-mtl" src="assets/model/greengrass/greengrass.mtl"></a-asset-item> -->
-        <a-asset-item id="tree&rock-obj" src="assets/model/tree&rock/tree&rock.obj"></a-asset-item>
-        <a-asset-item id="tree&rock-mtl" src="assets/model/tree&rock/tree&rock.mtl"></a-asset-item>
-        <a-asset-item id="miniCity-obj" src="assets/model/mini_city/mini_city.obj"></a-asset-item>
-        <a-asset-item id="miniCity-mtl" src="assets/model/mini_city/mini_city.mtl"></a-asset-item>
-        <a-asset-item id="fontaine-obj" src="assets/model/fontaine/fontaine.obj"></a-asset-item>
-        <a-asset-item id="fontaine-mtl" src="assets/model/fontaine/fontaine.mtl"></a-asset-item>
-        <a-asset-item id="river2-obj" src="assets/model/river2/river2.obj"></a-asset-item>
-        <a-asset-item id="river2-mtl" src="assets/model/river2/river2.mtl"></a-asset-item>
-        <a-asset-item id="farm-obj" src="assets/model/farm/farm.obj"></a-asset-item>
-        <a-asset-item id="farm-mtl" src="assets/model/farm/farm.mtl"></a-asset-item>
-        <a-asset-item id="moun1-obj" src="assets/model/mountain1/mountain1.obj"></a-asset-item>
-        <a-asset-item id="moun1-mtl" src="assets/model/mountain1/mountain1.mtl"></a-asset-item>
-        <a-asset-item id="moun2-obj" src="assets/model/mountain2/mountain2.obj"></a-asset-item>
-        <a-asset-item id="moun2-mtl" src="assets/model/mountain2/mountain2.mtl"></a-asset-item>
-        <a-asset-item id="fence-obj" src="assets/model/fence/fence.obj"></a-asset-item>
-        <a-asset-item id="fence-mtl" src="assets/model/fence/fence.mtl"></a-asset-item>
-        <a-asset-item id="fencelvl1-obj" src="assets/model/fencelvl1/fence.obj"></a-asset-item>
-        <a-asset-item id="fencelvl1-mtl" src="assets/model/fencelvl1/fence.mtl"></a-asset-item>
-        <a-asset-item id="can-obj" src="assets/model/crushed_can/crushed_can.obj"></a-asset-item>
-        <a-asset-item id="can-mtl" src="assets/model/crushed_can/crushed_can.mtl"></a-asset-item>
-        <a-asset-item id="trash_bag-obj" src="assets/model/trash_bag/trash_bag.obj"></a-asset-item>
-        <a-asset-item id="trash_bag-mtl" src="assets/model/trash_bag/trash_bag.mtl"></a-asset-item>
-        <a-asset-item id="gear-obj" src="assets/model/gear/gear.obj"></a-asset-item>
-        <a-asset-item id="gear-mtl" src="assets/model/gear/gear.mtl"></a-asset-item>
-        <a-asset-item id="wine-obj" src="assets/model/wine/wine.obj"></a-asset-item>
-        <a-asset-item id="wine-mtl" src="assets/model/wine/wine.mtl"></a-asset-item>
-        <a-asset-item id="spring-obj" src="assets/model/spring/spring.obj"></a-asset-item>
-        <a-asset-item id="spring-mtl" src="assets/model/spring/spring.mtl"></a-asset-item>
-        <a-asset-item id="tree-obj" src="assets/model/tree/tree.obj"></a-asset-item>
-        <a-asset-item id="tree-mtl" src="assets/model/tree/tree.mtl"></a-asset-item>
-        <a-asset-item id="bench-obj" src="assets/model/bench/bench.obj"></a-asset-item>
-        <a-asset-item id="bench-mtl" src="assets/model/bench/bench.mtl"></a-asset-item>
-        <!-- <a-asset-item id="bush-obj" src="assets/model/bush/bush.obj"></a-asset-item>
-        <a-asset-item id="bush-mtl" src="assets/model/bush/bush.mtl"></a-asset-item> -->
-        <a-asset-item id="paper-obj" src="assets/model/paper/paper.obj"></a-asset-item>
-        <a-asset-item id="paper-mtl" src="assets/model/paper/paper.mtl"></a-asset-item>
-      </a-assets>
+    <!-- Assets -->
+    <a-assets>
+      <img id="skyTexture" src="assets/img/sky.jpg">
+      <img id="tutorielimg" src="assets/img/tutoriel.png">
+      <img id="scene1img" src="assets/img/scène1.png">
+      <img id="logo" src="assets/img/logo.png">
+      <a-asset-item id="largeBuild-obj" src="assets/model/large_building/large_building.obj"></a-asset-item>
+      <a-asset-item id="largeBuild-mtl" src="assets/model/large_building/large_building.mtl"></a-asset-item>
+      <a-asset-item id="road-obj" src="assets/model/road/road.obj"></a-asset-item>
+      <a-asset-item id="road-mtl" src="assets/model/road/road.mtl"></a-asset-item>
+      <a-asset-item id="bigBuild-obj" src="assets/model/big_building/big_building.obj"></a-asset-item>
+      <a-asset-item id="bigBuild-mtl" src="assets/model/big_building/big_building.mtl"></a-asset-item>
+      <a-asset-item id="smallBuild-obj" src="assets/model/small_building/small_building.obj"></a-asset-item>
+      <a-asset-item id="smallBuild-mtl" src="assets/model/small_building/small_building.mtl"></a-asset-item>
+      <a-asset-item id="escBuild-obj" src="assets/model/esc_building/esc_building.obj"></a-asset-item>
+      <a-asset-item id="escBuild-mtl" src="assets/model/esc_building/esc_building.mtl"></a-asset-item>
+      <a-asset-item id="indusBuild-obj" src="assets/model/indus_building/indus_building.obj"></a-asset-item>
+      <a-asset-item id="indusBuild-mtl" src="assets/model/indus_building/indus_building.mtl"></a-asset-item>
+      <a-asset-item id="hotelBuild-obj" src="assets/model/hotel_building/hotel_building.obj"></a-asset-item>
+      <a-asset-item id="hotelBuild-mtl" src="assets/model/hotel_building/hotel_building.mtl"></a-asset-item>
+      <a-asset-item id="shopBuild-obj" src="assets/model/shop_building/shop_building.obj"></a-asset-item>
+      <a-asset-item id="shopBuild-mtl" src="assets/model/shop_building/shop_building.mtl"></a-asset-item>
+      <a-asset-item id="cielBuild-obj" src="assets/model/skyscraper/skyscraper.obj"></a-asset-item>
+      <a-asset-item id="cielBuild-mtl" src="assets/model/skyscraper/skyscraper.mtl"></a-asset-item>
+      <a-asset-item id="trees1-obj" src="assets/model/trees/trees1.obj"></a-asset-item>
+      <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
+      <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
+      <a-asset-item id="smallRock-mtl" src="assets/model/smallRock/SmallRock.mtl"></a-asset-item>
+      <!-- <a-asset-item id="grass1-obj" src="assets/model/grass/grass1.obj"></a-asset-item>
+      <a-asset-item id="grass1-mtl" src="assets/model/grass/grass1.mtl"></a-asset-item>
+      <a-asset-item id="greengrass1-obj" src="assets/model/greengrass/greengrass.obj"></a-asset-item>
+      <a-asset-item id="greengrass1-mtl" src="assets/model/greengrass/greengrass.mtl"></a-asset-item> -->
+      <a-asset-item id="tree&rock-obj" src="assets/model/tree&rock/tree&rock.obj"></a-asset-item>
+      <a-asset-item id="tree&rock-mtl" src="assets/model/tree&rock/tree&rock.mtl"></a-asset-item>
+      <a-asset-item id="miniCity-obj" src="assets/model/mini_city/mini_city.obj"></a-asset-item>
+      <a-asset-item id="miniCity-mtl" src="assets/model/mini_city/mini_city.mtl"></a-asset-item>
+      <a-asset-item id="fontaine-obj" src="assets/model/fontaine/fontaine.obj"></a-asset-item>
+      <a-asset-item id="fontaine-mtl" src="assets/model/fontaine/fontaine.mtl"></a-asset-item>
+      <a-asset-item id="river2-obj" src="assets/model/river2/river2.obj"></a-asset-item>
+      <a-asset-item id="river2-mtl" src="assets/model/river2/river2.mtl"></a-asset-item>
+      <a-asset-item id="farm-obj" src="assets/model/farm/farm.obj"></a-asset-item>
+      <a-asset-item id="farm-mtl" src="assets/model/farm/farm.mtl"></a-asset-item>
+      <a-asset-item id="moun1-obj" src="assets/model/mountain1/mountain1.obj"></a-asset-item>
+      <a-asset-item id="moun1-mtl" src="assets/model/mountain1/mountain1.mtl"></a-asset-item>
+      <a-asset-item id="moun2-obj" src="assets/model/mountain2/mountain2.obj"></a-asset-item>
+      <a-asset-item id="moun2-mtl" src="assets/model/mountain2/mountain2.mtl"></a-asset-item>
+      <a-asset-item id="fence-obj" src="assets/model/fence/fence.obj"></a-asset-item>
+      <a-asset-item id="fence-mtl" src="assets/model/fence/fence.mtl"></a-asset-item>
+      <a-asset-item id="fencelvl1-obj" src="assets/model/fencelvl1/fence.obj"></a-asset-item>
+      <a-asset-item id="fencelvl1-mtl" src="assets/model/fencelvl1/fence.mtl"></a-asset-item>
+      <a-asset-item id="can-obj" src="assets/model/crushed_can/crushed_can.obj"></a-asset-item>
+      <a-asset-item id="can-mtl" src="assets/model/crushed_can/crushed_can.mtl"></a-asset-item>
+      <a-asset-item id="trash_bag-obj" src="assets/model/trash_bag/trash_bag.obj"></a-asset-item>
+      <a-asset-item id="trash_bag-mtl" src="assets/model/trash_bag/trash_bag.mtl"></a-asset-item>
+      <a-asset-item id="gear-obj" src="assets/model/gear/gear.obj"></a-asset-item>
+      <a-asset-item id="gear-mtl" src="assets/model/gear/gear.mtl"></a-asset-item>
+      <a-asset-item id="wine-obj" src="assets/model/wine/wine.obj"></a-asset-item>
+      <a-asset-item id="wine-mtl" src="assets/model/wine/wine.mtl"></a-asset-item>
+      <a-asset-item id="spring-obj" src="assets/model/spring/spring.obj"></a-asset-item>
+      <a-asset-item id="spring-mtl" src="assets/model/spring/spring.mtl"></a-asset-item>
+      <a-asset-item id="tree-obj" src="assets/model/tree/tree.obj"></a-asset-item>
+      <a-asset-item id="tree-mtl" src="assets/model/tree/tree.mtl"></a-asset-item>
+      <a-asset-item id="bench-obj" src="assets/model/bench/bench.obj"></a-asset-item>
+      <a-asset-item id="bench-mtl" src="assets/model/bench/bench.mtl"></a-asset-item>
+      <!-- <a-asset-item id="bush-obj" src="assets/model/bush/bush.obj"></a-asset-item>
+      <a-asset-item id="bush-mtl" src="assets/model/bush/bush.mtl"></a-asset-item> -->
+      <a-asset-item id="paper-obj" src="assets/model/paper/paper.obj"></a-asset-item>
+      <a-asset-item id="paper-mtl" src="assets/model/paper/paper.mtl"></a-asset-item>
+    </a-assets>
      <!-- scène 1 -->
       <a-entity   id="scene1" visible="true">
      <!-- Images tutoriel -->
@@ -175,9 +175,10 @@
      <a-box    class="  collision" color="#35682d" material="" geometry="width: 1; height: 1" position="3.3167 -0.09 -26.62986" scale="15.46898 0.5 20.68657" rotation="0 -139.05 0"></a-box>
      <a-box    class="  collision" color="#35682d" material="" geometry="width: 1; height: 1" position="3.3167 -0.09 -26.62986" scale="15.46898 0.5 20.68657" rotation="0 -139.05 0"></a-box>
      <a-box    class="collision" color="#35682d" material="" geometry="width: 1; height: 1" position="12.644 -0.09035 -11.422" scale="14.939 0.5 13.537" rotation="0 47.737 0"></a-box>
-      <!-- caillou right -->  
-      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="21.04003 -0.09035 4.46708" scale="5.06349 0.5 3.41" rotation=""></a-box>
-      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="22.49042 -0.09035 -36.53442" scale="4.74349 0.5 5.41" rotation=""></a-box>
+
+    <!-- caillou right -->  
+    <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="21.04003 -0.09035 4.46708" scale="5.06349 0.5 3.41" rotation=""></a-box>
+    <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="22.49042 -0.09035 -36.53442" scale="4.74349 0.5 5.41" rotation=""></a-box>
      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="23.45197 -0.09035 18.21155" scale="20.58349 0.5 25.99" rotation=""></a-box>
      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="15.50697 -0.09035 -17.619" scale="12.20349 0.5 46" rotation=""></a-box>
      <a-box class=" caillouright collision" color="#35682d" material="" geometry="" position="40.94697 -0.09 9.3351" scale="19.393 0.5 38.09" rotation=""></a-box>
@@ -264,26 +265,26 @@
 
     <a-entity position="200 0 0" id="scene2" visible="true">
 
-      <a-entity id="group_bat_1">
-        <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.0156 -24.41533" scale="23.774 0.216 21.28071"></a-box>
-        <a-box width="5"  class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="3.53935 0.0156 -12.59358" scale="2.524 0.216 13.43071"></a-box>
-        <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-4.69991 0.0156 -37.28802" scale="2.524 0.216 13.43071"></a-box>
-        <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="4.77211 0.16 -24.17475" scale="40 0.216 40"></a-box>
-        <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
-        <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
-        <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
-        <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
-        <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
-        <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
-        <a-entity obj-model="obj: #shopBuild-obj; mtl: #shopBuild-mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
-        <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
-      </a-entity>
+    <a-entity id="group_bat_1">
+      <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.0156 -24.41533" scale="23.774 0.216 21.28071"></a-box>
+      <a-box width="5"  class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="3.53935 0.0156 -12.59358" scale="2.524 0.216 13.43071"></a-box>
+      <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-4.69991 0.0156 -37.28802" scale="2.524 0.216 13.43071"></a-box>
+      <a-box width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="4.77211 0.16 -24.17475" scale="40 0.216 40"></a-box>
+      <a-entity obj-model="obj: #largeBuild-obj; mtl: #largeBuild-mtl" position="-1.54727 -0.006 -9.681" rotation="0 180 0" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 10" position="14.70395 0 -11.684"></a-entity>
+      <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="-9.62055 -0.009 -9.72577" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="10 10 10" position="-9.641 0 -24.3047" rotation="0 90 0"></a-entity>
+      <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="10 10 10" position="-9.50537 -0.01399 -39.03038"></a-entity>
+      <a-entity obj-model="obj: #hotelBuild-obj; mtl: #hotelBuild-mtl" position="2.43862 0.036 -37.04" scale="10 10 10"></a-entity>
+      <a-entity obj-model="obj: #shopBuild-obj; mtl: #shopBuild-mtl" scale="10 10 10" position="16.71456 0 -39.07782" visible=""></a-entity>
+      <a-entity obj-model="obj: #indusBuild-obj; mtl: #indusBuild-mtl" scale="8.47741 10 10" position="20.6757 0 -26.49434" rotation="0 -90 0"></a-entity>
+    </a-entity>
       
-      <a-entity id="group_bat_2">
-        <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.44675 0.156 -24.415" scale="21.944 0.216 22.881"></a-box>
-        <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-28.11484 0.156 -30.0628" scale="9.284 0.216 2.711"></a-box>
-        <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-53.34958 0.156 -9.59746" scale="3.484 0.216 8.621"></a-box>
-        <a-box  width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.45206 0.156 -23.96868" scale="40 0.216 40"></a-box>
+    <a-entity id="group_bat_2">
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.44675 0.156 -24.415" scale="21.944 0.216 22.881"></a-box>
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-28.11484 0.156 -30.0628" scale="9.284 0.216 2.711"></a-box>
+      <a-box class="collision" width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-53.34958 0.156 -9.59746" scale="3.484 0.216 8.621"></a-box>
+      <a-box  width="5" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="-43.45206 0.156 -23.96868" scale="40 0.216 40"></a-box>
       <a-entity obj-model="obj: #escBuild-obj; mtl: #escBuild-mtl" scale="10 10 10" position="-58.74231 -0.01399 -9.9384" rotation="0 90 0"></a-entity>
       <a-entity obj-model="obj: #bigBuild-obj; mtl: #bigBuild-mtl" scale="10 10 7.16" position="-58.49526 0 -24.294" rotation="0 -90 0"></a-entity>
       <a-entity obj-model="obj: #smallBuild-obj; mtl: #smallBuild-mtl" scale="10 10 10" position="-58.677 -0.009 -38.647" rotation=""></a-entity>
@@ -725,5 +726,23 @@ for (let i = 0; i < compteur.getNombreObj(); i++) {
     document.querySelector("#scene2").appendChild(obj);
     attachClickEventToClones([obj]);
 }
+
+AFRAME.registerComponent('animation-obj', {
+    init: function () {
+      var el = this.el;
+      var initialPosition = el.getAttribute('position');
+
+      el.addEventListener('click', function() {
+        el.setAttribute('animation__position', {
+          property: "position",
+          to: {x: initialPosition.x, y: initialPosition.y + 0.2, z: initialPosition.z},
+          dur: 2000,
+          complete: function() {
+            el.setAttribute('visible', false);
+          }
+        });
+      });
+    }
+  });
     
-    </script>
+</script>
