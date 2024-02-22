@@ -560,38 +560,7 @@
     }
   });
     
-    // AFRAME.registerComponent('scene1-visible', {
-    //   init: function() {
-    //     let tuto = document.querySelector('#tuto')
-    //     let scene1 = document.querySelector('#scene1');
-    //     let scene2 = document.querySelector('#scene2');
-    //   tuto.addEventListener('click', function() {
-    //     console.log(scene1.getAttribute('visible'));
-    //     if (scene1.getAttribute('visible') === true) {
-    
-    //         } else {
-    //           scene1.setAttribute('visible' , true);
-    //           scene2.setAttribute('visible' , false);
-    //         }
-    // });
-    //       }});
-    
-    //       AFRAME.registerComponent('scene2-visible', {
-    //   init: function() {
-    //     let tuto = document.querySelector('#level1');
-    //     let scene1 = document.querySelector('#scene1');
-    //     let scene2 = document.querySelector('#scene2');
-    //   tuto.addEventListener('click', function() {
-    //     console.log(scene2.getAttribute('visible'));
-    //     if (scene2.getAttribute('visible') === true) {
-    
-    //         } else {
-    //           scene2.setAttribute('visible' , true);
-    //           scene1.setAttribute('visible' , false);
-             
-    //         }
-    // });
-    //       }});
+   
     
     //tuto position
     let positiontuto = {x:-0.64251 , y:0 , z:13.53574};
@@ -633,8 +602,6 @@
 
 
 //menu rotation
-
-
 AFRAME.registerComponent('animation-rotation', {
   tick: (function () {
     let head = document.querySelector("#head");
@@ -650,9 +617,7 @@ AFRAME.registerComponent('animation-rotation', {
   })()
 });
 
-
 // menu position 
-// pour vive focus remplacer abuttondown par triggerdown en attendant.
 AFRAME.registerComponent('animation-position', {
   tick: (function () {
     let right = document.querySelector("#right");
@@ -666,34 +631,22 @@ AFRAME.registerComponent('animation-position', {
     };
   })()
 });
-
-
-
 // menu visibilité
-let visible = 0;
 AFRAME.registerComponent('animation-visible', {
-  init: function() {
-  let right = document.querySelector("#right");
-  let text3 = document.querySelector("#menu");
-  right.addEventListener('abuttondown', function() {
-    if (visible == 0) {
-          text3.setAttribute('animation__visible', {
-            property: 'visible',
-            to: true,
-            easing: 'easeInOutQuad',
-           
-          });
-          visible += 1;
-        } else {
-          text3.setAttribute('animation__visible', {
-            property: 'visible',
-            to: false,
-            easing: 'easeInOutQuad',
-          });
-          visible = 0;
-        }
-});
-      }});
+    init: (function () {
+      let right = document.querySelector("#right");
+        let menu = document.querySelector("#menu");
+        right.addEventListener('abuttondown', function() {
+          var isVisible = menu.getAttribute('visible');
+          if (isVisible) {
+            menu.setAttribute('visible', false);
+          } else {
+            menu.setAttribute('visible', true);
+          }
+        });
+     
+    })
+  });
 
 
 
