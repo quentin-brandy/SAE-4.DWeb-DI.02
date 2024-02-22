@@ -75,7 +75,7 @@
     .header {
         position: fixed;
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         top: 0;
     }
 
