@@ -50,19 +50,16 @@
 
 
 <!-- menu -->
-    <a-entity  animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
-      <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
-      <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
-    <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
-      <a-image class="clickable" id="tuto" src="#tutorielimg" sceneloading  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
-      <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
-      <a-image class="clickable" id="level1" sceneloading tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
-      <a-entity id="progression" position="0.749 0.852 -0.240"></a-entity>
-    </a-entity>
-   
+    
+<a-entity   animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
+  <a-image src="#imagemenu" width="1.4" height="0.7" position="0 0.5 -0.3" material geometry></a-image>
+  <a-image sceneloading class="clickable" id="tuto" src="#tutorielimg"  scene1-position position="-0.20799 0.45 -0.29" rotation="" scale="0.99 1.75 0.00001" width="0.4" height="0.2"  depth="1"></a-image>
+  <a-image sceneloading class="clickable" id="level1"  tuto-position src="#scene1img" position="0.25388 0.45 -0.29" rotation="" scale="0.99 1.75 0.00001" width="0.4" height="0.2" ></a-image>
+  <a-entity id="progression" position="-0.02675 0.78439 -0.29"></a-entity>
+</a-entity>
     <!-- trash -->
 
-<a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-0 0 0">
+<a-entity id="trash_2"  animation-obj class="trashToCollect clickable" scale="1.5 1.5 1.5" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" ">
 
   <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
 
@@ -70,7 +67,7 @@
 
 </a-entity>
 
-<a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position=" 0 0 0">
+<a-entity id="trash_1"   animation-obj class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;"  scale="2 2 2">
 
   <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
   <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -84,6 +81,7 @@
         <img id="tutorielimg" src="assets/img/tutoriel.png">
         <img id="scene1img" src="assets/img/scène1.png">
         <img id="logo" src="assets/img/logo.png">
+        <img id="imagemenu" src="assets/img/interface_menu.png">
         <a-asset-item id="largeBuild-obj" src="assets/model/large_building/large_building.obj"></a-asset-item>
         <a-asset-item id="largeBuild-mtl" src="assets/model/large_building/large_building.mtl"></a-asset-item>
         <a-asset-item id="road-obj" src="assets/model/road/road.obj"></a-asset-item>
@@ -106,10 +104,6 @@
         <a-asset-item id="trees1-mtl" src="assets/model/trees/trees1.mtl"></a-asset-item>
         <a-asset-item id="smallRock-obj" src="assets/model/smallRock/SmallRock.obj"></a-asset-item>
         <a-asset-item id="smallRock-mtl" src="assets/model/smallRock/SmallRock.mtl"></a-asset-item>
-        <!-- <a-asset-item id="grass1-obj" src="assets/model/grass/grass1.obj"></a-asset-item>
-        <a-asset-item id="grass1-mtl" src="assets/model/grass/grass1.mtl"></a-asset-item>
-        <a-asset-item id="greengrass1-obj" src="assets/model/greengrass/greengrass.obj"></a-asset-item>
-        <a-asset-item id="greengrass1-mtl" src="assets/model/greengrass/greengrass.mtl"></a-asset-item> -->
         <a-asset-item id="tree&rock-obj" src="assets/model/tree&rock/tree&rock.obj"></a-asset-item>
         <a-asset-item id="tree&rock-mtl" src="assets/model/tree&rock/tree&rock.mtl"></a-asset-item>
         <a-asset-item id="miniCity-obj" src="assets/model/mini_city/mini_city.obj"></a-asset-item>
@@ -142,17 +136,20 @@
         <a-asset-item id="tree-mtl" src="assets/model/tree/tree.mtl"></a-asset-item>
         <a-asset-item id="bench-obj" src="assets/model/bench/bench.obj"></a-asset-item>
         <a-asset-item id="bench-mtl" src="assets/model/bench/bench.mtl"></a-asset-item>
-        <!-- <a-asset-item id="bush-obj" src="assets/model/bush/bush.obj"></a-asset-item>
-        <a-asset-item id="bush-mtl" src="assets/model/bush/bush.mtl"></a-asset-item> -->
         <a-asset-item id="paper-obj" src="assets/model/paper/paper.obj"></a-asset-item>
         <a-asset-item id="paper-mtl" src="assets/model/paper/paper.mtl"></a-asset-item>
+        <a-asset-item id="button-obj" src="assets/model/boutton/button.obj"></a-asset-item>
+        <a-asset-item id="button-mtl" src="assets/model/boutton/button.mtl"></a-asset-item>
+        <a-asset-item id="pedestal-obj" src="assets/model/pedestal/pedestal.obj"></a-asset-item>
+        <a-asset-item id="pedestal-mtl" src="assets/model/pedestal/pedestal.mtl"></a-asset-item>
       </a-assets>
      <!-- scène 1 -->
       <a-entity   id="scene1" visible="true">
      <!-- Images tutoriel -->
-     <a-image width="1" height="0.5" position="-0.65765 7.28515 1.42932" look-at="#player" src="/assets/img/logo.png"      material="" geometry="" rotation="10.579 93.438 0" scale="10 10 10"></a-image>
+     <a-image width="1" height="0.5" position="-0.65765 7.28515 1.42932" look-at="#head" src="/assets/img/logo.png"      material="" geometry="" rotation="10.579 93.438 0" scale="10 10 10"></a-image>
      <a-image width="1" height="0.75" position="-0.01639 3.16653 -13.89145" src="/assets/img/tuto1.png" material="side:      front" geometry="" rotation="" scale="5 5 5"></a-image>
      <a-image width="1" height="0.75" position="-11.45806 3.16653 -29.29473" src="/assets/img/tuto2.png" material="side:       front" geometry="" rotation="" scale="5.036 5 5"></a-image>
+     <a-image width="1" height="0.75" position="-5.96753 3.16653 -38.02361" src="/assets/img/tuto3.png" material="side: front" geometry="" rotation="" scale="5.036 5 5"></a-image>
      <a-entity  obj-model="obj: #miniCity-obj; mtl: #miniCity-mtl" position="-4.111 2.51055 -184.589" scale="50 50 50" rotation="1.6426699986400704 90.03974454701374 -0.020626480624709637" color="#808080"></a-entity>
 
      <!-- montagnes -->
@@ -252,17 +249,16 @@
      <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-16.01966 0.02992 -50.29378" rotation=""></a-entity>
      <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-21.75066 0.02992 -50.29378" rotation=""></a-entity>
      <a-entity     class="collision" obj-model="obj: #fence-obj; mtl: #fence-mtl" position="-28.05095 0.02992 -50.29378" rotation="" scale="1.1915 1 1"></a-entity>
-    
-
-
-
+    <!-- spawn plateform bleu -->
         <a-cylinder class="collision" position="-0.64251 -0.33209 13.53574" rotation="0 45 0" color="#4CC3D9" material="" geometry=""></a-cylinder>
-
+    <!-- bouton -->
+    <a-entity id="boutontuto" bouton-position sceneloading class="clickable" obj-model="obj: assets/model/boutton/button.obj" position="-5.05777 1.20267 -49.95421" rotation="" scale="0.04 0.04 0.04" material="color:#cf1b1b;"></a-entity>
+    <a-entity class="collision" obj-model="obj: assets/model/pedestal/pedestal.obj" position="-5.06666 0 -49.98237" rotation="" scale="0.6 0.5 0.6" material="color:#665f6b;"></a-entity>
 </a-entity>
 
      <!-- scène 2 -->
 
-    <a-entity position="200 0 0" id="scene2" visible="true">
+    <a-entity position="200 0 0" id="scene2" visible="false">
 
       <a-entity id="group_bat_1">
         <a-box width="5" class="collision" height="5" color="#98aaae" material="" geometry="width: 1; height: 1" position="5.308 0.0156 -24.41533" scale="23.774 0.216 21.28071"></a-box>
@@ -529,8 +525,16 @@
     <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="-19.67386 -0.102 46.53373" scale="9.25668 0.137 10.42671" rotation=""></a-box>
     <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="29.23819 -0.082 46.53373" scale="9.25668 0.137 7.35708" rotation="0.3907572162792215 -0.005156620156177409 -0.6978625944693427"></a-box>
     <a-box class="collision"  width="1" height="1" color="#0e181f" material="color: #0E181F; shader: phong" geometry="" position="77.173 -0.154 46.269" scale="8.265 0.137 7.747" rotation="0 180 0"></a-box>
- 
+ </a-entity>
     <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+
+    <a-entity position="-200 0 0" id="scene-endGame" visible="true">
+      <a-sky src="#skyTexture" material="color: #FFFFFF"></a-sky>
+      <a-plane material="color: #C9C930" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
+      <!-- insérer effet de particule ici -->
+      <a-entity position="0 0 0" particle-system="color: #EF0000,#44CC00"></a-entity>
+      <a-image width="1" height="0.5" position="0 6 -5" look-at="#player" src="/assets/img/endgame.png"rotation="10.579 93.438 0" scale="10 10 10"></a-image>
+    </a-entity>
 </a-scene>
 </body>
 
@@ -541,10 +545,12 @@
  let compteur = new Compteur;
 
 
+
  AFRAME.registerComponent('sceneloading', {
     init: function() {
       let btn1 = document.querySelector('#tuto')
       let btn2 = document.querySelector('#level1')
+      let btn3 = document.querySelector('#boutontuto')
       let scene1 = document.querySelector('#scene1');
       let scene2 = document.querySelector('#scene2');
       btn1.addEventListener('click', function() {
@@ -553,6 +559,11 @@
         document.querySelector("#menu").setAttribute('visible' , false);
       });
       btn2.addEventListener('click', function() {
+        scene1.setAttribute('visible' , false);
+        scene2.setAttribute('visible' , true);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+      btn3.addEventListener('click', function() {
         scene1.setAttribute('visible' , false);
         scene2.setAttribute('visible' , true);
         document.querySelector("#menu").setAttribute('visible' , false);
@@ -580,6 +591,24 @@
         };
       })()
     });
+
+// tuto bouton position
+    AFRAME.registerComponent('bouton-position', {
+      tick: (function () {
+        let camera = document.querySelector("#cameraRig");
+        var position = new THREE.Vector3();
+        return function() {
+         let tuto = document.querySelector('#boutontuto');
+        camera.object3D.getWorldPosition(position);
+       
+          tuto.addEventListener('click', function() {
+            camera.setAttribute('position', positionscene1 );
+            positiontuto = {x: position.x , y: 0 , z: position.z};
+          });
+        };
+      })()
+    });
+
     // scène2 position
     
     let positionscene1 = {x:200 , y:0 , z:0};
@@ -707,6 +736,14 @@ function attachClickEventToClones(clones) {
                 align: 'center',
                 color: '#ffffff'
             })
+            if (compteur.getCompteur()== compteur.getNombreObj()) {
+              document.querySelector("#cameraRig").setAttribute('position', {x:-200, y:0,z:0} );
+              document.querySelector("#scene-endGame").setAttribute("visible", true);
+              // document.querySelectorAll(".endGame").forEach(feu => {
+              //   feu.setAttribute("visible", true);
+                
+              // })
+            }
         });
     });
 }
@@ -725,5 +762,21 @@ for (let i = 0; i < compteur.getNombreObj(); i++) {
     document.querySelector("#scene2").appendChild(obj);
     attachClickEventToClones([obj]);
 }
-    
+  
+   
+AFRAME.registerComponent('animation-obj', {
+    init: function () {
+      var el = this.el;
+      var initialPosition = el.getAttribute('position');
+      console.log(initialPosition);
+
+      el.addEventListener('click', function() {
+        el.setAttribute('animation__position', {
+          property: "position",
+          to: {x: initialPosition.x, y: initialPosition.y + 1, z: initialPosition.z},
+          dur: 2000,
+        });
+      });
+    }
+  });
     </script>
