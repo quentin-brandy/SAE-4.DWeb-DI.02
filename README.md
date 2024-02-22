@@ -1,8 +1,17 @@
-SAE 402 
-GROUPE : Brandy Quentin , Perrault Josue , Pouget Corentin
-Bienvenue dans le Github de la SAE402
-Le Github est organisé de cette façon :
-Le dossier site web correspond au siteweb en entier avec les 3 version du jeu.
-Le dossier Vive correspond au code pour que le jeu fontionne avec un casque Vive ou Vive focus
-Le dossier Quest correspond au code pour que le jeu fontionne avec un casque Quest2 ou Quest3
-Le dossier Quest correspond au code pour que le jeu fontionne sur le web
+Bienvenue dans le dépôt GitHub de SAE402 !
+
+Ce dépôt est organisé comme suit :
+
+### 1. Dossier `siteweb`
+Ce dossier contient l'intégralité du site web ainsi que les trois versions du jeu.
+
+### 2. Dossier `Vive`
+Contient le code nécessaire pour que le jeu fonctionne avec un casque Vive ou Vive Focus.
+
+### 3. Dossier `Quest`
+Contient le code nécessaire pour que le jeu fonctionne avec un casque Quest 2 ou Quest 3.
+
+### 4. Dossier `Web`
+Contient le code nécessaire pour que le jeu fonctionne sur le web.
+
+
