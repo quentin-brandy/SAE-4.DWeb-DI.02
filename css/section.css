@@ -3,22 +3,76 @@
     margin: 0 0 2rem;
     background-color: aliceblue;
     border-bottom: 2px solid rgb(116, 29, 29);
+    
 }
 
 .section1__h2 {
     padding: 1rem 0 1rem;
     text-align: center;
     font-size: 2rem;
-
-}
-
-.section1__figure {
     
 }
+.intro {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 3.8rem;
+}
 
-.section1__img {
-    margin: 0 0 2rem;
-    cursor: pointer;
+.acceuil {
+    grid-area: 1 / 2 / 2 / 5;
+    color: rgb(230, 37, 37);
+    font-size: 1.7rem;
+    text-shadow: -2px 0 black, 0 2px black,
+        2px 0 black, 0 -2px black;
+        z-index: 1;
+        margin-top: 3rem;
+}
+
+.imagegame {
+    filter: brightness(50%);
+    grid-area: 1 / 1 / 4 / 6;
+
+}
+
+.jouable{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.jouable2{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.jouabletext{
+    color: black;
+}
+.listjouable{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-left: 0;
+}
+
+.buttongame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(230, 37, 37);
+    border-radius: 50px;
+    height: 3em;
+    width: 10em;
+    font-size: large;
+    font-weight: 600;
+    margin-top: 1rem;
 }
 
 .section1__figcaption {
@@ -89,6 +143,33 @@
 }
 
 @media screen and (min-width: 800px) {
+    /* DEBUT */
+.intro{
+    margin-top: 5rem;
+}
+.acceuil{
+    grid-area: 1 / 2 / 2 / 5;
+    font-size: 3rem;
+}
+.imagegame{
+    grid-area: 1 / 1 / 6 / 6;
+}
+.jouable2{
+    display: flex;
+    z-index: 1;
+    grid-area: 3 / 2 / 4 / 5;
+    margin-bottom: 8rem;
+    gap: 2rem;
+}
+.listjouable{
+    flex-direction: row;
+}
+.jouable{
+    display: none;
+}
+.jouabletext{
+    color: white;
+}
     /* 1 */
     .section1 {
         padding: 0 0 5rem;
@@ -205,5 +286,38 @@
     
     .section3__figcaption {
         font-size: 1.25rem;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .acceuil{
+        font-size: 5rem;
+        text-shadow: -3px 0 black, 0 3px black,
+        3px 0 black, 0 -3px black;
+    }
+    .jouable2{
+        gap: 5rem;
+    }
+    .listjouable{
+        flex-direction: row;
+        gap: 6rem;
+    }
+
+    .jouabletext{
+        color: white;
+        font-size: 3rem;
+    }
+    .buttongame {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgb(230, 37, 37);
+        border-radius: 50px;
+        height: 3em;
+        width: 10em;
+        font-size: large;
+        font-weight: 600;
+        margin-top: 1rem;
+        font-size: 2rem;
     }
 }
