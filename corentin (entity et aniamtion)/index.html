@@ -91,7 +91,7 @@
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
 
-    <a-entity animation-obj id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;"  position="-1 0 0">
+    <a-entity animation-obj id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" position="-1 0 0">
 
       <a-entity id="gear" class="clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
 
@@ -110,7 +110,7 @@
     <a-sky color="lightblue"></a-sky>
     <a-plane src="#groundTexture" material="color: #00AE00" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane>
 
-    <a-entity animation-obj id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;"  position="">
+    <a-entity animation-obj id="trash_1" class="trashToCollect clickable" visible="true" position="">
 
       <a-entity id="trash_bag" class="clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
       <a-entity id="paper" class="clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -193,7 +193,7 @@
       compteur.incrCompteur();
       var textContainer = document.querySelector("#progression");
       textContainer.setAttribute('text', {
-          value: 'Score :' +compteur.getCompteur()+" /"+nombreObj,
+          value: 'Score :' +compteur.getCompteur()+" /"+compteur.getNombreObj(),
           align: 'center', 
           color: '#ffffff' 
       })
@@ -239,16 +239,18 @@
   AFRAME.registerComponent('animation-obj', {
     init: function () {
       var el = this.el;
+      var initialPosition = el.getAttribute('position');
+
       el.addEventListener('click', function() {
-        let coord = new THREE.Vector3();
-        el.object3D.getWorldPosition(coord);
-        console.log(coord);
         el.setAttribute('animation__position', {
           property: "position",
-          to: {x: coord.x, y: coord.y + 0.2, z: coord.z},
-          dur: 2000
+          to: {x: initialPosition.x, y: initialPosition.y + 0.2, z: initialPosition.z},
+          dur: 2000,
+          complete: function() {
+          el.setAttribute('visible', false);
+        }
         });
-      });      
+      });
     }
   });
 
