@@ -62,7 +62,7 @@
    
     <!-- trash -->
 
-<a-entity id="trash_2" animation-obj class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" position="-0 0 0">
+<a-entity id="trash_2" animation-obj class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;"  position="-0 0 0">
 
   <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
 
@@ -70,7 +70,7 @@
 
 </a-entity>
 
-<a-entity id="trash_1" animation-obj class="trashToCollect clickable" visible="true"  position=" 0 0 0">
+<a-entity id="trash_1" animation-obj class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" position=" 0 0 0">
 
   <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
   <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
@@ -731,15 +731,13 @@ AFRAME.registerComponent('animation-obj', {
     init: function () {
       var el = this.el;
       var initialPosition = el.getAttribute('position');
+      console.log(initialPosition);
 
       el.addEventListener('click', function() {
         el.setAttribute('animation__position', {
           property: "position",
           to: {x: initialPosition.x, y: initialPosition.y + 0.2, z: initialPosition.z},
           dur: 2000,
-          complete: function() {
-            el.setAttribute('visible', false);
-          }
         });
       });
     }
