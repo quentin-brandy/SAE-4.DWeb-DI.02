@@ -7,6 +7,31 @@
 </head>
 
 <body>
+  <script>
+  class Compteur  {
+
+    compteur = 0;
+    nombreObj = 0;
+
+    getCompteur()  {
+      return this.compteur;
+    }
+
+    incrCompteur() {
+      this.compteur++
+    }
+
+    getNombreObj()  {
+      return this.nombreObj;
+    }
+
+    setNombreObj(value) {
+      this.nombreObj= value;
+    }
+
+
+  }
+</script>
   <a-scene stats  >
     <a-entity id="cameraRig"  wasd-controls position="-0.64251 1.600 13.53574" cursor-teleport="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable">
         <a-entity id="head" position="0 1.52 0" camera look-controls="reverseMouseDrag: true"></a-entity>
@@ -23,15 +48,36 @@
     </a-entity>
 
 
+
+<!-- menu -->
     <a-entity  animation-rotation animation-position animation-visible  rotation="0 0 0" position="0 0 0"  id="menu" visible="false"> 
       <a-box  id="box" color="black"  depth="0.001" height="0.7" width="1.4" position="0 0.81 -0.3"  rotation="-13 0 0"></a-box>
       <a-image src="#logo" position="0 1.1 -0.29" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
     <a-entity position="0.25 0.840 -0.290"  text="value:tutoriel; color: white"></a-entity>
-      <a-image class="clickable" id="tuto" src="#tutorielimg" scene1-visible  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
+      <a-image class="clickable" id="tuto" src="#tutorielimg" sceneloading  scene1-position position="-0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4"  height="0.2"></a-image>
       <a-entity position="0.749 0.852 -0.240"  text="value: scene1; color: white"></a-entity>
-      <a-image class="clickable" id="level1" scene2-visible tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
+      <a-image class="clickable" id="level1" sceneloading tuto-position  src="#scene1img" position="+0.3 0.74 -0.25" rotation="-13.3 0 0" scale="0.5 0.5 0" width="0.4" height="0.2"></a-image>
+      <a-entity id="progression" position="0.749 0.852 -0.240"></a-entity>
     </a-entity>
    
+    <!-- trash -->
+
+<a-entity id="trash_2" class="trashToCollect clickable" scale="0.7 0.7 0.7" visible="true" animation__visible="startEvents: click; property: visible; to: false;dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;" position="-0 0 0">
+
+  <a-entity id="gear" class="trashToCollect clickable" scale="0.15 0.15 0.15" position="0 0.2 0" rotation="-45 45 0"  obj-model="obj: #gear-obj; mtl: #gear-mtl"></a-entity>
+
+  <a-entity id="spring" class="trashToCollect clickable" scale="0.1 0.1 0.1" position="-0.2 0.2 -0.1"  obj-model="obj: #spring-obj; mtl: #spring-mtl" ></a-entity>
+
+</a-entity>
+
+<a-entity id="trash_1" class="trashToCollect clickable" visible="true" animation__visible="startEvents: click; property: visible; to: false; dir: linear; delay: 2000;" animation__position="startEvents: click; property: position; from: 0 0 0; to: 0 0.2 0; dir: linear; dur: 2000;"  position=" 0 0 0">
+
+  <a-entity id="trash_bag" class="trashToCollect clickable" position="0.12 0.1 -0.05"  obj-model="obj: #trash_bag-obj; mtl: #trash_bag-mtl" ></a-entity>
+  <a-entity id="paper" class="trashToCollect clickable" position="0 0 0" rotation="0 90 0"  obj-model="obj: #paper-obj; mtl: #paper-mtl" ></a-entity>
+  <a-entity id="can" class="trashToCollect clickable" position="0 0.02 0" rotation="0 90 0"  obj-model="obj: #can-obj; mtl: #can-mtl" ></a-entity>
+
+</a-entity>
+
       <!-- Assets -->
       <a-assets>
         <img id="skyTexture" src="assets/img/sky.jpg">
@@ -492,39 +538,29 @@
 
 <script>
 
+ let compteur = new Compteur;
+
+
+ AFRAME.registerComponent('sceneloading', {
+    init: function() {
+      let btn1 = document.querySelector('#tuto')
+      let btn2 = document.querySelector('#level1')
+      let scene1 = document.querySelector('#scene1');
+      let scene2 = document.querySelector('#scene2');
+      btn1.addEventListener('click', function() {
+        scene1.setAttribute('visible' , true);
+        scene2.setAttribute('visible' , false);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+      btn2.addEventListener('click', function() {
+        scene1.setAttribute('visible' , false);
+        scene2.setAttribute('visible' , true);
+        document.querySelector("#menu").setAttribute('visible' , false);
+      });
+    }
+  });
     
-    AFRAME.registerComponent('scene1-visible', {
-      init: function() {
-        let tuto = document.querySelector('#tuto')
-        let scene1 = document.querySelector('#scene1');
-        let scene2 = document.querySelector('#scene2');
-      tuto.addEventListener('click', function() {
-        console.log(scene1.getAttribute('visible'));
-        if (scene1.getAttribute('visible') === true) {
-    
-            } else {
-              scene1.setAttribute('visible' , true);
-              scene2.setAttribute('visible' , false);
-            }
-    });
-          }});
-    
-          AFRAME.registerComponent('scene2-visible', {
-      init: function() {
-        let tuto = document.querySelector('#level1');
-        let scene1 = document.querySelector('#scene1');
-        let scene2 = document.querySelector('#scene2');
-      tuto.addEventListener('click', function() {
-        console.log(scene2.getAttribute('visible'));
-        if (scene2.getAttribute('visible') === true) {
-    
-            } else {
-              scene2.setAttribute('visible' , true);
-              scene1.setAttribute('visible' , false);
-             
-            }
-    });
-          }});
+   
     
     //tuto position
     let positiontuto = {x:-0.64251 , y:0 , z:13.53574};
@@ -566,8 +602,6 @@
 
 
 //menu rotation
-
-
 AFRAME.registerComponent('animation-rotation', {
   tick: (function () {
     let head = document.querySelector("#head");
@@ -583,9 +617,7 @@ AFRAME.registerComponent('animation-rotation', {
   })()
 });
 
-
 // menu position 
-// pour vive focus remplacer abuttondown par triggerdown en attendant.
 AFRAME.registerComponent('animation-position', {
   tick: (function () {
     let right = document.querySelector("#right");
@@ -599,35 +631,99 @@ AFRAME.registerComponent('animation-position', {
     };
   })()
 });
-
-
-
 // menu visibilité
-let visible = 0;
 AFRAME.registerComponent('animation-visible', {
-  init: function() {
-  let right = document.querySelector("#right");
-  let text3 = document.querySelector("#menu");
-  right.addEventListener('abuttondown', function() {
-    if (visible == 0) {
-          text3.setAttribute('animation__visible', {
-            property: 'visible',
-            to: true,
-            easing: 'easeInOutQuad',
-           
-          });
-          visible += 1;
-        } else {
-          text3.setAttribute('animation__visible', {
-            property: 'visible',
-            to: false,
-            easing: 'easeInOutQuad',
-          });
-          visible = 0;
-        }
-});
-      }});
+    init: (function () {
+      let right = document.querySelector("#right");
+        let menu = document.querySelector("#menu");
+        right.addEventListener('abuttondown', function() {
+          var isVisible = menu.getAttribute('visible');
+          if (isVisible) {
+            menu.setAttribute('visible', false);
+          } else {
+            menu.setAttribute('visible', true);
+          }
+        });
+     
+    })
+  });
 
 
 
+
+    let emplacement = [
+  {id: "emp_1", x:3.83935,y: 0.15928,z: -30.77648},
+  {id: "emp_2", x:16.40803,y: 0.286,z: -18.17951},
+  {id: "emp_3", x:-23.12582,y: 3.67893,z: -19.24529},
+  {id: "emp_4", x:-28.55774,y: 0.04187,z: -5.39985},
+  {id: "emp_5", x:-36.53177,y: 0.29766,z: -35.34442},
+  {id: "emp_6", x:-54.41494,y: 0.18826,z: -18.57678},
+  {id: "emp_7", x:-51.93509,y: 0.03713,z: 12.54512},
+  {id: "emp_8", x:-49.86,y: 0.521,z: 28.921},
+  {id: "emp_9", x:-24.385,y: 0.123,z: 33.231},
+  {id: "emp_10", x:-28.159,y: 0.096,z: 50.369},
+  {id: "emp_11", x:23.087,y: 0.1,z: 5.15},
+  {id: "emp_12", x:49.014,y: 3.687,z: -4.926},
+  {id: "emp_13", x:59.699,y: 4.795,z: -6.027},
+  {id: "emp_14", x:72.244,y: 0.197,z: -6.621},
+  {id: "emp_15", x:59.435,y: 0.273,z: -34.924},
+  {id: "emp_16", x:46.217,y: 0.268,z: -15.878},
+  {id: "emp_17", x:40.129,y: 0.393,z: -53.524},
+  {id: "emp_18", x:18.138,y: 0.393,z: -43.214},
+  {id: "emp_19", x:8.965,y: 5.025,z: -42.953},
+  {id: "emp_20", x:16.241,y: 5.006,z: -35.194},
+  {id: "emp_21", x:9.318,y: 0.355,z: -6.242},
+  {id: "emp_22", x:7.513,y: 0.347,z: 20.74},
+  {id: "emp_23", x:-14.017,y: 0.471,z: -9.412},
+  {id: "emp_24", x:-72.257,y: 0.387,z: 3.074},
+  {id: "emp_25", x:-63.007,y: 0.446,z: -36.424},
+  {id: "emp_26", x:6.837,y: 0.318,z: 36.454},
+  {id: "emp_27", x:63.403,y: 0.32,z: 34.211},
+  {id: "emp_28", x:42.748,y: 0.32,z: 19.952},
+  {id: "emp_29", x:24.991,y: 0.481,z: -26.685},
+  {id: "emp_30", x:17.141,y: 0.513,z: -6.276},
+  {id: "emp_31", x:24.2,y: 0.429,z: 33.185},
+  {id: "emp_32", x:81.35,y: 0.616,z: -52.198}
+];
+
+
+function getPlace() {
+    for (let i = emplacement.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [emplacement[i], emplacement[j]] = [emplacement[j], emplacement[i]];
+    }
+    return emplacement.pop();
+}
+
+compteur.setNombreObj(Math.floor(Math.random() * 22) + 10);
+
+function attachClickEventToClones(clones) {
+    clones.forEach(clone => {
+        clone.addEventListener('click', function () {
+            compteur.incrCompteur();
+            var textContainer = document.querySelector("#progression");
+            textContainer.setAttribute('text', {
+                value: 'Score :' + compteur.getCompteur() + " /" + compteur.getNombreObj(),
+                align: 'center',
+                color: '#ffffff'
+            })
+        });
+    });
+}
+
+for (let i = 0; i < compteur.getNombreObj(); i++) {
+    let pileFace = Math.random() * 2;
+    let obj;
+    if (pileFace > 1) {
+        obj = document.querySelector("#trash_1").cloneNode(true);
+    } else {
+        obj = document.querySelector("#trash_2").cloneNode(true);
+    }
+    let place = getPlace();
+    obj.setAttribute("position", { x: place.x, y: place.y, z: place.z });
+    console.log(obj, place);
+    document.querySelector("#scene2").appendChild(obj);
+    attachClickEventToClones([obj]);
+}
+    
     </script>
