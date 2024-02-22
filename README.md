@@ -1,3 +1,10 @@
+# README - Projet SAE 402
+
+## Membres du Groupe
+- Brandy Quentin
+- Perrault Josue
+- Pouget Corentin
+
 Bienvenue dans le dépôt GitHub de SAE402 !
 
 Ce dépôt est organisé comme suit :
