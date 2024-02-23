@@ -10,7 +10,10 @@
         camera.object3D.getWorldPosition(position);
        
           tuto.addEventListener('click', function() {
-            camera.setAttribute('position', positionscene1 );
+            camera.setAttribute('animation', {
+              property: 'position',
+              to: positionscene1,
+          });
             positiontuto = {x: position.x , y: 1.7 , z: position.z};
           });
         };
@@ -30,7 +33,10 @@
         camera.object3D.getWorldPosition(position);
        
           tuto.addEventListener('click', function() {
-            camera.setAttribute('position', positiontuto );
+            camera.setAttribute('animation', {
+              property: 'position',
+              to: positiontuto,
+          });
             positionscene1 = {x: position.x , y: 1.7 , z: position.z};
           });
         };
